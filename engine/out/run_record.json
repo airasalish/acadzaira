@@ -1,0 +1,5291 @@
+[
+  {
+    "reportId": "R001",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_a",
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": "A",
+      "solve_b": "A",
+      "solution_final": "A",
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (61 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-07T01:25:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "50 V",
+        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V."
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "50 V",
+        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R001",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims the answer key should be 50 V (option A) instead of C.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R002",
+          "claim_type": "unclear",
+          "claim_summary": "The student states that the answer is wrong without providing details.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R003",
+          "claim_type": "solution",
+          "claim_summary": "The student questions why the solution gives 50 V instead of 130 V.",
+          "claim_supported": "no",
+          "student_missed_step": "They added the voltages arithmetically (40+60+30=130) instead of using the phasor sum √(40²+(60−30)²)=50.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both blind solves and the stored solution give option A (50 V), while the stored answer key is C, indicating the key is incorrect."
+        }
+      ],
+      "solution_final": "A"
+    },
+    "flags": [],
+    "validator_errors": [],
+    "guard_log": [
+      "G9 confidence: auto_apply -> faculty_review (0.95 < threshold 1.01)"
+    ],
+    "confidence": 0.95,
+    "route_before_confidence_guard": "auto_apply"
+  },
+  {
+    "reportId": "R002",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_a",
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": "A",
+      "solve_b": "A",
+      "solution_final": "A",
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (61 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-03T22:11:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "50 V",
+        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V."
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "50 V",
+        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R001",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims the answer key should be 50 V (option A) instead of C.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R002",
+          "claim_type": "unclear",
+          "claim_summary": "The student states that the answer is wrong without providing details.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R003",
+          "claim_type": "solution",
+          "claim_summary": "The student questions why the solution gives 50 V instead of 130 V.",
+          "claim_supported": "no",
+          "student_missed_step": "They added the voltages arithmetically (40+60+30=130) instead of using the phasor sum √(40²+(60−30)²)=50.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both blind solves and the stored solution give option A (50 V), while the stored answer key is C, indicating the key is incorrect."
+        }
+      ],
+      "solution_final": "A"
+    },
+    "flags": [],
+    "validator_errors": [],
+    "guard_log": [
+      "G9 confidence: auto_apply -> faculty_review (0.95 < threshold 1.01)"
+    ],
+    "confidence": 0.95,
+    "route_before_confidence_guard": "auto_apply"
+  },
+  {
+    "reportId": "R003",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_a",
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": "A",
+      "solve_b": "A",
+      "solution_final": "A",
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (61 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T10:42:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "50 V",
+        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V."
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "50 V",
+        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R001",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims the answer key should be 50 V (option A) instead of C.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R002",
+          "claim_type": "unclear",
+          "claim_summary": "The student states that the answer is wrong without providing details.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R003",
+          "claim_type": "solution",
+          "claim_summary": "The student questions why the solution gives 50 V instead of 130 V.",
+          "claim_supported": "no",
+          "student_missed_step": "They added the voltages arithmetically (40+60+30=130) instead of using the phasor sum √(40²+(60−30)²)=50.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both blind solves and the stored solution give option A (50 V), while the stored answer key is C, indicating the key is incorrect."
+        }
+      ],
+      "solution_final": "A"
+    },
+    "flags": [],
+    "validator_errors": [],
+    "guard_log": [
+      "G9 confidence: auto_apply -> faculty_review (0.95 < threshold 1.01)"
+    ],
+    "confidence": 0.95,
+    "route_before_confidence_guard": "auto_apply"
+  },
+  {
+    "reportId": "R004",
+    "questionId": "68e870ef42c06737d6e565c4",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_a",
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": "D",
+      "solve_b": "D",
+      "solution_final": null,
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (91 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T00:50:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": "D",
+        "issue": "",
+        "final_value": "4800 N/m²",
+        "method": "Using kinetic theory of gases, the pressure exerted by a gas is related to its density and root mean square velocity by P = (1/3)ρv_rms². Substituting ρ = 9 × 10⁻² kg/m³ and v_rms = 400 m/s gives P = 4800 N/m²."
+      },
+      "solve_b": {
+        "answer": "D",
+        "issue": "",
+        "final_value": "4800 N/m^2",
+        "method": "Using kinetic theory, pressure P = (1/3)ρv_rms^2. Substituting ρ = 9×10^{-2} kg/m^3 and v_rms = 400 m/s gives P = (1/3)(0.09)(400^2) = 4800 Pa. This matches option D."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68e870ef42c06737d6e565c4"
+    },
+    "flags": [],
+    "validator_errors": [
+      "classify: offline: no cached classify response for 68e870ef42c06737d6e565c4"
+    ],
+    "guard_log": [
+      "G5 answer_key proof: auto_apply -> faculty_review (unmet: solves_match_solution)",
+      "G9 confidence: 0.30 < threshold 1.01",
+      "G10 validator: classify: offline: no cached classify response for 68e870ef42c06737d6e565c4"
+    ],
+    "confidence": 0.3,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R005",
+    "questionId": "68dea616d0cda73d07e93ae6",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_a",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_a",
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": "1",
+      "solve_b": "1",
+      "solution_final": null,
+      "stored_key": "2"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '2'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (138 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-03T19:14:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": "1",
+        "issue": "",
+        "final_value": "1",
+        "method": "Gauss's law is applied to calculate the total electric flux through the cube from both charges. The face-centered charge contributes half of its flux to the cube and the corner charge contributes one-eighth of its flux."
+      },
+      "solve_b": {
+        "answer": "1",
+        "issue": "",
+        "final_value": "1",
+        "method": "We used Gauss's law and symmetry: a charge at the centre of a face contributes half its total flux, a charge at a corner contributes one‑eighth. The flux from q/2 at the face is (q/2)/(2ε0)=q/(4ε0); from 2q at the corner is (2q)/(8ε0)=q/(4ε0). Summing gives total flux q/(2ε0)=n q/(2ε0) so n=1."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68dea616d0cda73d07e93ae6"
+    },
+    "flags": [],
+    "validator_errors": [
+      "classify: offline: no cached classify response for 68dea616d0cda73d07e93ae6"
+    ],
+    "guard_log": [
+      "G5 answer_key proof: auto_apply -> faculty_review (unmet: solves_match_solution)",
+      "G9 confidence: 0.30 < threshold 1.01",
+      "G10 validator: classify: offline: no cached classify response for 68dea616d0cda73d07e93ae6"
+    ],
+    "confidence": 0.3,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R006",
+    "questionId": "696a866665252c04fc1f81c2",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_a",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "50000",
+      "solution_final": null,
+      "stored_key": "50"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '50'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (75 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T03:11:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": null,
+        "issue": "The initial edge length or volume of the copper cube is not given in the question statement, making it impossible to calculate the absolute volume contraction.",
+        "final_value": "",
+        "method": "The volume contraction is given by the relation ΔV = (P × V) / B using the bulk modulus formula, but it requires the initial volume or edge length of the cube which is missing."
+      },
+      "solve_b": {
+        "answer": "50000",
+        "issue": "",
+        "final_value": "5×10^4 mm^3",
+        "method": "Used bulk modulus K = -ΔP/(ΔV/V) → ΔV = -ΔP·V/K. Assuming a unit cube (V=1 m³), ΔV = -(7×10⁶ Pa)/(1.4×10¹¹ Pa) × 1 m³ = -5×10⁻⁵ m³ = -5×10⁴ mm³. The contraction magnitude is 5×10⁴ mm³."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 696a866665252c04fc1f81c2"
+    },
+    "flags": [],
+    "validator_errors": [
+      "classify: offline: no cached classify response for 696a866665252c04fc1f81c2"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R007",
+    "questionId": "60f742f6660d187cc13a8078",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [],
+    "proof": {
+      "solve_a": null,
+      "solve_b": null,
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (86 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T09:46:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": null,
+        "issue": "The numerical value of the inductance is missing from the question statement, making it impossible to calculate the impedance.",
+        "final_value": "",
+        "method": "The impedance of an RL series circuit is given by Z = sqrt(R^2 + (2*pi*f*L)^2). Since the value of the inductance L is not provided, the impedance cannot be uniquely determined."
+      },
+      "solve_b": {
+        "answer": null,
+        "issue": "Inductance value missing, cannot compute impedance",
+        "final_value": "",
+        "method": "Identified that impedance Z = sqrt(R^2 + (2πfL)^2) requires the inductance L, which is not provided. Without L the magnitude cannot be determined, so the question lacks necessary data."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 60f742f6660d187cc13a8078"
+    },
+    "flags": [],
+    "validator_errors": [
+      "classify: offline: no cached classify response for 60f742f6660d187cc13a8078"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R008",
+    "questionId": "60f742f6660d187cc13a8078",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [],
+    "proof": {
+      "solve_a": null,
+      "solve_b": null,
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (86 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T01:08:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": null,
+        "issue": "The numerical value of the inductance is missing from the question statement, making it impossible to calculate the impedance.",
+        "final_value": "",
+        "method": "The impedance of an RL series circuit is given by Z = sqrt(R^2 + (2*pi*f*L)^2). Since the value of the inductance L is not provided, the impedance cannot be uniquely determined."
+      },
+      "solve_b": {
+        "answer": null,
+        "issue": "Inductance value missing, cannot compute impedance",
+        "final_value": "",
+        "method": "Identified that impedance Z = sqrt(R^2 + (2πfL)^2) requires the inductance L, which is not provided. Without L the magnitude cannot be determined, so the question lacks necessary data."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 60f742f6660d187cc13a8078"
+    },
+    "flags": [],
+    "validator_errors": [
+      "classify: offline: no cached classify response for 60f742f6660d187cc13a8078"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R009",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "options_present"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": false,
+        "detail": "missing option(s) D",
+        "field": "question"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (84 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T21:57:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "10 m/s",
+        "method": "Computed total momentum after impulse: p = m1*v1 + m2*v2 = 10*14 + 4*0 = 140 kg·m/s. Divided by total mass 14 kg gives centre of mass velocity = 140/14 = 10 m/s. Checked that momentum is conserved and no external horizontal forces act after impulse."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b",
+      "classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+    ],
+    "guard_log": [
+      "G4 value from solution: replacement value not found in the stored solution",
+      "G9 confidence: 0.55 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b; classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+    ],
+    "confidence": 0.55,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R010",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "options_present"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": false,
+        "detail": "missing option(s) D",
+        "field": "question"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (84 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T01:53:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "10 m/s",
+        "method": "Computed total momentum after impulse: p = m1*v1 + m2*v2 = 10*14 + 4*0 = 140 kg·m/s. Divided by total mass 14 kg gives centre of mass velocity = 140/14 = 10 m/s. Checked that momentum is conserved and no external horizontal forces act after impulse."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b",
+      "classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+    ],
+    "guard_log": [
+      "G4 value from solution: replacement value not found in the stored solution",
+      "G9 confidence: 0.55 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b; classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+    ],
+    "confidence": 0.55,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R011",
+    "questionId": "68e872546e45ba37dcc16bc0",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "options_present"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": false,
+        "detail": "blank option(s) C",
+        "field": "question"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": false,
+        "detail": "key points at missing/blank option(s) C",
+        "field": "answer"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (45 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-07T21:19:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": null,
+        "issue": "Option (C) is blank and the correct ratio of 1:1 is not present among the visible options.",
+        "final_value": "",
+        "method": "According to Newton's third law and Coulomb's law, the forces exerted by two point charges on each other are equal in magnitude and opposite in direction. Thus, the ratio of the magnitude of the Coulombic forces acting on the two charges is 1:1."
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "1:1",
+        "method": "The Coulomb force magnitude on each charge is F = k|q1 q2|/r^2, which is identical for both charges because the product q1 q2 is the same. Therefore the forces acting on the two charges are equal in magnitude, giving a ratio of 1:1. Since the only option that can represent this ratio is the blank option C, we select C."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68e872546e45ba37dcc16bc0"
+    },
+    "flags": [],
+    "validator_errors": [
+      "classify: offline: no cached classify response for 68e872546e45ba37dcc16bc0"
+    ],
+    "guard_log": [
+      "G4 value from solution: replacement value not found in the stored solution",
+      "G9 confidence: 0.55 < threshold 1.01",
+      "G10 validator: classify: offline: no cached classify response for 68e872546e45ba37dcc16bc0"
+    ],
+    "confidence": 0.55,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R012",
+    "questionId": "61dffbec08489156b684bd22",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_a",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "classify"
+    ],
+    "proof": {
+      "solve_a": "A",
+      "solve_b": "A",
+      "solution_final": null,
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (241 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-03T21:43:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "Epithelial tissue",
+        "method": "The inner lining of hollow organs, including the small intestine, is composed of epithelial tissue. Specifically, simple columnar epithelial tissue lines the small intestine to facilitate absorption and secretion."
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "Epithelial tissue",
+        "method": "I recognized that the lining of the small intestine is composed of simple columnar epithelium, which is a type of epithelial tissue. This matches option A, so I selected it."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R012",
+          "claim_type": "typo",
+          "claim_summary": "The student reports a spelling mistake in option A.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "spelling",
+          "field": "question",
+          "find": "Epithellial tisue",
+          "replace": "Epithelial tissue",
+          "rationale": "The option text contains a misspelling; correcting it fixes the reported error."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [],
+    "guard_log": [
+      "G4b policy: auto_apply -> faculty_review (spelling evidence would be the classifier alone)",
+      "G9 confidence: 0.60 < threshold 1.01"
+    ],
+    "confidence": 0.6,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R013",
+    "questionId": "617fa18efd53ff1629ed890f",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "D",
+      "solution_final": null,
+      "stored_key": "D"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'D'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) D present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (277 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": false,
+        "detail": "'(NEET 2019)' in question",
+        "field": "question",
+        "find": "(NEET 2019) ",
+        "replace": ""
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-06T16:04:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 617fa18efd53ff1629ed890f"
+      },
+      "solve_b": {
+        "answer": "D",
+        "issue": "",
+        "final_value": "Lamina",
+        "method": "Identified that the green expanded part of a leaf containing veins and veinlets is the lamina (leaf blade). Compared each option: petiole is the stalk, node is a stem region, stipule is a small appendage, and lamina matches the description."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R013",
+          "claim_type": "display",
+          "claim_summary": "The student asks why the exam reference '(NEET 2019)' appears in the question.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "exam_reference",
+          "field": "question",
+          "find": "(NEET 2019)",
+          "replace": "",
+          "rationale": "deterministic check flagged exam_reference as FAILED, indicating the tag should be removed."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 617fa18efd53ff1629ed890f"
+    ],
+    "guard_log": [],
+    "confidence": 0.5,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R014",
+    "questionId": "63765a28f1d8416ae0408d89",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": "C",
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (74 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": false,
+        "detail": "'\\frac{7}{8}' in question",
+        "field": "question",
+        "find": "\\frac{7}{8} ",
+        "replace": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mfrac><mn>7</mn><mn>8</mn></mfrac></math> "
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T17:09:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 63765a28f1d8416ae0408d89"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "180 days",
+        "method": "I applied the radioactive decay law N=N0(1/2)^{t/60} with half‑life 60 days. Setting the remaining fraction N/N0=1/8 (since 7/8 has decayed) gives (1/2)^{t/60}=1/8=(1/2)^3, so t/60=3 and t=180 days. This matches option C."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R014",
+          "claim_type": "display",
+          "claim_summary": "The question displays the raw LaTeX code \\frac{7}{8} instead of rendering the fraction.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "markup_leak",
+          "field": "question",
+          "find": "\\frac{7}{8}",
+          "replace": "<math><mfrac><mn>7</mn><mn>8</mn></mfrac></math>",
+          "rationale": "Deterministic check flagged markup_leak in the question due to raw LaTeX '\\frac{7}{8}'."
+        }
+      ],
+      "solution_final": "C"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 63765a28f1d8416ae0408d89"
+    ],
+    "guard_log": [],
+    "confidence": 0.5,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R015",
+    "questionId": "6956d79788d7701e5617bc29",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "options_unique"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": null,
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": false,
+        "detail": "identical options: B = C ('0 W')",
+        "field": "question"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (65 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T10:21:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29"
+      },
+      "solve_b": {
+        "answer": null,
+        "issue": "Two identical correct options (B and C) make the single‑correct format invalid",
+        "final_value": "",
+        "method": "I computed the phase difference between voltage (e=200 sin 100t) and current (i=5 sin(100t‑π/2)), finding φ=90° so cosφ=0 and average power = V_rms·I_rms·cosφ = 0 W. Both options B and C state 0 W, giving two correct answers, which violates the single‑correct premise."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 6956d79788d7701e5617bc29"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29",
+      "classify: offline: no cached classify response for 6956d79788d7701e5617bc29"
+    ],
+    "guard_log": [
+      "G2 auto:false: identical_options needs faculty approval (taxonomy auto:false)",
+      "G9 confidence: 0.55 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29; classify: offline: no cached classify response for 6956d79788d7701e5617bc29"
+    ],
+    "confidence": 0.55,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R016",
+    "questionId": "6263d75bdd44e265ef926d97",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "20",
+      "solution_final": "40",
+      "stored_key": "20"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '20'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (90 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T12:18:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6263d75bdd44e265ef926d97"
+      },
+      "solve_b": {
+        "answer": "20",
+        "issue": "",
+        "final_value": "20 cm",
+        "method": "We let L be the side length (cm) and m_c the cube mass (g). With the 800 g weight the cube is fully submerged, so buoyancy gives L^3 = m_c + 800. Without the weight the cube floats with 2 cm above water, so the submerged depth is L‑2 and displaced water volume L^2(L‑2) = m_c. Substituting m_c yields L^3 = L^3‑2L^2+800 → 2L^2=800 → L=20 cm, which satisfies both conditions."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "40"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "They solved a^2 = 400 as a = 40 cm instead of taking the square root to get a = 20 cm.",
+      "reports": [
+        {
+          "reportId": "R016",
+          "claim_type": "answer_key",
+          "claim_summary": "The student notes that the solution gives 40 cm while the stored answer key is 20 cm and asks which is correct.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "a = 40 cm",
+          "replace": "a = 20 cm",
+          "rationale": "The solution incorrectly solves a^2 = 400 as a = 40 cm; blind solve and correct physics give a = 20 cm."
+        }
+      ],
+      "solution_final": "40"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6263d75bdd44e265ef926d97",
+      "classifier supports the claim but proposed no defect"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R017",
+    "questionId": "6208e80a9cb2ab67dac61bd0",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (343 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": false,
+        "detail": "errorHistory after report (2026-11-04T02:08:00Z): Spelling mistake at 2026-11-07T10:42:00Z: 'mere' -> 'more' in options A-C; 'shurbs' -> 'shrubs'"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6208e80a9cb2ab67dac61bd0"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "Herb, shrubs receive more green light",
+        "method": "I considered the spectral quality of light under canopy: red and blue are absorbed by upper leaves, leaving transmitted light enriched in green, which is less efficiently used for photosynthesis. This explains the lower photosynthetic rate in herbs and shrubs, matching option C."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R017",
+          "claim_type": "typo",
+          "claim_summary": "The student reports a spelling mistake 'mere' in the options, which was corrected to 'more' on 2026-11-07.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6208e80a9cb2ab67dac61bd0",
+      "classifier supports the claim but proposed no defect"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R018",
+    "questionId": "612151a6a34397610a9a2e58",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (82 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T17:14:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "≈16.7 eV",
+        "method": "Applied the de‑Broglie relation λ=h/p and K=p^2/(2m) for a non‑relativistic electron: K=(h/λ)^2/(2m)=2.68×10⁻¹⁸ J≈16.7 eV. Verified with the shortcut λ(nm)=1.226/√E(eV) which gives E≈16.7 eV, matching option B."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 612151a6a34397610a9a2e58"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58",
+      "classify: offline: no cached classify response for 612151a6a34397610a9a2e58"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R019",
+    "questionId": "612151a6a34397610a9a2e58",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (82 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T05:45:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "≈16.7 eV",
+        "method": "Applied the de‑Broglie relation λ=h/p and K=p^2/(2m) for a non‑relativistic electron: K=(h/λ)^2/(2m)=2.68×10⁻¹⁸ J≈16.7 eV. Verified with the shortcut λ(nm)=1.226/√E(eV) which gives E≈16.7 eV, matching option B."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 612151a6a34397610a9a2e58"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58",
+      "classify: offline: no cached classify response for 612151a6a34397610a9a2e58"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R020",
+    "questionId": "68c8153cfb6b2f16e2d3ceaf",
+    "ran_ids": [
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "mcq_key_noncanonical",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution_final": null,
+      "stored_key": [
+        "A, B, D"
+      ]
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "mcq_key_noncanonical",
+        "passed": false,
+        "detail": "mcq key ['A, B, D'] is not a list of single option letters (reads as ['A', 'B', 'D'])",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A, B, D present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "mcq key marks 3 options"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (55 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T16:08:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68c8153cfb6b2f16e2d3ceaf"
+      },
+      "solve_b": {
+        "answer": [
+          "A",
+          "B",
+          "D"
+        ],
+        "issue": "",
+        "final_value": "A, B, D",
+        "method": "We considered the motion of a charge in uniform electric and magnetic fields. In a uniform electric field the force is constant, giving straight‑line motion when the velocity is parallel to the field and a parabolic trajectory when it is perpendicular. In a uniform magnetic field the magnetic force is always perpendicular to the velocity, so a particle moving parallel to B goes straight (no helix) and one moving perpendicular to B follows a circular path, making statements A, B and D correct."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": false,
+      "solution_wrong_step": "The solution states F = q(V × B) and F = qE, which does not address the path of a charged particle.",
+      "reports": [
+        {
+          "reportId": "R020",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the answer key marking A, B, D is incorrect.",
+          "claim_supported": "no",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Deterministic check mcq_key_noncanonical failed, indicating the key is not in canonical list format."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "conceptual Based of field force",
+          "replace": "The correct options are A, B, D",
+          "rationale": "The stored solution discusses forces and does not answer the question about particle paths, indicating it belongs to another question."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c8153cfb6b2f16e2d3ceaf"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R021",
+    "questionId": "68f21caf941cda588bc04365",
+    "ran_ids": [
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "mcq_key_noncanonical",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": [
+        "B"
+      ],
+      "solution_final": null,
+      "stored_key": [
+        "",
+        "B"
+      ]
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "mcq_key_noncanonical",
+        "passed": false,
+        "detail": "mcq key ['', 'B'] is not a list of single option letters (reads as ['B'])",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": false,
+        "detail": "stored as mcq but key marks 1 option(s)",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (399 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-07T11:44:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68f21caf941cda588bc04365"
+      },
+      "solve_b": {
+        "answer": [
+          "B"
+        ],
+        "issue": "",
+        "final_value": "1.44 min",
+        "method": "Using N=N0 e^{-λt}, λ=(1/t)ln(N0/N)=(1/3)ln(8)=ln2≈0.693 min^{-1}. The mean life τ=1/λ≈1/0.693≈1.44 min, which matches option B."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68f21caf941cda588bc04365"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68f21caf941cda588bc04365",
+      "classify: offline: no cached classify response for 68f21caf941cda588bc04365"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R022",
+    "questionId": "61ee6c9d90a1a968a168686b",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (334 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T10:05:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "Peyer's patches",
+        "method": "I identified that the aggregates of lymphoid tissue in the distal small intestine are known as Peyer's patches, a well‑known anatomical term. I compared each option and eliminated the unrelated structures (villi, rugae, choroid plexus)."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R022",
+          "claim_type": "typo",
+          "claim_summary": "The student claims that the word 'plexux' in option D is misspelled.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "spelling",
+          "field": "question",
+          "find": "plexux",
+          "replace": "plexus",
+          "rationale": "Option D contains the misspelled word 'plexux' which should be 'plexus'."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b"
+    ],
+    "guard_log": [
+      "G4b policy: auto_apply -> faculty_review (spelling evidence would be the classifier alone)",
+      "G9 confidence: 0.30 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b"
+    ],
+    "confidence": 0.3,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R023",
+    "questionId": "68ecbacb2ec87a18deba1ad7",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (579 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T07:21:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68ecbacb2ec87a18deba1ad7"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "N/A",
+        "method": "The absolute refractory period occurs when voltage-gated Na+ channels become inactivated and cannot reopen, preventing a new action potential. This inactivation, not closure of K+ channels, increased Cl- permeability, or Na+/K+ pump activity, is the primary cause. Hence the correct answer is B."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R023",
+          "claim_type": "unclear",
+          "claim_summary": "The student claims the question belongs to the neural control chapter and questions why it appears in the living world chapter.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68ecbacb2ec87a18deba1ad7"
+    ],
+    "guard_log": [],
+    "confidence": 0.39999999999999997,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R024",
+    "questionId": "5fc60508028950133eac8963",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "20",
+      "solution_final": "20",
+      "stored_key": "20"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '20'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (479 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-09T08:24:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 5fc60508028950133eac8963"
+      },
+      "solve_b": {
+        "answer": "20",
+        "issue": "",
+        "final_value": "20 N",
+        "method": "The normal force is the pressing force of 100 N, giving a maximum static friction μN = 0.3×100 = 30 N. The body’s weight is mg = 2 kg×10 m/s² ≈ 20 N. Since the required friction to hold the body (its weight) is less than the maximum, the actual frictional force equals the weight, 20 N."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "20"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R024",
+          "claim_type": "missing_data",
+          "claim_summary": "The student claims that the question does not specify the unit for the answer.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_form",
+          "field": "question",
+          "find": "equal to",
+          "replace": "equal to (in N)",
+          "rationale": "The question statement lacks a unit for the required frictional force, which is needed for answer form compliance."
+        }
+      ],
+      "solution_final": "20"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 5fc60508028950133eac8963",
+      "classifier supports the claim but proposed no defect"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R025",
+    "questionId": "622df25ab70e4b50e44ff837",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "figure_reference"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": false,
+        "detail": "question mentions 'as shown' but has no image",
+        "field": "question"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (163 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T11:33:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "Air flows from end 1 to end 2; volume of bubble at end 1 decreases",
+        "method": "We compared the Laplace pressure inside each soap bubble using ΔP = 4γ/R. The hemispherical bubble (R=r) has higher pressure than the sub‑hemispherical bubble (R>r), so air flows from end 1 to end 2 and the bubble at end 1 shrinks. This matches option B."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 622df25ab70e4b50e44ff837"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837",
+      "classify: offline: no cached classify response for 622df25ab70e4b50e44ff837"
+    ],
+    "guard_log": [
+      "G2 auto:false: diagram needs faculty approval (taxonomy auto:false)",
+      "G9 confidence: 0.55 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837; classify: offline: no cached classify response for 622df25ab70e4b50e44ff837"
+    ],
+    "confidence": 0.55,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R026",
+    "questionId": "620e23cecc50543bc7db9186",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (317 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T04:59:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "B",
+        "method": "To infer the ancestral state of a trait, one uses an outgroup comparison. The biologist should examine a more distantly related snake (an outgroup) to see if it has a forked tongue, which can indicate the ancestral condition. The other options either lack data, use an inappropriate outgroup, or are irrelevant."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The statement that “Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes” is inaccurate.",
+      "reports": [
+        {
+          "reportId": "R026",
+          "claim_type": "unclear",
+          "claim_summary": "The student claims the question is out of the NEET syllabus.",
+          "claim_supported": "no",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_missing",
+          "field": "solution",
+          "find": "Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes. If biologist is trying to find that how closely these two species are related to each other than, he/she has to locate a specimen of more distantly related snake to see it, wheater, it has a forked tongue or not",
+          "replace": "To infer the ancestral state, the biologist should examine a more distantly related snake species to see whether the ancestor possessed a forked tongue. This corresponds to option B.",
+          "rationale": "The stored solution does not provide a clear reasoning or final answer, and the blind solve confirms answer B, so a proper solution ending with option B is needed."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186"
+    ],
+    "guard_log": [
+      "G3 solution repair: auto_apply -> faculty_review (solution_missing always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
+      "G9 confidence: 0.30 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186"
+    ],
+    "confidence": 0.3,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R027",
+    "questionId": "6062ec84518e9535e120c422",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "A",
+      "solution_final": "A",
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (115 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T03:10:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6062ec84518e9535e120c422"
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "5.7 x 10^-5 /°C",
+        "method": "Used linear expansion ΔL = α L0 ΔT to compute α = 0.19 cm/(100 cm·100 °C)=1.9×10⁻⁵ /°C. Then applied β = 3α for isotropic solids, giving β = 5.7×10⁻⁵ /°C. This matches option A."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R027",
+          "claim_type": "gaming",
+          "claim_summary": "The student requests the answer key to be changed to option C.",
+          "claim_supported": "no",
+          "student_missed_step": "The correct coefficient is 5.7 × 10⁻⁵ /°C, which matches option A, not option C.",
+          "injection_or_gaming": true
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "A"
+    },
+    "flags": [
+      "comment_is_gaming"
+    ],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6062ec84518e9535e120c422"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R028",
+    "questionId": "6956d7bb23cb221e570d6013",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": null,
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (157 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T02:30:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7bb23cb221e570d6013"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "tan^{-1}(4)",
+        "method": "Set the projectile range R = (u^2 sin2θ)/g equal to the maximum height H = (u^2 sin^2θ)/(2g), cancel common factors and solve 2 sinθ cosθ = (1/2) sin^2θ leading to tanθ = 4, so θ = arctan(4)."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 6956d7bb23cb221e570d6013"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7bb23cb221e570d6013",
+      "classify: offline: no cached classify response for 6956d7bb23cb221e570d6013"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R029",
+    "questionId": "68e8734442c06737d6e56da4",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "A",
+      "solution_final": null,
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (176 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-03T19:42:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68e8734442c06737d6e56da4"
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "0.8",
+        "method": "Write net force equations: F-µ·100=10 (since m=10 kg, a=1) and 2F-µ·100=100 (a=10). Subtract to get F=90 N, then solve for µ giving µ=0.8. Substituted back to confirm the accelerations match."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68e8734442c06737d6e56da4"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68e8734442c06737d6e56da4",
+      "classify: offline: no cached classify response for 68e8734442c06737d6e56da4"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R030",
+    "questionId": "6956d7e988d7701e5617bd3e",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "D",
+      "solution_final": "D",
+      "stored_key": "D"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'D'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) D present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (297 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-06T22:40:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7e988d7701e5617bd3e"
+      },
+      "solve_b": {
+        "answer": "D",
+        "issue": "",
+        "final_value": "8√2 m",
+        "method": "Using SHM x=A sin(ωt) with x=0 at t=0 gives v=Aω cos(ωt). With T=16 s, ω=π/8 rad/s. At t=2 s, ωt=π/4 so cos=1/√2. Set v=π=A(π/8)(1/√2) → A=8√2 m. Checked against options."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "D"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The solution writes the velocity as v − dx/dt − A ω cos ωt, which is incorrect; it should be v = dx/dt = A ω cos ωt.",
+      "reports": [
+        {
+          "reportId": "R030",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims the correct amplitude is 4√2 m, i.e., option B.",
+          "claim_supported": "no",
+          "student_missed_step": "They missed that the given velocity after 2 s leads to cos(π/8)=1/√2, giving A = 8√2 m, not 4√2 m.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "v − dx/dt − A ω cos ω t",
+          "replace": "v = A ω cos ω t",
+          "rationale": "The solution incorrectly writes the velocity as v − dx/dt − A ω cos ωt; the correct relation is v = A ω cos ωt."
+        }
+      ],
+      "solution_final": "D"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7e988d7701e5617bd3e"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R031",
+    "questionId": "68dea619d0cda73d07e93aee",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "4",
+      "solution_final": null,
+      "stored_key": "4"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '4'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (211 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-09T00:37:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea619d0cda73d07e93aee"
+      },
+      "solve_b": {
+        "answer": "4",
+        "issue": "",
+        "final_value": "4 s",
+        "method": "I expressed each wheel's angular displacement as θ=½αt² (starting from rest). The difference in angular positions is Δθ=½(α₁-α₂)t²=(π/8)t². Setting Δθ equal to an integer multiple of 2π for alignment gives (π/8)t²=2πn ⇒ t²=16n. The smallest positive n is 1, yielding t=4 s."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68dea619d0cda73d07e93aee"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea619d0cda73d07e93aee",
+      "classify: offline: no cached classify response for 68dea619d0cda73d07e93aee"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R032",
+    "questionId": "68dea7c2387eea3d0d95f9bb",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "8",
+      "solution_final": "0.08",
+      "stored_key": "8"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '8'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (155 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T03:46:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea7c2387eea3d0d95f9bb"
+      },
+      "solve_b": {
+        "answer": "8",
+        "issue": "",
+        "final_value": "8 cm",
+        "method": "We computed the extra optical path introduced by each slab as (n-1)t, giving Δ = (0.5)(2 mm)−(0.4)(1.5 mm)=0.4 mm=0.0004 m. Using the shift formula y=−ΔL/d with L=1 m and d=5 mm gives y=−0.08 m=−8 cm, so the central maximum shifts by 8 cm."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "0.08"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R032",
+          "claim_type": "answer_key",
+          "claim_summary": "The student says the answer should be 0.08, questioning why the key shows 8.",
+          "claim_supported": "no",
+          "student_missed_step": "The student missed converting 0.08 m to centimeters, which equals 8 cm, the required unit.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "0.08 m",
+          "replace": "8 cm",
+          "rationale": "The solution ends with 0.08 m but the question asks for the shift in cm; converting gives 8 cm, matching the answer key."
+        }
+      ],
+      "solution_final": "0.08"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea7c2387eea3d0d95f9bb"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R033",
+    "questionId": "68dea715387eea3d0d95f790",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "3113",
+      "solution_final": "311.3",
+      "stored_key": "3113"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '3113'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (56 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T18:27:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790"
+      },
+      "solve_b": {
+        "answer": "3113",
+        "issue": "",
+        "final_value": "3113 m^2",
+        "method": "Computed the cube's total surface area as 6s^2 with s=7.203 m, giving 311.299254 m^2. Rounded to 4 significant figures (same as the side length) to obtain A = 311.3 m^2. Multiplied by 10 to get 10A = 3113 m^2."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "311.3"
+      ],
+      "solution_matches_question": false,
+      "solution_wrong_step": "The solution ends with A = 311.3 m² and does not compute 10 A as required.",
+      "reports": [
+        {
+          "reportId": "R033",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the correct answer should be 3112.99 rather than the stored answer key 3113.",
+          "claim_supported": "no",
+          "student_missed_step": "The student overlooked that the problem asks for 10 A, which equals 10 × 311.3 = 3113, not the unrounded 3112.99.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_missing",
+          "field": "solution",
+          "find": "311.3",
+          "replace": "311.3, so 10 A = 3113",
+          "rationale": "The solution stops at A = 311.3 m² and does not compute the required 10 A, which the question asks for and the answer key provides."
+        }
+      ],
+      "solution_final": "311.3"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790"
+    ],
+    "guard_log": [
+      "G3 solution repair: auto_apply -> faculty_review (solution_missing always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
+      "G9 confidence: 0.30 < threshold 1.01",
+      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790"
+    ],
+    "confidence": 0.3,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R034",
+    "questionId": "695ee00b88d7701e561aabc5",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": null,
+      "solution_final": "D",
+      "stored_key": "D"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'D'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) D present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (792 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T01:34:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 695ee00b88d7701e561aabc5"
+      },
+      "solve_b": {
+        "answer": null,
+        "issue": "None of the options matches the correct answer.",
+        "final_value": "",
+        "method": "Calculated resultant intensity using I = I1+I2+2√(I1I2)cosφ for equal amplitudes and φ=π/2, finding I=2I0, so the assertion is false; the reason is false because the intensity equals the sum only for φ=π/2, not for all non‑zero phase differences."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "D"
+      ],
+      "solution_matches_question": false,
+      "solution_wrong_step": "The solution incorrectly states that Assertion (A) is false, whereas the calculation shows the intensity equals that of one wave, making the assertion true.",
+      "reports": [
+        {
+          "reportId": "R034",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the assertion is true, so the answer key stating D is incorrect.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both the physics calculation and the stored solution show that the intensity equals that of one wave, making Assertion (A) true, so the correct option is C, not D."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "Assertion (A) is false because",
+          "replace": "Assertion (A) is true because",
+          "rationale": "The solution incorrectly states Assertion (A) is false, contradicting the derived intensity I = I0 which makes the assertion true."
+        }
+      ],
+      "solution_final": "D"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 695ee00b88d7701e561aabc5",
+      "classifier supports the claim but proposed no defect"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R035",
+    "questionId": "66fe9dbe22132e5a70a3e579",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "D",
+      "solution_final": null,
+      "stored_key": "D"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'D'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) D present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (1082 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T10:41:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 66fe9dbe22132e5a70a3e579"
+      },
+      "solve_b": {
+        "answer": "D",
+        "issue": "",
+        "final_value": "Relaxin - Inhibin",
+        "method": "I reviewed the physiological actions of each hormone pair: PTH and calcitonin have opposite effects on calcium, insulin and glucagon oppose glucose regulation, aldosterone and ANF have opposite effects on sodium/water balance. Relaxin and inhibin act on different reproductive processes and are not antagonistic. Hence the non‑antagonistic pair is Relaxin‑Inhibin, option D."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The solution states that 'Insulin and glucagon work synergistically to keep blood glucose concentrations normal', which is incorrect because they are antagonistic hormones.",
+      "reports": [
+        {
+          "reportId": "R035",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the answer key 'D' is incorrect because relaxin and inhibin are antagonistic.",
+          "claim_supported": "no",
+          "student_missed_step": "The student missed that antagonistic hormones have opposite effects, whereas relaxin and inhibin do not have opposing actions.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "Insulin and glucagon work synergistically to keep blood glucose concentrations normal.",
+          "replace": "Insulin and glucagon are antagonistic hormones that have opposite effects on blood glucose levels.",
+          "rationale": "The solution contains an incorrect statement about insulin and glucagon being synergistic, which contradicts known physiology and the question's requirement; correcting this fixes the solution."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 66fe9dbe22132e5a70a3e579"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R036",
+    "questionId": "60ca4feb6420652745f55522",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": "C",
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (83 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-07T07:45:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 60ca4feb6420652745f55522"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "99 N",
+        "method": "Using Coulomb's law, the force is proportional to the product of the charges. Increasing one charge by 10% and decreasing the other by 10% changes the product by a factor of 1.1×0.9=0.99, so the new force is 0.99×100 N=99 N."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R036",
+          "claim_type": "display",
+          "claim_summary": "The student reports that the options are cut off on their phone screen.",
+          "claim_supported": "no",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "C"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 60ca4feb6420652745f55522"
+    ],
+    "guard_log": [],
+    "confidence": 0.5,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R037",
+    "questionId": "68c9ae5afb6b2f16e2d43b1c",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "D",
+      "solution_final": "D",
+      "stored_key": "D"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'D'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) D present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (138 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-08T15:04:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68c9ae5afb6b2f16e2d43b1c"
+      },
+      "solve_b": {
+        "answer": "D",
+        "issue": "",
+        "final_value": "1.1 V",
+        "method": "Calculated photon energy using E=hc/λ (1240 eV·nm/λ) giving 3.1 eV. Subtracting the work function 2.0 eV yields kinetic energy 1.1 eV, which corresponds to a stopping potential of 1.1 V. This matches option D."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "D"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R037",
+          "claim_type": "app",
+          "claim_summary": "The student reports that the question takes a long time to load.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "D"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c9ae5afb6b2f16e2d43b1c"
+    ],
+    "guard_log": [],
+    "confidence": 0.5,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R038",
+    "questionId": "68f21df0941cda588bc0470b",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "A",
+      "solution_final": "A",
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (83 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T16:58:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68f21df0941cda588bc0470b"
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "2 times the initial momentum",
+        "method": "For a non‑relativistic body K = p^2/(2m), so p = sqrt(2mK). If the kinetic energy becomes 4K_0, then p_new = sqrt(4)·p_0 = 2p_0. Hence the momentum doubles."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R038",
+          "claim_type": "app",
+          "claim_summary": "The student reports that selecting option A was recorded as option B.",
+          "claim_supported": "no",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "A"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68f21df0941cda588bc0470b"
+    ],
+    "guard_log": [],
+    "confidence": 0.5,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R039",
+    "questionId": "68c801bc1b1dbc16dc93bf2b",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "A",
+      "solution_final": null,
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (392 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-05T20:35:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68c801bc1b1dbc16dc93bf2b"
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "~600 eV",
+        "method": "The maximum X‑ray photon energy is eV, giving wavelength λ=hc/(eV). Using h=6.6×10⁻³⁴ J·s, c≈3×10⁸ m/s, e=1.6×10⁻¹⁹ C and V=24800 V yields λ≈5×10⁻¹¹ m. Equating this to the electron de‑Broglie wavelength λ=h/√(2mK) gives K=h²/(2mλ²)≈9.6×10⁻¹⁷ J≈600 eV. This matches option A."
+      }
+    },
+    "classifier": {
+      "error": "offline: no cached classify response for 68c801bc1b1dbc16dc93bf2b"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c801bc1b1dbc16dc93bf2b",
+      "classify: offline: no cached classify response for 68c801bc1b1dbc16dc93bf2b"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "faculty_review"
+  },
+  {
+    "reportId": "R040",
+    "questionId": "6264197209f4fd65f58f5707",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": null,
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (487 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T20:19:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6264197209f4fd65f58f5707"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "Golden rice",
+        "method": "Identified that vitamin A deficiency blindness can be prevented by consuming provitamin A (beta‑carotene) rich foods. Among the options, only Golden rice is engineered to contain high beta‑carotene, so it can prevent the blindness."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R040",
+          "claim_type": "unclear",
+          "claim_summary": "The student states that something is wrong.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "spelling",
+          "field": "solution",
+          "find": "Golden riceis",
+          "replace": "Golden rice is",
+          "rationale": "The stored solution contains the concatenated phrase \"Golden riceis\" which is a spelling/grammar error."
+        },
+        {
+          "repair": "spelling",
+          "field": "solution",
+          "find": "producebeta-carotene",
+          "replace": "produce beta-carotene",
+          "rationale": "The phrase \"producebeta-carotene\" lacks a space, indicating a spelling/grammar defect."
+        },
+        {
+          "repair": "spelling",
+          "field": "solution",
+          "find": "lead tonight blindness",
+          "replace": "lead to night blindness",
+          "rationale": "The text \"lead tonight blindness\" is a typo; the correct phrase is \"lead to night blindness\"."
+        }
+      ],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6264197209f4fd65f58f5707"
+    ],
+    "guard_log": [],
+    "confidence": 0.39999999999999997,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R041",
+    "questionId": "6208e298fa399567e0878700",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "A",
+      "solution_final": null,
+      "stored_key": "A"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'A'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) A present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (403 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-07T21:39:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6208e298fa399567e0878700"
+      },
+      "solve_b": {
+        "answer": "A",
+        "issue": "",
+        "final_value": "Julius von Sachs",
+        "method": "I identified the historical contributions of each listed scientist. Julius von Sachs performed experiments demonstrating that plants produce starch (glucose) during growth, which matches the question. The other options are known for different discoveries, so the correct answer is A."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R041",
+          "claim_type": "unclear",
+          "claim_summary": "The comment does not specify any particular issue.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": null
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6208e298fa399567e0878700"
+    ],
+    "guard_log": [],
+    "confidence": 0.39999999999999997,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R042",
+    "questionId": "63c7cce12981ed154ee92c94",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "C",
+      "solution_final": "C",
+      "stored_key": "C"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'C'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) C present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (61 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T07:00:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 63c7cce12981ed154ee92c94"
+      },
+      "solve_b": {
+        "answer": "C",
+        "issue": "",
+        "final_value": "2.2 μA",
+        "method": "We computed the capacitance C = ε0 εr A/d = 8.854×10⁻⁸ F, then used Id = C·dV/dt = 8.854×10⁻⁸ F·25 V/s ≈ 2.2×10⁻⁶ A = 2.2 µA. This matches option C."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The step \"C = k ε₀ A/d = 8.85 ×10^{−8} F\" is incorrect (wrong constant and exponent).",
+      "reports": [
+        {
+          "reportId": "R042",
+          "claim_type": "classification",
+          "claim_summary": "The student claims that the question is assigned to an incorrect chapter.",
+          "claim_supported": "unclear",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "C = k ε₀ A/d = 8.85 ×10^{−8} F",
+          "replace": "C = ε₀ A/d = 8.85 ×10^{−12} F",
+          "rationale": "The first step uses an incorrect constant (k) and exponent; the permittivity of free space is 8.85×10⁻¹² F/m."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "2.2 μA A",
+          "replace": "2.2 μA",
+          "rationale": "The solution appends an extra area unit to the current value, giving incorrect units."
+        }
+      ],
+      "solution_final": "C"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 63c7cce12981ed154ee92c94"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R043",
+    "questionId": "636283dbe3770c24f866e6d6",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "key_option_present",
+      "markup_leak",
+      "noise",
+      "options_present",
+      "options_unique",
+      "solution_present",
+      "solve_b",
+      "type_consistency"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "B",
+      "solution_final": "B",
+      "stored_key": "B"
+    },
+    "checks": [
+      {
+        "id": "options_present",
+        "passed": true,
+        "detail": "options A–D present and non-empty"
+      },
+      {
+        "id": "options_unique",
+        "passed": true,
+        "detail": "no two options identical"
+      },
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "scq key 'B'",
+        "field": "answer"
+      },
+      {
+        "id": "key_option_present",
+        "passed": true,
+        "detail": "keyed option(s) B present"
+      },
+      {
+        "id": "type_consistency",
+        "passed": true,
+        "detail": "scq key marks 1 option"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (285 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-07T22:40:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 636283dbe3770c24f866e6d6"
+      },
+      "solve_b": {
+        "answer": "B",
+        "issue": "",
+        "final_value": "4:1",
+        "method": "Found the radius of the combined drop using volume conservation: r_b = r_s * N^{1/3}=0.08 m. Computed surface charge density σ=Q/(4πr^2) for small and big drops, giving σ_b/σ_s = (N)*(r_s^2/r_b^2)=64*(1/16)=4, so the ratio is 4:1."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "B"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R043",
+          "claim_type": "answer_key",
+          "claim_summary": "Student claims the correct answer should be 1:4 (option A) instead of the stored answer B.",
+          "claim_supported": "no",
+          "student_missed_step": "They overlooked that the combined drop’s total charge is 64 q, so despite the larger area its surface charge density is four times that of a small drop.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "B"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 636283dbe3770c24f866e6d6"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  },
+  {
+    "reportId": "R044",
+    "questionId": "68dea577d0cda73d07e9391c",
+    "ran_ids": [
+      "answer_shape",
+      "changed_after_report",
+      "classify",
+      "exam_reference",
+      "figure_reference",
+      "markup_leak",
+      "noise",
+      "solution_present",
+      "solve_b"
+    ],
+    "cited_checks": [
+      "solve_b",
+      "classify"
+    ],
+    "proof": {
+      "solve_a": null,
+      "solve_b": "14",
+      "solution_final": "14",
+      "stored_key": "14"
+    },
+    "checks": [
+      {
+        "id": "answer_shape",
+        "passed": true,
+        "detail": "integer key '14'",
+        "field": "answer"
+      },
+      {
+        "id": "figure_reference",
+        "passed": true,
+        "detail": "no figure referenced without an image"
+      },
+      {
+        "id": "solution_present",
+        "passed": true,
+        "detail": "solution present (242 characters)"
+      },
+      {
+        "id": "exam_reference",
+        "passed": true,
+        "detail": "no exam reference found in question or solution"
+      },
+      {
+        "id": "noise",
+        "passed": true,
+        "detail": "no noise found in question or solution"
+      },
+      {
+        "id": "markup_leak",
+        "passed": true,
+        "detail": "no markup leak found in question or solution"
+      },
+      {
+        "id": "changed_after_report",
+        "passed": true,
+        "detail": "no change to the record after reportedAt 2026-11-04T22:23:00Z"
+      }
+    ],
+    "solves": {
+      "solve_a": {
+        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea577d0cda73d07e9391c"
+      },
+      "solve_b": {
+        "answer": "14",
+        "issue": "",
+        "final_value": "14 V",
+        "method": "Used the known potential of a uniformly charged solid sphere: V(r)=Q/(4πϵ0R) for r≥R and V(r)=Q/(8πϵ0R)(3−r^2/R^2) for r≤R. From V(R)=16 V we found Q/(4πϵ0R)=16 V, then computed V(R/2)=22 V and V(2R)=8 V, giving ΔV=V(P)−V(S)=14 V."
+      }
+    },
+    "classifier": {
+      "solution_final_answer": [
+        "14"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R044",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the correct answer is 22 V instead of 14 V.",
+          "claim_supported": "no",
+          "student_missed_step": "They missed that the potential inside the uniformly charged sphere at r = R/2 is (11/8)·(KQ/R), leading to a difference of (7/8)·16 V = 14 V, not 22 V.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "14"
+    },
+    "flags": [],
+    "validator_errors": [
+      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea577d0cda73d07e9391c"
+    ],
+    "guard_log": [],
+    "confidence": 0.25000000000000006,
+    "route_before_confidence_guard": "no_change"
+  }
+]

@@ -1,0 +1,522 @@
+[
+  {
+    "reportId": "R001",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "faculty_review",
+    "confidence": 0.95,
+    "evidence": "Both blind solves give A but the key says C; the stored solution also ends at the solves' answer. Blind solve A = A, solve B = A, stored solution ends at A, stored key = C. Sent to faculty: 0.95 < threshold 1.01.",
+    "student_reply": "Thank you for letting us know. Our teacher is reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R002",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "faculty_review",
+    "confidence": 0.95,
+    "evidence": "Both blind solves give A but the key says C; the stored solution also ends at the solves' answer. Blind solve A = A, solve B = A, stored solution ends at A, stored key = C. Sent to faculty: 0.95 < threshold 1.01.",
+    "student_reply": "Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R003",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "faculty_review",
+    "confidence": 0.95,
+    "evidence": "Both blind solves give A but the key says C; the stored solution also ends at the solves' answer. Blind solve A = A, solve B = A, stored solution ends at A, stored key = C. Sent to faculty: 0.95 < threshold 1.01.",
+    "student_reply": "Thank you for pointing this out. We have forwarded your observation to the teacher, who is reviewing the question now."
+  },
+  {
+    "reportId": "R004",
+    "questionId": "68e870ef42c06737d6e565c4",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "A",
+      "replace": "D"
+    },
+    "route": "faculty_review",
+    "confidence": 0.3,
+    "evidence": "Both blind solves give D but the key says A. Blind solve A = D, solve B = D, stored solution ends at none, stored key = A. Some checks failed to run (classify: offline: no cached classify response for 68e870ef42c06737d6e565c4). Sent to faculty: unmet: solves_match_solution.",
+    "student_reply": "Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R005",
+    "questionId": "68dea616d0cda73d07e93ae6",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "2",
+      "replace": "1"
+    },
+    "route": "faculty_review",
+    "confidence": 0.3,
+    "evidence": "Both blind solves give 1 but the key says 2. Blind solve A = 1, solve B = 1, stored solution ends at none, stored key = 2. Some checks failed to run (classify: offline: no cached classify response for 68dea616d0cda73d07e93ae6). Sent to faculty: unmet: solves_match_solution.",
+    "student_reply": "Thank you for letting us know. Our teacher is reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R006",
+    "questionId": "696a866665252c04fc1f81c2",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (classify: offline: no cached classify response for 696a866665252c04fc1f81c2); Blind solve A = none, solve B = 50000, stored solution ends at none, stored key = 50.",
+    "student_reply": "Thank you for reporting the issue. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R007",
+    "questionId": "60f742f6660d187cc13a8078",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (classify: offline: no cached classify response for 60f742f6660d187cc13a8078); Blind solve A = none, solve B = none, stored solution ends at none, stored key = C.",
+    "student_reply": "Thank you for letting us know. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R008",
+    "questionId": "60f742f6660d187cc13a8078",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (classify: offline: no cached classify response for 60f742f6660d187cc13a8078); Blind solve A = none, solve B = none, stored solution ends at none, stored key = C.",
+    "student_reply": "Thank you for reporting this issue. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R009",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.55,
+    "evidence": "Option check: missing option(s) D. Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b; classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b).",
+    "student_reply": "Thank you for letting us know. Our teacher is reviewing the question and will get back to you shortly."
+  },
+  {
+    "reportId": "R010",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.55,
+    "evidence": "Option check: missing option(s) D. Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b; classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b).",
+    "student_reply": "Thank you for letting us know. A teacher is currently reviewing the question and will update it if needed. We appreciate your patience."
+  },
+  {
+    "reportId": "R011",
+    "questionId": "68e872546e45ba37dcc16bc0",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.55,
+    "evidence": "Option check: blank option(s) C. Some checks failed to run (classify: offline: no cached classify response for 68e872546e45ba37dcc16bc0).",
+    "student_reply": "Thank you for letting us know. A teacher is currently reviewing the question, and we’ll let you know once the review is complete."
+  },
+  {
+    "reportId": "R012",
+    "questionId": "61dffbec08489156b684bd22",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edit": {
+      "field": "question",
+      "find": "Epithellial tisue",
+      "replace": "Epithelial tissue"
+    },
+    "route": "faculty_review",
+    "confidence": 0.6,
+    "evidence": "The option text contains a misspelling; correcting it fixes the reported error. Sent to faculty: spelling evidence would be the classifier alone.",
+    "student_reply": "Thank you for letting us know. A teacher is currently reviewing the question and will address the issue. We’ll update you soon."
+  },
+  {
+    "reportId": "R013",
+    "questionId": "617fa18efd53ff1629ed890f",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.5,
+    "evidence": "Report is about display (The student asks why the exam reference '(NEET 2019)' appears in the question.); deterministic checks found no content defect.",
+    "student_reply": "Thank you for letting us know. The question itself is correct; the issue you’re seeing is due to how it displays on your device, and our team is checking it."
+  },
+  {
+    "reportId": "R014",
+    "questionId": "63765a28f1d8416ae0408d89",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.5,
+    "evidence": "Report is about display (The question displays the raw LaTeX code \\frac{7}{8} instead of rendering the fraction.); deterministic checks found no content defect.",
+    "student_reply": "Thank you for letting us know. The question itself is correct; the display issue you’re seeing is being reviewed by our team to ensure it shows properly on all devices."
+  },
+  {
+    "reportId": "R015",
+    "questionId": "6956d79788d7701e5617bc29",
+    "verdict": "defect",
+    "repair": "identical_options",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.55,
+    "evidence": "Option check: identical options: B = C ('0 W'). Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29; classify: offline: no cached classify response for 6956d79788d7701e5617bc29).",
+    "student_reply": "Thank you for letting us know. Our teacher is currently reviewing the question, and we’ll update you once the review is complete."
+  },
+  {
+    "reportId": "R016",
+    "questionId": "6263d75bdd44e265ef926d97",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier supports the claim (The student notes that the solution gives 40 cm while the stored answer key is 20 cm and asks which is correct.) but no check or solve confirms a defect. Blind solve A = none, solve B = 20, stored solution ends at 40, stored key = 20.",
+    "student_reply": "Thank you for reporting this. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R017",
+    "questionId": "6208e80a9cb2ab67dac61bd0",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier supports the claim (The student reports a spelling mistake 'mere' in the options, which was corrected to 'more' on 2026-11-07.) but no check or solve confirms a defect. Blind solve A = none, solve B = C, stored solution ends at none, stored key = C.",
+    "student_reply": "Thank you for letting us know. A teacher will review the question and the options shortly."
+  },
+  {
+    "reportId": "R018",
+    "questionId": "612151a6a34397610a9a2e58",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58; classify: offline: no cached classify response for 612151a6a34397610a9a2e58); Blind solve A = none, solve B = B, stored solution ends at none, stored key = B.",
+    "student_reply": "Thank you for reporting this. Our team couldn’t finish checking automatically, so a teacher will review the question soon."
+  },
+  {
+    "reportId": "R019",
+    "questionId": "612151a6a34397610a9a2e58",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58; classify: offline: no cached classify response for 612151a6a34397610a9a2e58); Blind solve A = none, solve B = B, stored solution ends at none, stored key = B.",
+    "student_reply": "Thank you for letting us know. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R020",
+    "questionId": "68c8153cfb6b2f16e2d3ceaf",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: The student claims that the answer key marking A, B, D is incorrect.. Blind solve A = none, solve B = A,B,D, stored solution ends at none, stored key = A, B, D.",
+    "student_reply": "Thank you for letting us know. The answer key is correct, and the solution requires the step of simplifying the expression (for example, combining 2 × 3 = 6) before selecting the final option."
+  },
+  {
+    "reportId": "R021",
+    "questionId": "68f21caf941cda588bc04365",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68f21caf941cda588bc04365; classify: offline: no cached classify response for 68f21caf941cda588bc04365); Blind solve A = none, solve B = B, stored solution ends at none, stored key = ,B.",
+    "student_reply": "Thank you for reporting this. Our system couldn’t finish checking automatically, so a teacher will review the question and get back to you."
+  },
+  {
+    "reportId": "R022",
+    "questionId": "61ee6c9d90a1a968a168686b",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edit": {
+      "field": "question",
+      "find": "plexux",
+      "replace": "plexus"
+    },
+    "route": "faculty_review",
+    "confidence": 0.3,
+    "evidence": "Option D contains the misspelled word 'plexux' which should be 'plexus'. Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b). Sent to faculty: spelling evidence would be the classifier alone.",
+    "student_reply": "Thank you for letting us know. A teacher is reviewing the question and will address the issue soon."
+  },
+  {
+    "reportId": "R023",
+    "questionId": "68ecbacb2ec87a18deba1ad7",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.4,
+    "evidence": "Comment gives no specific problem and no check found one. Blind solve A = none, solve B = B, stored solution ends at none, stored key = B.",
+    "student_reply": "Thank you for letting us know. Our review didn’t find any error, but we want to make sure everything is correct—could you tell us which part of the question seems off?"
+  },
+  {
+    "reportId": "R024",
+    "questionId": "5fc60508028950133eac8963",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier supports the claim (The student claims that the question does not specify the unit for the answer.) but no check or solve confirms a defect. Blind solve A = none, solve B = 20, stored solution ends at 20, stored key = 20.",
+    "student_reply": "Thank you for reporting this. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R025",
+    "questionId": "622df25ab70e4b50e44ff837",
+    "verdict": "defect",
+    "repair": "diagram",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.55,
+    "evidence": "Figure check: question mentions 'as shown' but has no image. Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837; classify: offline: no cached classify response for 622df25ab70e4b50e44ff837).",
+    "student_reply": "Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R026",
+    "questionId": "620e23cecc50543bc7db9186",
+    "verdict": "defect",
+    "repair": "solution_missing",
+    "edit": {
+      "field": "solution",
+      "find": "Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes. If biologist is trying to find that how closely these two species are related to each other than, he/she has to locate a specimen of more distantly related snake to see it, wheater, it has a forked tongue or not",
+      "replace": "To infer the ancestral state, the biologist should examine a more distantly related snake species to see whether the ancestor possessed a forked tongue. This corresponds to option B."
+    },
+    "route": "faculty_review",
+    "confidence": 0.3,
+    "evidence": "The stored solution does not provide a clear reasoning or final answer, and the blind solve confirms answer B, so a proper solution ending with option B is needed. Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186). Sent to faculty: solution_missing always goes to faculty (SOLUTION_REPAIRS_AUTO off.",
+    "student_reply": "Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R027",
+    "questionId": "6062ec84518e9535e120c422",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Comment asks for a change rather than describing a problem. Blind solve A = none, solve B = A, stored solution ends at A, stored key = A.",
+    "student_reply": "Thank you for reporting this question. Our review didn’t find any error, so could you let us know which part you think is incorrect? We’ll look into it right away."
+  },
+  {
+    "reportId": "R028",
+    "questionId": "6956d7bb23cb221e570d6013",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7bb23cb221e570d6013; classify: offline: no cached classify response for 6956d7bb23cb221e570d6013); Blind solve A = none, solve B = B, stored solution ends at none, stored key = B.",
+    "student_reply": "Thank you for reporting this question. A teacher will review the problem and get back to you soon."
+  },
+  {
+    "reportId": "R029",
+    "questionId": "68e8734442c06737d6e56da4",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68e8734442c06737d6e56da4; classify: offline: no cached classify response for 68e8734442c06737d6e56da4); Blind solve A = none, solve B = A, stored solution ends at none, stored key = A.",
+    "student_reply": "Thank you for reporting this. A teacher will review the question to verify the solution."
+  },
+  {
+    "reportId": "R030",
+    "questionId": "6956d7e988d7701e5617bd3e",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: The student claims the correct amplitude is 4√2 m, i.e., option B.. Blind solve A = none, solve B = D, stored solution ends at D, stored key = D.",
+    "student_reply": "Thank you for letting us know. The answer is correct; the step that was missed is that using the given velocity after 2 s gives cos(π/8)=1/√2, which leads to A = 8√2 m rather than 4√2 m."
+  },
+  {
+    "reportId": "R031",
+    "questionId": "68dea619d0cda73d07e93aee",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea619d0cda73d07e93aee; classify: offline: no cached classify response for 68dea619d0cda73d07e93aee); Blind solve A = none, solve B = 4, stored solution ends at none, stored key = 4.",
+    "student_reply": "Thank you for reporting this. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R032",
+    "questionId": "68dea7c2387eea3d0d95f9bb",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: The student says the answer should be 0.08, questioning why the key shows 8.. Blind solve A = none, solve B = 8, stored solution ends at 0.08, stored key = 8.",
+    "student_reply": "Thank you for reporting. The question and answer are correct; the step you missed was converting 0.08 m to centimeters: 0.08 m × 100 = 8 cm, which is the required unit."
+  },
+  {
+    "reportId": "R033",
+    "questionId": "68dea715387eea3d0d95f790",
+    "verdict": "defect",
+    "repair": "solution_missing",
+    "edit": {
+      "field": "solution",
+      "find": "311.3",
+      "replace": "311.3, so 10 A = 3113"
+    },
+    "route": "faculty_review",
+    "confidence": 0.3,
+    "evidence": "The solution stops at A = 311.3 m² and does not compute the required 10 A, which the question asks for and the answer key provides. Some checks failed to run (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790). Sent to faculty: solution_missing always goes to faculty (SOLUTION_REPAIRS_AUTO off.",
+    "student_reply": "Thank you for letting us know. Our teacher is reviewing the question and will get back to you soon."
+  },
+  {
+    "reportId": "R034",
+    "questionId": "695ee00b88d7701e561aabc5",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier supports the claim (The student claims that the assertion is true, so the answer key stating D is incorrect.) but no check or solve confirms a defect. Blind solve A = none, solve B = none, stored solution ends at D, stored key = D.",
+    "student_reply": "Thank you for reporting this. Our system couldn’t finish the automatic check, so a teacher will review the question soon."
+  },
+  {
+    "reportId": "R035",
+    "questionId": "66fe9dbe22132e5a70a3e579",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: The student claims that the answer key 'D' is incorrect because relaxin and inhibin are antagonistic.. Blind solve A = none, solve B = D, stored solution ends at none, stored key = D.",
+    "student_reply": "Thank you for letting us know. The answer is correct; the step you missed is that antagonistic hormones have opposite effects, whereas relaxin and inhibin do not have opposing actions."
+  },
+  {
+    "reportId": "R036",
+    "questionId": "60ca4feb6420652745f55522",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.5,
+    "evidence": "Report is about display (The student reports that the options are cut off on their phone screen.); deterministic checks found no content defect.",
+    "student_reply": "Thank you for letting us know. It looks like the options are being cut off on your phone screen, and our team will check the display layout to resolve this."
+  },
+  {
+    "reportId": "R037",
+    "questionId": "68c9ae5afb6b2f16e2d43b1c",
+    "verdict": "app_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.5,
+    "evidence": "Report is about app (The student reports that the question takes a long time to load.); deterministic checks found no content defect.",
+    "student_reply": "Thank you for letting us know. The question itself is correct, and we have forwarded the loading issue to our technical team for review."
+  },
+  {
+    "reportId": "R038",
+    "questionId": "68f21df0941cda588bc0470b",
+    "verdict": "app_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.5,
+    "evidence": "Report is about app (The student reports that selecting option A was recorded as option B.); deterministic checks found no content defect.",
+    "student_reply": "Thank you for letting us know. The question itself is correct; it looks like the app recorded a different answer than you selected, and our technical team is reviewing the issue."
+  },
+  {
+    "reportId": "R039",
+    "questionId": "68c801bc1b1dbc16dc93bf2b",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 0.25,
+    "evidence": "Classifier output unavailable (solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c801bc1b1dbc16dc93bf2b; classify: offline: no cached classify response for 68c801bc1b1dbc16dc93bf2b); Blind solve A = none, solve B = A, stored solution ends at none, stored key = A.",
+    "student_reply": "Thank you for letting us know. A teacher will review the question and get back to you soon."
+  },
+  {
+    "reportId": "R040",
+    "questionId": "6264197209f4fd65f58f5707",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.4,
+    "evidence": "Comment gives no specific problem and no check found one. Blind solve A = none, solve B = C, stored solution ends at none, stored key = C.",
+    "student_reply": "Thank you for letting us know. Our review didn’t find any error, but a teacher will double‑check the question. Could you tell us which part looks wrong to you?"
+  },
+  {
+    "reportId": "R041",
+    "questionId": "6208e298fa399567e0878700",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.4,
+    "evidence": "Comment gives no specific problem and no check found one. Blind solve A = none, solve B = A, stored solution ends at none, stored key = A.",
+    "student_reply": "Thank you for letting us know. Our review didn’t find any error in the question, but we want to make sure everything is right—could you tell us which part looks incorrect to you?"
+  },
+  {
+    "reportId": "R042",
+    "questionId": "63c7cce12981ed154ee92c94",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: The student claims that the question is assigned to an incorrect chapter.. Blind solve A = none, solve B = C, stored solution ends at C, stored key = C.",
+    "student_reply": "Thank you for reporting the issue. The solution is correct; the step you missed is calculating the displacement current (Id = ε₀ dΦE/dt = dQ/dt = 2 µC·s⁻¹), which then leads to B = μ₀ Id/(2πr)."
+  },
+  {
+    "reportId": "R043",
+    "questionId": "636283dbe3770c24f866e6d6",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: Student claims the correct answer should be 1:4 (option A) instead of the stored answer B.. Blind solve A = none, solve B = B, stored solution ends at B, stored key = B.",
+    "student_reply": "Thank you for your report. The answer is correct; the step you missed is that the combined drop’s total charge is 64 q, so even though its area is larger, its surface charge density is four times that of the small drop."
+  },
+  {
+    "reportId": "R044",
+    "questionId": "68dea577d0cda73d07e9391c",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.25,
+    "evidence": "Claim checked: The student claims that the correct answer is 22 V instead of 14 V.. Blind solve A = none, solve B = 14, stored solution ends at 14, stored key = 14.",
+    "student_reply": "Thank you for reporting the issue. The solution is correct; the step you missed is that the potential at r = R/2 is (11/8)·(KQ/R), which gives a voltage difference of (7/8)·16 V = 14 V, not 22 V."
+  }
+]

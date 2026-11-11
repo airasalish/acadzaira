@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+node_modules/
+engine/.cache/fake_cache.json
+engine/.cache/*.tmp
+console/public/data/
+.DS_Store
+HANDOFF.md
+_source/
+engine/out/*.fake.json
+engine/out/*.partial.json
+eval/*.fake.json
