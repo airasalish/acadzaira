@@ -88,6 +88,8 @@ const splitEvidence = (text) => {
   return { main: main.trim(), why, missing };
 };
 const stripSolves = (t) => t.replace(/\s*Blind solve A = [^.]*stored key = [^.]*\./, "").trim();
+const EMPH = /(looks wrong|missing or blank|identical|is missing|missing or unusable|wrong step|missing or wrong|Spelling mistake|No error found|content is fine|not this question|Already fixed|Nothing actionable)/;
+const emph = (t) => { const m = (t || "").match(EMPH); if (!m) return t; const i = m.index; return <>{t.slice(0, i)}<span className="em">{m[0]}</span>{t.slice(i + m[0].length)}</>; };
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 // ---------------------------------------------------------------- components
@@ -209,6 +211,8 @@ export default function App() {
   const [sel, setSel] = useState(null);
   const [editing, setEditing] = useState(false);
   const [showDone, setShowDone] = useState(false);
+  const [toast, setToast] = useState(null);
+  useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(null), 1800); return () => clearTimeout(t); }, [toast]);
   const [theme, setTheme] = useState(() => load("acadza-theme", null));
   useEffect(() => {
     if (theme) document.documentElement.dataset.theme = theme;
@@ -253,6 +257,7 @@ export default function App() {
     };
     const next = [...audit, entry];
     setAudit(next); save(AUDIT_KEY, next);
+    setToast({ id: Date.now(), action, reportId: row.reportId });
     setEditing(false);
     const i = model.order.indexOf(sel);
     const nextPending = model.order.slice(i + 1).find((id) => !status[id]);
@@ -319,6 +324,7 @@ export default function App() {
   return (
     <div className="app">
       {!name && <NamePrompt onSet={(n) => { setName(n); save(NAME_KEY, n); }} />}
+      {toast && <div key={toast.id} className={`toast toast-${toast.action}`} role="status">{toast.action === "approve" ? "Approved" : toast.action === "reject" ? "Rejected" : "Edit saved"} · {toast.reportId} · logged to audit</div>}
       <header>
         <div className="brand"><span className="logo">A</span>Acadza <span>Question Review</span></div>
         <div className="progress"><div className="bar"><i style={{ width: `${(100 * done) / data.results.length}%` }} /></div><b>{done}</b> of {data.results.length} reports reviewed</div>
@@ -340,13 +346,14 @@ export default function App() {
       <main ref={detailRef}>
         {row && (
           <>
-            <section className={`card hero hero-${row.verdict === "defect" ? "defect" : "calm"}`}>
+            <section key={row.reportId} className={`card hero hero-${row.verdict === "defect" ? "defect" : "calm"}`}>
               <div className="hero-top">
                 <span className="rid">{row.reportId}</span>
                 <span className="crumbs">{q?.subject} · {q?.chapter} · {q?.questionType === "scq" ? "Single correct" : q?.questionType === "mcq" ? "Multiple correct" : "Numerical"}</span>
                 <Chip kind={row.route}>{NEXT[row.route]}</Chip>
               </div>
-              <h1>{headline(row)}</h1>
+              <h1>{emph(headline(row))}</h1>
+              {row.edit && row.edit.field === "answer" && <div className="lab"><i>1</i>What changes</div>}
               {row.edit && row.edit.field === "answer" && (
                 <div className="keychange">
                   <div className="kc old"><small>Stored key · current</small><b>{fmtKey(row.edit.find)}</b><em>what students are marked against today</em></div>
@@ -356,6 +363,7 @@ export default function App() {
               )}
               {(() => { const ev = splitEvidence(row.evidence); return (
                 <>
+                  <div className="lab"><i>{row.edit && row.edit.field === "answer" ? 2 : 1}</i>Why</div>
                   {!(row.edit && row.edit.field === "answer") && stripSolves(ev.main) && <p className="evidence">{stripSolves(ev.main)}</p>}
                   <Trust rec={rec} q={q} hideKey={!!(row.edit && row.edit.field === "answer")} />
                   <div className="notes">
@@ -374,7 +382,7 @@ export default function App() {
               </section>
             )}
 
-            <div className="split"><div className="col-main">
+            <div className="split" key={"s" + row.reportId}><div className="col-main">
             <section className="card question">
               <h3>Question as students see it</h3>
               <Html className="qhtml" html={body(q).question} />
