@@ -56,6 +56,39 @@ function markEdit(html, find, replace, side) {
   return html.slice(0, i) + piece + html.slice(i + find.length);
 }
 
+const REPAIR_TITLE = {
+  answer_key: "Answer key looks wrong", option_repair: "An option is missing or blank",
+  identical_options: "Two options are identical", diagram: "Figure is missing",
+  solution_missing: "Solution is missing or unusable", solution_fix: "Solution has a wrong step",
+  stem_data: "A value is missing or wrong in the question", spelling: "Spelling mistake",
+  notation: "Symbol or notation lost", markup_leak: "Raw code is showing as text",
+  exam_reference: "Exam tag left in the question", noise: "Stray text in the question",
+  answer_form: "Answer form not stated", type_mismatch: "Stored as the wrong question type",
+  unsound: "No valid answer as written", wrong_question: "Question and solution do not match",
+  wrong_chapter: "Filed under the wrong chapter", syllabus: "Out of syllabus",
+};
+const VERDICT_TITLE = {
+  no_error: "No error found. The stored answer holds", display_issue: "Display problem. The content is fine",
+  app_issue: "App problem, not this question", language_mode: "Language request",
+  already_fixed: "Already fixed in the live record", not_actionable: "Nothing actionable found",
+};
+const headline = (row) => (row.verdict === "defect" ? REPAIR_TITLE[row.repair] || row.repair : VERDICT_TITLE[row.verdict] || row.verdict);
+const NEXT = { faculty_review: "Needs your decision", auto_apply: "Safe fix, ready to apply", no_change: "No content change" };
+const SHORT = { answer_key: "Answer key", option_repair: "Option", identical_options: "Options", diagram: "Figure",
+  solution_missing: "Solution", solution_fix: "Solution", stem_data: "Missing data", spelling: "Spelling", notation: "Notation",
+  markup_leak: "Markup", exam_reference: "Exam tag", noise: "Stray text", type_mismatch: "Type" };
+const issueTag = (r) => (r.verdict === "defect" ? SHORT[r.repair] || "Defect" : VERDICT_LABEL[r.verdict] || r.verdict);
+// Display only: split the engine's evidence into the finding and the routing / availability notes.
+const splitEvidence = (text) => {
+  let main = text || "", why = "", missing = "";
+  let i = main.indexOf(" Sent to faculty: ");
+  if (i >= 0) { why = main.slice(i + 18).replace(/\.$/, ""); main = main.slice(0, i); }
+  i = main.indexOf(" Some checks failed to run (");
+  if (i >= 0) { missing = main.slice(i + 28).replace(/\)\.?$/, ""); main = main.slice(0, i); }
+  return { main: main.trim(), why, missing };
+};
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
 // ---------------------------------------------------------------- components
 function Html({ html, className }) {
   return <div className={className} dangerouslySetInnerHTML={{ __html: html || "" }} />;
@@ -103,26 +136,30 @@ function Trust({ rec, q }) {
   if (!rec) return null;
   const failed = rec.checks.filter((c) => !c.passed);
   const sa = rec.solves.solve_a, sb = rec.solves.solve_b;
-  const s = (x) => (!x ? "—" : x.error ? "failed" : fmt(x.answer));
+  const okA = sa && !sa.error && sa.answer != null, okB = sb && !sb.error && sb.answer != null;
+  const agree = okA && okB && same(sa.answer, sb.answer);
+  const key = body(q).answer;
+  const keyOff = agree && !same([].concat(sa.answer).map(String), [].concat(key).map(String));
+  const Tile = ({ label, value, tone, note }) => (
+    <div className={`tile tile-${tone}`}>
+      <div className="tile-l">{label}</div>
+      <div className="tile-v">{value}</div>
+      {note && <div className="tile-n">{note}</div>}
+    </div>
+  );
   return (
     <div className="trust">
-      <div className="trust-row">
-        <span className={sa && !sa.error ? "ok" : "bad"}>{sa && !sa.error ? "✔" : "✘"} Solve A = {s(sa)}</span>
-        <span className={sb && !sb.error ? "ok" : "bad"}>{sb && !sb.error ? "✔" : "✘"} Solve B = {s(sb)}</span>
-        <span className="neutral">Solution ends at {fmt(rec.solution_final)}</span>
-        <span className="neutral">Key = {fmtKey(body(q).answer)}</span>
+      <div className="tiles">
+        <Tile label="Independent solve 1" value={okA ? fmt(sa.answer) : "—"} tone={okA ? "good" : "muted"} note={okA ? "did not see the key" : "not available"} />
+        <Tile label="Independent solve 2" value={okB ? fmt(sb.answer) : "—"} tone={okB ? "good" : "muted"} note={okB ? "did not see the key" : "not available"} />
+        <Tile label="Stored solution ends at" value={fmt(rec.solution_final)} tone="plain" />
+        <Tile label="Stored answer key" value={fmtKey(key)} tone={keyOff ? "bad" : "plain"} note={keyOff ? "disagrees with both solves" : agree ? "matches both solves" : null} />
       </div>
-      <div className="trust-row small">
+      <div className="checks">
         {failed.length === 0
-          ? <span className="ok">✔ {rec.checks.length} code checks passed</span>
-          : failed.map((c, i) => <span key={i} className="bad">✘ {c.id}: {c.detail}</span>)}
+          ? <span className="ok">✔ {rec.checks.length} automatic checks on the question passed</span>
+          : failed.map((c, i) => <span key={i} className="bad">✘ {c.detail}</span>)}
       </div>
-      {(rec.validator_errors.length > 0 || rec.guard_log.length > 0) && (
-        <details className="guards">
-          <summary>Why it came to you ({rec.guard_log.length + rec.validator_errors.length})</summary>
-          <ul>{[...rec.validator_errors, ...rec.guard_log].map((l, i) => <li key={i}>{l}</li>)}</ul>
-        </details>
-      )}
     </div>
   );
 }
@@ -241,37 +278,46 @@ export default function App() {
     a.href = URL.createObjectURL(blob); a.download = "acadza-audit.json"; a.click();
   };
 
-  const Group = ({ g }) => (
-    <div className="group">
-      <div className="g-why">{g.why}</div>
-      {g.rows.map((r) => (
-        <button key={r.reportId} className={`item ${r.reportId === sel ? "active" : ""} ${status[r.reportId] ? "done" : ""}`}
-          onClick={() => { setSel(r.reportId); setEditing(false); }}>
-          <span className="i-id">{r.reportId}</span>
-          <span className="i-c">{model.rby[r.reportId]?.comment || <em>(empty comment)</em>}</span>
-          <span className={`dot dot-${r.verdict === "defect" ? r.route : "calm"}`} />
-          {status[r.reportId] && <span className={`i-st st-${status[r.reportId]}`}>{status[r.reportId]}</span>}
-        </button>
-      ))}
-    </div>
-  );
+  const Group = ({ g }) => {
+    const gq = model.qby[g.qid];
+    const pending = g.rows.filter((r) => !status[r.reportId]).length;
+    const tone = g.top.verdict === "defect" ? (g.top.repair === "answer_key" ? "high" : "mid") : g.top.route === "faculty_review" ? "mid" : "low";
+    return (
+      <div className={`group tone-${tone} ${g.rows.some((r) => r.reportId === sel) ? "open" : ""}`}>
+        <div className="g-head">
+          <span className="g-tag">{issueTag(g.top)}</span>
+          <span className="g-meta">{gq?.subject} · {gq?.chapter}</span>
+          <span className="g-count" title="Reports on this question">{g.rows.length} report{g.rows.length > 1 ? "s" : ""}</span>
+        </div>
+        {g.rows.map((r) => (
+          <button key={r.reportId} className={`item ${r.reportId === sel ? "active" : ""} ${status[r.reportId] ? "done" : ""}`}
+            onClick={() => { setSel(r.reportId); setEditing(false); }}>
+            <span className="i-id">{r.reportId}</span>
+            <span className="i-c">{model.rby[r.reportId]?.comment || <em>(empty comment)</em>}</span>
+            {status[r.reportId] && <span className={`i-st st-${status[r.reportId]}`}>{status[r.reportId] === "approve" ? "Approved" : status[r.reportId] === "reject" ? "Rejected" : "Edited"}</span>}
+          </button>
+        ))}
+        {pending === 0 && <div className="g-done">All reviewed</div>}
+      </div>
+    );
+  };
 
   return (
     <div className="app">
       {!name && <NamePrompt onSet={(n) => { setName(n); save(NAME_KEY, n); }} />}
       <header>
-        <div className="brand">Report → Fix <span>review console</span></div>
-        <div className="progress"><b>{done}</b> / {data.results.length} reviewed</div>
+        <div className="brand"><span className="logo">A</span>Acadza <span>Question Review</span></div>
+        <div className="progress"><div className="bar"><i style={{ width: `${(100 * done) / data.results.length}%` }} /></div><b>{done}</b> of {data.results.length} reports reviewed</div>
         <div className="keys"><kbd>J</kbd><kbd>K</kbd> move · <kbd>A</kbd> approve · <kbd>E</kbd> edit · <kbd>R</kbd> reject</div>
         <div className="who">{name && <>Reviewing as <b>{name}</b></>}</div>
         <button className="btn" onClick={exportAudit}>Export audit (JSON)</button>
       </header>
 
       <aside>
-        <div className="sec-h">Needs attention · {model.urgent.length} questions</div>
+        <div className="sec-h">Needs your decision <span>{model.urgent.length} questions · most urgent first</span></div>
         {model.urgent.map((g) => <Group key={g.qid} g={g} />)}
         <button className="sec-h toggle" onClick={() => setShowDone(!showDone)}>
-          {showDone ? "▾" : "▸"} No content change · {model.calm.length} questions
+          {showDone ? "▾" : "▸"} No content change <span>{model.calm.length} questions</span>
         </button>
         {showDone && model.calm.map((g) => <Group key={g.qid} g={g} />)}
       </aside>
@@ -279,52 +325,52 @@ export default function App() {
       <main ref={detailRef}>
         {row && (
           <>
-            <section className="card head">
-              <div className="chips">
-                <Chip kind={row.verdict === "defect" ? "defect" : "calm"}>{VERDICT_LABEL[row.verdict] || row.verdict}</Chip>
-                {row.repair && <Chip kind="repair">{data.taxonomy.repairs[row.repair]?.label || row.repair}</Chip>}
-                <Chip kind={row.route}>{ROUTE_LABEL[row.route]}</Chip>
-                <span className="conf" title="Engine confidence">{Math.round(row.confidence * 100)}% confident</span>
-                <span className="rid">{row.reportId} · {q?.subject} › {q?.chapter} · {q?.questionType}</span>
+            <section className={`card hero hero-${row.verdict === "defect" ? "defect" : "calm"}`}>
+              <div className="hero-top">
+                <span className="rid">{row.reportId}</span>
+                <span className="crumbs">{q?.subject} · {q?.chapter} · {q?.questionType === "scq" ? "Single correct" : q?.questionType === "mcq" ? "Multiple correct" : "Numerical"}</span>
+                <Chip kind={row.route}>{NEXT[row.route]}</Chip>
               </div>
-              <p className="evidence">{row.evidence}</p>
-              <Trust rec={rec} q={q} />
-            </section>
-
-            <section className="card">
-              <h3>Proposed change</h3>
-              <Diff row={row} q={q} />
-              {editing
-                ? <EditBox row={row} onSave={(v) => act("edit", v)} onCancel={() => setEditing(false)} />
-                : (
-                  <div className="actions">
-                    <button className="btn primary" onClick={() => act("approve")}>Approve <kbd>A</kbd></button>
-                    <button className="btn" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
-                    <button className="btn danger" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
-                  </div>
-                )}
-              {mine.length > 0 && (
-                <ul className="audit">
-                  {mine.map((a, i) => (
-                    <li key={i}><b>{a.action}</b> by {a.actor} · {new Date(a.at).toLocaleString()}
-                      {a.after != null && <> · after: <code>{fmtKey(a.after)}</code></>}</li>
-                  ))}
-                </ul>
+              <h1>{headline(row)}</h1>
+              {row.edit && row.edit.field === "answer" && (
+                <div className="keychange">
+                  <div className="kc old"><small>Stored key</small><b>{fmtKey(row.edit.find)}</b></div>
+                  <div className="kc-arrow">→</div>
+                  <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b></div>
+                </div>
               )}
+              {(() => { const ev = splitEvidence(row.evidence); return (
+                <>
+                  <p className="evidence">{ev.main}</p>
+                  <Trust rec={rec} q={q} />
+                  <div className="notes">
+                    <span className="conf">Engine confidence {Math.round(row.confidence * 100)}%</span>
+                    {ev.why && <span>Nothing is applied automatically yet, so this waits for you</span>}
+                    {ev.missing && <details><summary>Some automatic steps were unavailable for this question</summary><div>{ev.missing}</div></details>}
+                  </div>
+                </>
+              ); })()}
             </section>
 
-            <section className="card">
-              <h3>Reply the student will see</h3>
-              <div className="bubble">{row.student_reply}</div>
-            </section>
+            {!(row.edit && row.edit.field === "answer") && (
+              <section className="card">
+                <h3>Proposed change</h3>
+                <Diff row={row} q={q} />
+              </section>
+            )}
 
             <section className="card">
-              <h3>Question</h3>
+              <h3>Question as students see it</h3>
               <Html className="qhtml" html={body(q).question} />
               <details>
                 <summary>Stored solution · key {fmtKey(body(q).answer)}</summary>
                 <Html className="qhtml" html={body(q).solution} />
               </details>
+            </section>
+
+            <section className="card">
+              <h3>Reply the student will see</h3>
+              <div className="bubble">{row.student_reply}</div>
             </section>
 
             <section className="card">
@@ -340,6 +386,29 @@ export default function App() {
                 );
               })}
             </section>
+            {mine.length > 0 && (
+              <section className="card">
+                <h3>Audit trail for this report</h3>
+                <ul className="audit">
+                  {mine.map((a, i) => (
+                    <li key={i}><b>{a.action === "approve" ? "Approved" : a.action === "reject" ? "Rejected" : "Edited"}</b> by {a.actor} · {new Date(a.at).toLocaleString()}
+                      {a.after != null && <> · change: <code>{fmtKey(a.before)}</code> → <code>{fmtKey(a.after)}</code></>}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            <div className="actionbar">
+              {editing
+                ? <EditBox row={row} onSave={(v) => act("edit", v)} onCancel={() => setEditing(false)} />
+                : (
+                  <>
+                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : <>{NEXT[row.route]}</>}</div>
+                    <button className="btn danger" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
+                    <button className="btn" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
+                    <button className="btn primary" onClick={() => act("approve")}>{row.edit ? "Approve change" : "Approve"} <kbd>A</kbd></button>
+                  </>
+                )}
+            </div>
           </>
         )}
       </main>
