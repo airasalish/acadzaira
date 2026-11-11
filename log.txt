@@ -1,0 +1,152 @@
+## [2026-11-10T21:11:31+05:30] SESSION START
+
+tool=Claude Code
+Repo Root: acadza
+Branch: unknown (git not initialised yet)
+Worktree: main
+Parent Agent: none
+Time Remaining: 1d 2h 47m
+
+## [2026-11-10T21:11:31+05:30] Set up repo and adapt Orchestrate rulebook for Acadza brief
+
+User Prompt (verbatim, secrets redacted):
+@"C:\Users\airaa\Downloads\Aira_Salish_AI_Intern (1).pdf" @"C:\Users\airaa\Downloads\Acadza_AI_Intern_Assignment.zip"
+make a file directory for this, we have a deadline and the only goal is to get to the next round by surpassing the judging llm that will bee judging 1000+ entries because i have working proffessionals as my competitions(actual sdes and ai engineers)
+
+
+i got this mail,im thinking i will use the rulebook of hackkerrank orchestrate(the one i did before, 3 rounds-june,aug,sep) tweak the rulebook if needed okay?
+
+this is the mail -
+
+Hi Aira,
+
+Thanks for applying to the AI Intern role at Acadza. You're through to the build round.
+
+The problem is real: Acadza serves ~8 lakh JEE/NEET questions. When one is broken, a student taps "Report error" and types whatever they feel - "ans galat hai", "option D missing", "wrong". Most of those reports are the student being wrong; some are real defects that keep hurting every student until someone fixes them.
+
+Your task: build the AI system that turns those reports into safe fixes, and a review console faculty would actually want to open. Everything (brief + real production-format data) is in the attached zip - start with README.md.
+
+- Deadline: Wednesday, 11 November 2026, 11:59 PM IST.
+- Use any AI tools you like. In PROMPTS.md, share your prompts verbatim and the key design decisions you made - what you tried, what you dropped, and why. How you think and direct AI matters more to us than whether you use it.
+- Design counts: we will open your live console and use it like a tired faculty member at 10 PM. Can they tell in seconds what changed and why, act in one click, and trust what they see? Clean layout, readable math, and a clear before/after diff matter as much as the AI.
+- Submit by replying to this email: repo link, live URL, 3-min video, and answers to the 4 questions at the end of the README.
+
+One note on intent: this is a remote, Monday-to-Saturday role building product that lakhs of students use. We're looking for people who want to build here for the long run, not to complete a college requirement.
+
+If that isn't you right now, no hard feelings - just skip this.
+
+The strongest builds get a 30-minute call on Thursday, 12 November.
+
+Looking forward to what you make,
+Subham Sharma
+
+can you see if hackerrank orchestrate rulebook can be used for this?
+
+Agent Response Summary:
+Extracted the assignment zip; read the brief (43 questions, 44 reports, closed taxonomy of 7 verdicts and 18 repairs, rubric /100). Read the June and September Orchestrate AGENTS.md and the September FEEDBACK.md post-mortem. Concluded the rulebook's logging + discipline transfers well, but its challenge contract (dataset/output.csv, submission link, "I agree" gate, home-dir log) does not, so wrote a new AGENTS.md for this brief.
+
+Decision / Dropped (if any):
+Kept: append-only per-turn log (now committed, because it backs the mandatory PROMPTS.md), secret redaction, real-clock timestamps, deterministic core + narrow LLM boundary, eval as an asserting gate. Dropped: onboarding agreement gate, HackerRank submission-link rule, financial contract. Added: results.json contract, taxonomy scope/auto safety invariants, versioned prompts/ folder, docs/AI_WRONG.md and docs/DECISIONS.md captured live.
+
+Actions:
+* Extracted data/ (questions.json, reports.json, taxonomy.json) and BRIEF.md from the zip
+* Wrote AGENTS.md, CLAUDE.md, .gitignore, .env.example; created engine/, console/, eval/, prompts/, docs/
+
+Context:
+tool=Claude Code
+branch=unknown
+parent_agent=none
+
+## [2026-11-10T21:11:31+05:30] Merge Orchestrate Next-Round Playbook into AGENTS.md
+
+User Prompt (verbatim, secrets redacted):
+@"C:\Users\airaa\Downloads\orchestrate_next_round_playbook (1).pdf"
+this is the earlier rulebook
+
+Agent Response Summary:
+Read the playbook (Rule 0, scoring signals, phase plan, architecture principles, adversarial checklist, transcript/output/interview discipline, 15 process rules, June/Aug track record). Merged it into AGENTS.md, re-mapping the Orchestrate scoring signals onto Acadza's rubric. Rule 0 is kept unchanged and extended to PROMPTS.md, since Acadza says copy-paste submissions are obvious from the prompt log.
+
+Decision / Dropped (if any):
+Replaced the "AI judge interview" prep with prep for Acadza's live requirement-change call, so rules are config-driven. Added a 7-phase plan for the ~27 h left with the last 4 h ring-fenced. Kept "model describes, code decides", evidence-citation enforcement and one coherent decision object (the August output-drift lesson). Log stores only the repo folder name, not absolute paths, because log.txt will be public.
+
+Actions:
+* Edited AGENTS.md (Rule 0, scoring map, phase plan, §7 additions, §7.1 adversarial checklist, §7.2 collaboration discipline)
+* Wrote README.md, PROMPTS.md, PRODUCT.md skeletons and docs/ (DECISIONS, AI_WRONG, CHECKLIST, UNREPORTED)
+
+Context:
+tool=Claude Code
+branch=unknown
+parent_agent=none
+
+## [2026-11-10T21:29:06+05:30] Write standalone human-facing playbook for the Acadza round
+
+User Prompt (verbatim, secrets redacted):
+did u not make another playbook for it
+
+Agent Response Summary:
+No separate playbook had been made; the Orchestrate playbook had only been merged into AGENTS.md, which is written for coding agents. Wrote docs/PLAYBOOK.md as the human companion in the same structure as the Orchestrate PDF, re-targeted at Acadza's rubric: Rule 0, scoring map, hour-by-hour plan to the deadline, architecture paragraph, console design, student-reply guidance, prompting discipline, adversarial checklist, PRODUCT.md angles, video outline, live-change call prep.
+
+Decision / Dropped (if any):
+Flagged console UX + product thinking (40 pts) as the category Orchestrate never scored and gave the console a protected block. Caught two errors in the first draft before finishing: the day was labelled Mon 10 Nov (it is Tuesday), and a sample student reply contained invented physics for the "root(40^2+30^2)=50 then why 130" report without solving it. Fixed the day; replaced the invented example with an instruction to write it only after solving that question.
+
+Actions:
+* Wrote docs/PLAYBOOK.md, then edited it (weekday fix, removed invented reply example)
+* Appended this entry to log.txt
+
+Context:
+tool=Claude Code
+branch=unknown
+parent_agent=none
+
+## [2026-11-10T21:31:51+05:30] Export playbook PDF and write handoff notes for a new chat
+
+User Prompt (verbatim, secrets redacted):
+get me the new pdf and,im switching the chat to another claude chat, are all the context in the dir file,if not give it to me now
+
+Agent Response Summary:
+Rendered docs/PLAYBOOK.md to docs/Acadza_Playbook.pdf (6 pages, A4) via headless Chrome and checked it visually. Not all context was in the folder: source file locations, the Groq-key-in-filename warning, past ranks, checked data facts, undecided items and start-of-chat steps existed only in the chat. Wrote them to HANDOFF.md, which is git-ignored because it holds local paths.
+
+Decision / Dropped (if any):
+HANDOFF.md is kept out of git rather than committed, because it contains absolute local paths and it is not a graded file. Also noted that Git Bash TZ=Asia/Kolkata gave the wrong time on this machine; timestamps come from Python instead.
+
+Actions:
+* Wrote HANDOFF.md; added it to .gitignore
+* Generated docs/Acadza_Playbook.pdf from docs/PLAYBOOK.md
+* Appended this entry to log.txt
+
+Context:
+tool=Claude Code
+branch=unknown
+parent_agent=none
+
+## [2026-11-10T21:37:04+05:30] SESSION START
+
+tool=Claude Code
+Repo Root: acadza
+Branch: unknown (git not initialised yet)
+Worktree: main
+Parent Agent: none
+Time Remaining: 1d 2h 21m
+Note: continuation from a previous Claude Code chat (handoff via HANDOFF.md).
+## [2026-11-10T21:38:38+05:30] Resume from handoff; build Phase 0 hand-labelling worksheet
+
+User Prompt (verbatim, secrets redacted):
+Read HANDOFF.md, then AGENTS.md and docs/PLAYBOOK.md, then the end of log.txt. Add a SESSION START entry to log.txt and continue from Phase 0.
+
+Agent Response Summary:
+Read HANDOFF.md, AGENTS.md, docs/PLAYBOOK.md, BRIEF.md and the log (the files are in the acadza/ subfolder, not the folder root). Appended a SESSION START entry. Phase 0 is the user reading and hand-labelling all 44 reports, so built a worksheet to make that fast: 39 reported questions rendered with their 44 reports and a blank label form each, plus the 4 unreported questions for the bonus pass. Checked it renders in the browser with MathML and no console errors.
+
+Decision / Dropped (if any):
+The worksheet suggests no labels; it only shows the data and one date comparison (updatedAt vs reportedAt). Dropped the idea of AI-drafted labels, since the eval gate would then grade the AI against itself. Recorded in docs/DECISIONS.md.
+
+Actions:
+* Appended SESSION START to log.txt
+* Wrote eval/make_worksheet.py; ran it to generate eval/worksheet.html
+* Opened eval/worksheet.html in the browser pane to check rendering
+* Appended entry to docs/DECISIONS.md
+
+Context:
+tool=Claude Code
+branch=unknown
+parent_agent=none
+
