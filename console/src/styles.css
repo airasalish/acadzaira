@@ -122,3 +122,20 @@ details summary { cursor: pointer; color: var(--muted); font-size: 14px; margin-
   .diff.text { grid-template-columns: 1fr; }
   .keys { display: none; }
 }
+
+/* --- polish: calmer header, centred reading column, roomier queue --- */
+header { flex-wrap: nowrap; gap: 16px; padding: 12px 20px; }
+header .btn { margin-left: 0; white-space: nowrap; padding: 6px 12px; font-size: 13px; }
+.brand, .progress, .who { white-space: nowrap; }
+.keys { white-space: nowrap; }
+@media (max-width: 1250px) { .keys { display: none; } .who { margin-left: auto; } }
+@media (max-width: 800px) { header { flex-wrap: wrap; } .who { display: none; } header .btn { margin-left: auto; } }
+main { align-items: center; }
+main > .card { width: 100%; max-width: 900px; padding: 18px 22px; }
+.card.head { border-left: 4px solid var(--amber); }
+.evidence { line-height: 1.55; }
+.item { padding: 9px 16px; }
+.item .i-c { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.35; }
+.g-why { padding: 6px 16px 2px; letter-spacing: .01em; }
+.actions { position: sticky; bottom: 0; background: var(--panel); padding: 12px 0 2px; }
+.actions .btn { padding: 10px 20px; }
