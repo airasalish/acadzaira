@@ -133,7 +133,7 @@ function Diff({ row, q }) {
   );
 }
 
-function Trust({ rec, q }) {
+function Trust({ rec, q, hideKey }) {
   if (!rec) return null;
   const failed = rec.checks.filter((c) => !c.passed);
   const sa = rec.solves.solve_a, sb = rec.solves.solve_b;
@@ -150,11 +150,11 @@ function Trust({ rec, q }) {
   );
   return (
     <div className="trust">
-      <div className="tiles">
+      <div className={`tiles ${hideKey ? "three" : ""}`}>
         <Tile label="Independent solve 1" value={okA ? fmt(sa.answer) : "—"} tone={okA ? "good" : "muted"} note={okA ? "did not see the key" : "not available"} />
         <Tile label="Independent solve 2" value={okB ? fmt(sb.answer) : "—"} tone={okB ? "good" : "muted"} note={okB ? "did not see the key" : "not available"} />
         <Tile label="Stored solution ends at" value={fmt(rec.solution_final)} tone="plain" />
-        <Tile label="Stored answer key" value={fmtKey(key)} tone={keyOff ? "bad" : "plain"} note={keyOff ? "disagrees with both solves" : agree ? "matches both solves" : null} />
+        {!hideKey && <Tile label="Stored answer key" value={fmtKey(key)} tone={keyOff ? "bad" : "plain"} note={keyOff ? "disagrees with both solves" : agree ? "matches both solves" : null} />}
       </div>
       <div className="checks">
         {failed.length === 0
@@ -335,15 +335,15 @@ export default function App() {
               <h1>{headline(row)}</h1>
               {row.edit && row.edit.field === "answer" && (
                 <div className="keychange">
-                  <div className="kc old"><small>Stored key · current</small><b>{fmtKey(row.edit.find)}</b></div>
+                  <div className="kc old"><small>Stored key · current</small><b>{fmtKey(row.edit.find)}</b><em>what students are marked against today</em></div>
                   <div className="kc-arrow">→</div>
-                  <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b></div>
+                  <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>what the evidence below supports</em></div>
                 </div>
               )}
               {(() => { const ev = splitEvidence(row.evidence); return (
                 <>
                   {!(row.edit && row.edit.field === "answer") && stripSolves(ev.main) && <p className="evidence">{stripSolves(ev.main)}</p>}
-                  <Trust rec={rec} q={q} />
+                  <Trust rec={rec} q={q} hideKey={!!(row.edit && row.edit.field === "answer")} />
                   <div className="notes">
                     <span className="conf">Engine confidence {Math.round(row.confidence * 100)}%</span>
                     {ev.why && <span>Nothing is applied automatically yet, so this waits for you</span>}
@@ -403,7 +403,7 @@ export default function App() {
                 ? <EditBox row={row} onSave={(v) => act("edit", v)} onCancel={() => setEditing(false)} />
                 : (
                   <>
-                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : <>{NEXT[row.route]}</>}</div>
+                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : <><b>{group?.rows.length} student{group?.rows.length > 1 ? "s" : ""}</b> reported this question{row.edit ? ". Approving accepts the change shown above." : "."}</>}</div>
                     <button className="btn danger" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
                     <button className="btn" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
                     <button className="btn primary" onClick={() => act("approve")}>{row.edit ? "Approve change" : "Approve"} <kbd>A</kbd></button>

@@ -193,3 +193,11 @@ header .btn { padding: 7px 14px; font-size: 13px; }
 .diff.key .old { text-decoration: none; }
 .i-c { font-size: 13px; }
 .g-meta { cursor: default; }
+
+/* ---------- tweaks: key shown once, full chapter line in the queue ---------- */
+.tiles.three { grid-template-columns: repeat(3, 1fr); }
+.kc em { font-style: normal; font-size: 12.5px; opacity: .9; margin-top: 2px; }
+.kc { min-width: 230px; }
+.g-head { flex-wrap: wrap; row-gap: 4px; padding-bottom: 8px; }
+.g-count { margin-left: auto; color: var(--muted); }
+.g-meta { order: 3; flex: 0 0 100%; white-space: normal; font-size: 13px; color: var(--ink); font-weight: 600; line-height: 1.35; }
