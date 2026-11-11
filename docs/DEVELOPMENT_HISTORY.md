@@ -1,8 +1,8 @@
 # Development history
 
-**What this is.** A curated account of how this submission was built, compiled on 12 Nov 2026 by Claude Code at the candidate's request from five local Claude Code session transcripts, `log.txt`, and the git history. Quotes are verbatim from those transcripts. It is a selection, not every message: routine tool output, repeated status checks and off-topic exchanges are left out. The raw transcripts stay on the candidate's machine and are not committed.
+**What this is.** A curated account of how this submission was built, compiled on 12 Nov 2026 with the AI coding assistant, at the candidate's request, from five local Claude Code session transcripts, `log.txt`, and the git history. Quotes are verbatim from those transcripts. It is a selection, not every message: routine tool output, repeated status checks and off-topic exchanges are left out. The raw transcripts stay on the candidate's machine and are not committed.
 
-**How the work was run.** Aira directed two Claude Code sessions side by side for most of the build: a *build* session that wrote the code, and a forked *review* session that read the builder's output, pointed out gaps and drafted replies. Aira chose what to send back. Prompts quoted here are as sent to the build session; several were drafted in the review session first. A third short session published the repository when the account was switched late on 11 Nov.
+**How the work was run.** Aira directed two AI assistant sessions side by side for most of the build: a *build* session that wrote the code, and a forked *review* session that read the builder's output, pointed out gaps and drafted replies. Aira chose what to send back. Prompts quoted here are as sent to the build session; several were drafted in the review session first. A third short session published the repository when the account was switched late on 11 Nov.
 
 All times are IST.
 
@@ -56,7 +56,7 @@ A problem found here: the first LaTeX pattern matched only `\frac`, so the check
 ## 5. LLM stages and safety rules (10 Nov, 22:43–22:54)
 
 - Three open choices were settled: classifier-only findings (spelling, notation) never auto-apply; the second blind solve runs on every question; one model per provider.
-- The four product prompts were drafted by Claude Code on request and saved as `prompts/*.v1.md`. The classifier prompt returns observations only; `engine/decide.py` sets verdict, repair and route. Student comments reach the model inside `<untrusted_comment>`.
+- The four product prompts were drafted by the AI assistant on request and saved as `prompts/*.v1.md`. The classifier prompt returns observations only; `engine/decide.py` sets verdict, repair and route. Student comments reach the model inside `<untrusted_comment>`.
 - A rule conflict surfaced and was resolved in favour of the rulebook: a failed LLM output must go to a teacher with the reason, so a non-defect may be routed to review only when the run record shows that failure.
 - One product rule was put as a question and answered: a defect that changes what a student can answer correctly attaches to every report on that question, whatever the comment says.
 - A plumbing run with stub responses passed the gate (684 checks). It proved the code path, not accuracy.
