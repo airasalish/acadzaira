@@ -261,3 +261,31 @@ code { font: 11.5px var(--mono); background: var(--sunken); padding: 1px 5px; bo
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 .sec-h { flex-direction: column; align-items: flex-start; gap: 0; }
 .sec-h.toggle { flex-direction: row; align-items: baseline; }
+
+/* ---------- final refinement pass ---------- */
+/* 1. wider review column, slimmer details rail */
+.work { grid-template-columns: minmax(0, 1fr) 272px; gap: 0 24px; max-width: 1240px; }
+.props { grid-template-columns: 118px 1fr; }
+.meter { width: 48px; }
+/* 2. change summary */
+.summary { margin: 14px 0 0; padding: 10px 14px; border-radius: 8px; background: var(--sunken); font-size: 14px; color: var(--text); line-height: 1.6; }
+.block .summary { margin: 0 0 14px; }
+.summary b { color: var(--ink); font-weight: 600; }
+.s-old { color: var(--red); background: var(--red-soft); padding: 1px 7px; border-radius: 5px; font-weight: 600; }
+.s-new { color: var(--green); background: var(--green-soft); padding: 1px 7px; border-radius: 5px; font-weight: 600; }
+/* 4. queue: full titles, two-line comments, clear selection, counts always visible */
+.g-head { align-items: start; padding: 6px 8px 3px; }
+.g-tag { margin-top: 5px; }
+.g-meta { white-space: normal; overflow: visible; line-height: 1.35; font-size: 13px; }
+.g-count { white-space: nowrap; font-weight: 500; color: var(--muted); padding: 0 7px; border-radius: 99px; background: var(--sunken); line-height: 18px; }
+.item { align-items: start; padding: 7px 8px 7px 24px; }
+.i-id { padding-top: 3px; }
+.i-c, .item.active .i-c { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.item.active { background: var(--surface); color: var(--ink); box-shadow: inset 3px 0 0 var(--blue), 0 0 0 1px var(--rule-strong), 0 2px 6px rgba(29,28,26,.07); font-weight: 500; }
+.i-st { padding-top: 2px; white-space: nowrap; }
+aside { padding-bottom: 64px; }
+/* 5. reading comfort */
+.tl-t { font-size: 14.5px; }
+.tl-n { font-size: 13px; }
+.qhtml { font-size: 16.5px; }
+.qhtml h3, .qhtml p { font-size: 16.5px; }

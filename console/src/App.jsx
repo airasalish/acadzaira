@@ -90,6 +90,7 @@ const splitEvidence = (text) => {
 const stripSolves = (t) => t.replace(/\s*Blind solve A = [^.]*stored key = [^.]*\./, "").trim();
 const EMPH = /(looks wrong|missing or blank|identical|is missing|missing or unusable|wrong step|missing or wrong|Spelling mistake|No error found|content is fine|not this question|Already fixed|Nothing actionable)/;
 const emph = (t) => { const m = (t || "").match(EMPH); if (!m) return t; const i = m.index; return <>{t.slice(0, i)}<span className="em">{m[0]}</span>{t.slice(i + m[0].length)}</>; };
+const plain = (h) => String(h ?? "").replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 // ---------------------------------------------------------------- components
@@ -367,16 +368,18 @@ export default function App() {
               <h1>{emph(headline(row))}</h1>
               {lede && <p className="lede">{lede}</p>}
 
-              {isKey && (
+              {isKey && (<>
                 <div className="keychange">
                   <div className="kc old"><small>Stored key</small><b>{fmtKey(row.edit.find)}</b><em>marked against today</em></div>
                   <div className="kc-arrow" aria-hidden="true">→</div>
                   <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>supported by the evidence</em></div>
                 </div>
-              )}
+                <p className="summary"><b>Change:</b> answer key <span className="s-old">{fmtKey(row.edit.find)}</span> → <span className="s-new">{fmtKey(row.edit.replace)}</span>. The question text, options and solution stay as they are.</p>
+              </>)}
               {!isKey && (
                 <section className="block">
                   <h3>Proposed change</h3>
+                  {row.edit && <p className="summary"><b>Change:</b> in the {row.edit.field}, <span className="s-old">{plain(row.edit.find) || "(markup only)"}</span> → <span className="s-new">{plain(row.edit.replace) || "(removed)"}</span>. Nothing else is touched.</p>}
                   <Diff row={row} q={q} />
                 </section>
               )}
@@ -402,12 +405,13 @@ export default function App() {
                 <dl className="props">
                   <dt>Status</dt><dd><Chip kind={row.route}>{NEXT[row.route]}</Chip></dd>
                   <dt>Finding</dt><dd>{VERDICT_LABEL[row.verdict] || row.verdict}{row.repair ? ` · ${SHORT[row.repair] || row.repair}` : ""}</dd>
-                  <dt>Confidence</dt><dd><span className="meter"><i style={{ width: `${Math.round(row.confidence * 100)}%` }} /></span>{Math.round(row.confidence * 100)}%</dd>
+                  <dt title="The engine's own estimate from its rules. It is not measured accuracy.">Engine confidence</dt><dd><span className="meter"><i style={{ width: `${Math.round(row.confidence * 100)}%` }} /></span>{Math.round(row.confidence * 100)}%</dd>
                   <dt>Reports</dt><dd>{n}</dd>
                   <dt>Subject</dt><dd>{q?.subject}</dd>
                   <dt>Chapter</dt><dd>{q?.chapter}</dd>
                   <dt>Type</dt><dd>{qtype}</dd>
                 </dl>
+                <p className="fine">Engine confidence is the engine's own estimate, not measured accuracy.</p>
                 {ev.why && <p className="fine">Nothing is applied automatically yet, so every change waits for a teacher.</p>}
                 {ev.missing && <details className="fine"><summary>Some automatic steps were unavailable</summary><div>{ev.missing}</div></details>}
               </section>
