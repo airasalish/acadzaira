@@ -11,3 +11,7 @@ _source/
 engine/out/*.fake.json
 engine/out/*.partial.json
 eval/*.fake.json
+engine/out/questions.fixed.json
+engine/out/apply_report.json
+engine/out/*.banked.json
+engine/out/full_run.log

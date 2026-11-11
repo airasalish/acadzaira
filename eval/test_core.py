@@ -126,6 +126,27 @@ def test_replies():
     assert not reply_errors("mu = 0.4 is close. Check step 2. Thanks!", "no_change")
 
 
+def test_apply_change_set():
+    from engine.apply import apply_changes
+    qid = "60f744b3f1b9bc7cc7b4a949"                      # stored key C
+    key = QBY[qid]["scq"]["answer"]
+    ok = {"questionId": qid, "reportId": "T1", "repair": "answer_key", "field": "answer", "find": key, "replace": "A"}
+    patched, rep = apply_changes(QBY, [ok, dict(ok, reportId="T2")], TAX)
+    assert [r["status"] for r in rep] == ["applied", "already_applied"], rep
+    assert patched[qid]["scq"]["answer"] == "A" and QBY[qid]["scq"]["answer"] == key   # original untouched
+    # stale find, out-of-scope field, conflicting second change, and a spelling edit on the answer are all refused
+    bad = [dict(ok, find="B"), dict(ok, repair="exam_reference"), dict(ok, repair="identical_options")]
+    for ch in bad:
+        _, rep = apply_changes(QBY, [ch], TAX)
+        assert rep[0]["status"] == "refused", rep
+    _, rep = apply_changes(QBY, [ok, dict(ok, reportId="T3", replace="B")], TAX)
+    assert rep[1]["status"] == "refused"
+    tag = {"questionId": "617fa18efd53ff1629ed890f", "reportId": "T4", "repair": "exam_reference",
+           "field": "question", "find": "(NEET 2019) ", "replace": ""}
+    patched, rep = apply_changes(QBY, [tag], TAX)
+    assert rep[0]["status"] == "applied" and "(NEET 2019)" not in patched[tag["questionId"]]["scq"]["question"]
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     tests = [v for k, v in globals().items() if k.startswith("test_")]

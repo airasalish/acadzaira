@@ -26,6 +26,14 @@ python -m eval.test_core                 # unit tests for parser, edits, guards,
 ```
 If an LLM call fails, `engine.run` keeps the banked `results.json` and writes `engine/out/results.partial.json`; rows whose LLM steps failed are routed to `faculty_review` with the reason, never dropped.
 
+## Applying approved changes
+Approving in the console records a decision in that browser only; nothing is written to any question bank. To turn decisions into fixed data, use **Audit log → Export approved changes** in the console, then:
+
+```bash
+python -m engine.apply acadza-approved-changes.json   # writes engine/out/questions.fixed.json + apply_report.json
+```
+Each change is re-checked before it is applied (allowed field for the repair type, `find` matches exactly once, markup still valid). A change that fails is refused and listed in the report. `data/questions.json` is never modified.
+
 ## Live console
 https://acadza-review-console.vercel.app
 

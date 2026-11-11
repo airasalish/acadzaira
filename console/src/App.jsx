@@ -218,6 +218,8 @@ export default function App() {
   const [editing, setEditing] = useState(false);
   const [showDone, setShowDone] = useState(false);
   const [toast, setToast] = useState(null);
+  const [view, setView] = useState("queue");
+  const [filt, setFilt] = useState("todo");
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(null), 1800); return () => clearTimeout(t); }, [toast]);
   const [theme, setTheme] = useState(() => load("acadza-theme", null));
   useEffect(() => {
@@ -271,7 +273,7 @@ export default function App() {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (!model || editing || !name || ["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
+      if (!model || editing || !name || view !== "queue" || ["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
       const i = model.order.indexOf(sel);
       const k = e.key.toLowerCase();
       if (k === "j") setSel(model.order[Math.min(i + 1, model.order.length - 1)]);
@@ -302,6 +304,45 @@ export default function App() {
     a.href = URL.createObjectURL(blob); a.download = "acadza-audit.json"; a.click();
   };
 
+  const download = (obj, file) => {
+    const blob = new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = file; a.click();
+  };
+  // Latest decision per report; approved or edited rows that carry an edit become a change set.
+  const changeSet = () => {
+    const last = {};
+    for (const a of audit) last[a.reportId] = a;
+    const out = [];
+    for (const a of Object.values(last)) {
+      const r = model.rowBy[a.reportId];
+      if (!r || !r.edit || a.action === "reject") continue;
+      let replace = r.edit.replace;
+      if (a.action === "edit") {
+        if (Array.isArray(r.edit.replace)) { try { replace = JSON.parse(a.after); } catch { continue; } }
+        else replace = a.after;
+      }
+      out.push({ questionId: r.questionId, reportId: r.reportId, repair: r.repair, field: r.edit.field, find: r.edit.find, replace, decidedBy: a.actor, decidedAt: a.at, action: a.action });
+    }
+    return out;
+  };
+  const lists = model ? {
+    todo: model.urgent,
+    key: model.urgent.filter((g) => g.top.repair === "answer_key"),
+    calm: model.calm,
+    all: [...model.urgent, ...model.calm],
+  } : { todo: [], key: [], calm: [], all: [] };
+  const FILTERS = [["todo", "To review"], ["key", "Answer key"], ["calm", "No change"], ["all", "All"]];
+  const visible = lists[filt] || [];
+  if (model && sel && filt !== "all" && !visible.some((g) => g.rows.some((r) => r.reportId === sel))) setTimeout(() => setFilt("all"), 0);
+  const pickFilt = (k) => {
+    setFilt(k);
+    const l = lists[k] || [];
+    if (l.length && !l.some((g) => g.rows.some((r) => r.reportId === sel))) { setSel(l[0].rows[0].reportId); setEditing(false); }
+  };
+  const pos = model ? model.order.indexOf(sel) + 1 : 0;
+  const step = (d) => { const i = model.order.indexOf(sel); const n = model.order[Math.min(Math.max(i + d, 0), model.order.length - 1)]; setSel(n); setEditing(false); detailRef.current?.scrollTo({ top: 0 }); };
+
   const Group = ({ g }) => {
     const gq = model.qby[g.qid];
     const pending = g.rows.filter((r) => !status[r.reportId]).length;
@@ -331,24 +372,70 @@ export default function App() {
       {!name && <NamePrompt onSet={(n) => { setName(n); save(NAME_KEY, n); }} />}
       {toast && <div key={toast.id} className={`toast toast-${toast.action}`} role="status">{toast.action === "approve" ? "Approved" : toast.action === "reject" ? "Rejected" : "Edit saved"} · {toast.reportId} · logged to audit</div>}
       <header>
-        <div className="brand"><span className="logo">A</span>Acadza <span>Question Review</span></div>
+        <div className="brand"><span className="logo">A</span>Acadza<span>Question Review</span></div>
+        <nav className="tabs">
+          <button className={view === "queue" ? "on" : ""} onClick={() => setView("queue")}>Review queue <i>{data.results.length - done}</i></button>
+          <button className={view === "audit" ? "on" : ""} onClick={() => setView("audit")}>Audit log <i>{audit.length}</i></button>
+        </nav>
         <div className="progress"><div className="bar"><i style={{ width: `${(100 * done) / data.results.length}%` }} /></div><b>{done}</b> of {data.results.length} reports reviewed</div>
-        <div className="who">{name && <>Reviewing as <b>{name}</b></>}</div>
+        <div className="who">{name && <><span className="avatar">{name.slice(0, 1).toUpperCase()}</span>{name}</>}</div>
         <button className="btn ghost" onClick={toggleTheme} title="Switch between light and dark">{isDark ? "☀ Light" : "☾ Dark"}</button>
         <button className="btn" onClick={exportAudit}>Export audit (JSON)</button>
       </header>
 
+      {view === "audit" ? (
+        <div className="auditview">
+          <div className="av-head">
+            <div>
+              <h2>Audit log</h2>
+              <p>Every Approve, Edit and Reject made in this browser. Decisions are stored locally; nothing is written to the question bank from this console.</p>
+            </div>
+            <div className="av-actions">
+              <button className="btn" onClick={() => download(changeSet(), "acadza-approved-changes.json")} disabled={changeSet().length === 0}>Export approved changes ({changeSet().length})</button>
+              <button className="btn primary" onClick={exportAudit} disabled={audit.length === 0}>Export audit (JSON)</button>
+            </div>
+          </div>
+          {audit.length === 0 ? (
+            <div className="empty">No decisions yet. Open the review queue and approve, edit or reject a report.</div>
+          ) : (
+            <div className="tablewrap">
+              <table className="table">
+                <thead><tr><th>When</th><th>Reviewer</th><th>Report</th><th>Decision</th><th>Finding</th><th>Change</th></tr></thead>
+                <tbody>
+                  {[...audit].reverse().map((a, i) => (
+                    <tr key={i} onClick={() => { setSel(a.reportId); setView("queue"); }}>
+                      <td className="num">{new Date(a.at).toLocaleString()}</td>
+                      <td>{a.actor}</td>
+                      <td><span className="rid">{a.reportId}</span></td>
+                      <td><span className={`pill pill-${a.action}`}>{a.action === "approve" ? "Approved" : a.action === "reject" ? "Rejected" : "Edited"}</span></td>
+                      <td>{VERDICT_LABEL[a.verdict] || a.verdict}{a.repair ? ` · ${SHORT[a.repair] || a.repair}` : ""}</td>
+                      <td>{a.before != null || a.after != null ? <><code>{plain(fmtKey(a.before)) || "—"}</code> → <code>{plain(fmtKey(a.after)) || "—"}</code></> : <span className="dim">No content change</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      ) : (
+      <>
       <aside>
-        <div className="sec-h">Needs your decision <span>{model.urgent.length} questions · most urgent first</span></div>
-        {model.urgent.map((g) => <Group key={g.qid} g={g} />)}
-        <button className="sec-h toggle" onClick={() => setShowDone(!showDone)}>
-          {showDone ? "▾" : "▸"} No content change <span>{model.calm.length} questions</span>
-        </button>
-        {showDone && model.calm.map((g) => <Group key={g.qid} g={g} />)}
+        <div className="p-head">
+          <div className="p-title">Queue<span>{visible.length} question{visible.length === 1 ? "" : "s"} · most urgent first</span></div>
+          <div className="seg" role="tablist">
+            {FILTERS.map(([k, label]) => (
+              <button key={k} role="tab" aria-selected={filt === k} className={filt === k ? "on" : ""} onClick={() => pickFilt(k)}>{label}<i>{lists[k].length}</i></button>
+            ))}
+          </div>
+        </div>
+        <div className="p-body">
+          {visible.map((g) => <Group key={g.qid} g={g} />)}
+          {visible.length === 0 && <div className="empty">Nothing in this view.</div>}
+        </div>
         <div className="hint"><span><kbd>J</kbd><kbd>K</kbd> move</span><span><kbd>A</kbd> approve</span><span><kbd>E</kbd> edit</span><span><kbd>R</kbd> reject</span></div>
       </aside>
 
-      <main ref={detailRef}>
+      <main>
         {row && (() => {
           const ev = splitEvidence(row.evidence);
           const isKey = !!(row.edit && row.edit.field === "answer");
@@ -357,59 +444,96 @@ export default function App() {
           const lede = isKey
             ? <>Students are currently marked against <b>{fmtKey(row.edit.find)}</b>. The evidence points to <b>{fmtKey(row.edit.replace)}</b>.</>
             : stripSolves(ev.main);
+          const impact = row.verdict !== "defect" ? ["calm", "No content change"]
+            : row.repair === "answer_key" ? ["high", "Affects marking"]
+            : ["option_repair", "identical_options", "unsound", "stem_data", "type_mismatch", "diagram", "wrong_question"].includes(row.repair) ? ["mid", "Affects answering"]
+            : ["low", "Wording or presentation"];
+          const conf = Math.round(row.confidence * 100);
           return (
-          <div className="work" key={row.reportId}>
-            <article className="doc">
-              <div className="eyebrow">
-                <span className={`tag ${row.verdict === "defect" ? "tag-attn" : "tag-calm"}`}>{issueTag(row)}</span>
-                <span className="rid">{row.reportId}</span>
-                <span className="crumbs">{q?.subject} · {q?.chapter}</span>
-              </div>
-              <h1>{emph(headline(row))}</h1>
-              {lede && <p className="lede">{lede}</p>}
+          <>
+          <section className="review">
+            <div className="toolbar">
+              <span className="rid">{row.reportId}</span>
+              <span className="crumbs">{q?.subject} <em>/</em> {q?.chapter} <em>/</em> {qtype}</span>
+              <span className="pos">{pos} of {model.order.length}</span>
+              <button className="btn icon" onClick={() => step(-1)} title="Previous report (K)" aria-label="Previous report">↑</button>
+              <button className="btn icon" onClick={() => step(1)} title="Next report (J)" aria-label="Next report">↓</button>
+            </div>
 
-              {isKey && (<>
-                <div className="keychange">
-                  <div className="kc old"><small>Stored key</small><b>{fmtKey(row.edit.find)}</b><em>marked against today</em></div>
-                  <div className="kc-arrow" aria-hidden="true">→</div>
-                  <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>supported by the evidence</em></div>
+            <div className="scroll" ref={detailRef} key={row.reportId}>
+              <div className="finding">
+                <div className="f-kicker"><span className={`tag ${row.verdict === "defect" ? "tag-attn" : "tag-calm"}`}>{issueTag(row)}</span><span>Finding</span></div>
+                <h1>{headline(row)}</h1>
+                {lede && <p className="lede">{lede}</p>}
+                <div className="signals">
+                  <div className={`sig sig-${row.route}`}><small>Status</small><b>{NEXT[row.route]}</b></div>
+                  <div className={`sig sig-impact-${impact[0]}`}><small>Impact</small><b>{impact[1]}</b></div>
+                  <div className="sig sig-conf" title="The engine's own estimate from its rules. It is not measured accuracy."><small>Engine confidence</small><b>{conf}%<span className="meter"><i style={{ width: `${conf}%` }} /></span></b></div>
+                  <div className="sig"><small>Reported by</small><b>{n} student{n > 1 ? "s" : ""}</b></div>
                 </div>
-                <p className="summary"><b>Change:</b> answer key <span className="s-old">{fmtKey(row.edit.find)}</span> → <span className="s-new">{fmtKey(row.edit.replace)}</span>. The question text, options and solution stay as they are.</p>
-              </>)}
-              {!isKey && (
-                <section className="block">
-                  <h3>Proposed change</h3>
-                  {row.edit && <p className="summary"><b>Change:</b> in the {row.edit.field}, <span className="s-old">{plain(row.edit.find) || "(markup only)"}</span> → <span className="s-new">{plain(row.edit.replace) || "(removed)"}</span>. Nothing else is touched.</p>}
-                  <Diff row={row} q={q} />
-                </section>
-              )}
+              </div>
 
-              <section className="block">
-                <h3>Evidence</h3>
-                <Trust rec={rec} q={q} n={n} comment={model.rby[row.reportId]?.comment} />
+              <section className="sect">
+                <header className="sect-h"><h3>Proposed correction</h3><span>{row.edit ? `Field: ${row.edit.field}` : "No edit"}</span></header>
+                <div className="sect-b">
+                  {isKey ? (<>
+                    <div className="keychange">
+                      <div className="kc old"><small>Before · stored key</small><b>{fmtKey(row.edit.find)}</b><em>marked against today</em></div>
+                      <div className="kc-arrow" aria-hidden="true">→</div>
+                      <div className="kc new"><small>After · proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>supported by the evidence</em></div>
+                    </div>
+                    <p className="summary"><b>Change:</b> answer key <span className="s-old">{fmtKey(row.edit.find)}</span> → <span className="s-new">{fmtKey(row.edit.replace)}</span>. The question text, options and solution stay as they are.</p>
+                  </>) : (<>
+                    {row.edit && <p className="summary"><b>Change:</b> in the {row.edit.field}, <span className="s-old">{plain(row.edit.find) || "(markup only)"}</span> → <span className="s-new">{plain(row.edit.replace) || "(removed)"}</span>. Nothing else is touched.</p>}
+                    <Diff row={row} q={q} />
+                  </>)}
+                </div>
               </section>
 
-              <section className="block question">
-                <h3>Question as students see it</h3>
-                <Html className="qhtml" html={body(q).question} />
-                <details>
-                  <summary>Stored solution · key {fmtKey(body(q).answer)}</summary>
-                  <Html className="qhtml" html={body(q).solution} />
-                </details>
+              <section className="sect">
+                <header className="sect-h"><h3>Evidence</h3><span>What was checked, in order</span></header>
+                <div className="sect-b"><Trust rec={rec} q={q} n={n} comment={model.rby[row.reportId]?.comment} /></div>
               </section>
-            </article>
 
-            <div className="rail">
+              <section className="sect">
+                <header className="sect-h"><h3>Question as students see it</h3><span>{qtype} · stored key {fmtKey(body(q).answer)}</span></header>
+                <div className="sect-b question">
+                  <Html className="qhtml" html={body(q).question} />
+                  <details>
+                    <summary>Stored solution</summary>
+                    <Html className="qhtml" html={body(q).solution} />
+                  </details>
+                </div>
+              </section>
+            </div>
+
+            <div className="actionbar">
+              {editing
+                ? <EditBox row={row} onSave={(v) => act("edit", v)} onCancel={() => setEditing(false)} />
+                : (
+                  <>
+                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : isKey ? <>Approving records the key change <b>{fmtKey(row.edit.find)}</b> → <b>{fmtKey(row.edit.replace)}</b> in the audit log.</> : row.edit ? <>Approving records the change shown above in the audit log.</> : <>No content change is proposed for this report.</>}</div>
+                    <button className="btn" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
+                    <button className="btn" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
+                    <button className="btn primary" onClick={() => act("approve")}>{row.edit ? "Approve change" : "Approve"} <kbd>A</kbd></button>
+                  </>
+                )}
+            </div>
+          </section>
+
+          <section className="context">
+            <div className="p-head"><div className="p-title">Context</div></div>
+            <div className="p-body">
               <section className="panel">
                 <h3>Details</h3>
                 <dl className="props">
-                  <dt>Status</dt><dd><Chip kind={row.route}>{NEXT[row.route]}</Chip></dd>
-                  <dt>Finding</dt><dd>{VERDICT_LABEL[row.verdict] || row.verdict}{row.repair ? ` · ${SHORT[row.repair] || row.repair}` : ""}</dd>
-                  <dt title="The engine's own estimate from its rules. It is not measured accuracy.">Engine confidence</dt><dd><span className="meter"><i style={{ width: `${Math.round(row.confidence * 100)}%` }} /></span>{Math.round(row.confidence * 100)}%</dd>
-                  <dt>Reports</dt><dd>{n}</dd>
+                  <dt>Verdict</dt><dd>{VERDICT_LABEL[row.verdict] || row.verdict}</dd>
+                  <dt>Repair type</dt><dd>{row.repair ? (SHORT[row.repair] || row.repair) : "None"}</dd>
+                  <dt>Route</dt><dd><Chip kind={row.route}>{NEXT[row.route]}</Chip></dd>
                   <dt>Subject</dt><dd>{q?.subject}</dd>
                   <dt>Chapter</dt><dd>{q?.chapter}</dd>
                   <dt>Type</dt><dd>{qtype}</dd>
+                  <dt>Question ID</dt><dd><code>{row.questionId.slice(0, 8)}…</code></dd>
                 </dl>
                 <p className="fine">Engine confidence is the engine's own estimate, not measured accuracy.</p>
                 {ev.why && <p className="fine">Nothing is applied automatically yet, so every change waits for a teacher.</p>}
@@ -422,48 +546,38 @@ export default function App() {
               </section>
 
               <section className="panel">
-                <h3>Reports on this question · {n}</h3>
+                <h3>Reports on this question <i>{n}</i></h3>
                 {group?.rows.map((r) => {
                   const rep = model.rby[r.reportId];
                   return (
-                    <div key={r.reportId} className={`rep ${r.reportId === sel ? "me" : ""}`}>
+                    <button key={r.reportId} className={`rep ${r.reportId === sel ? "me" : ""}`} onClick={() => { setSel(r.reportId); setEditing(false); }}>
                       <span className="i-id">{r.reportId}</span>
                       <span className="rep-c">“{rep?.comment || "(empty)"}”</span>
                       <span className="rep-m"><i>{rep?.source}</i>{rep?.reportedAt?.slice(0, 10)}</span>
-                    </div>
+                    </button>
                   );
                 })}
               </section>
 
-              {mine.length > 0 && (
-                <section className="panel">
-                  <h3>Audit trail</h3>
+              <section className="panel">
+                <h3>Audit trail <i>{mine.length}</i></h3>
+                {mine.length === 0 ? <p className="fine">No decision recorded for this report yet.</p> : (
                   <ul className="audit">
                     {mine.map((a, i) => (
                       <li key={i}><b>{a.action === "approve" ? "Approved" : a.action === "reject" ? "Rejected" : "Edited"}</b> by {a.actor}<span>{new Date(a.at).toLocaleString()}</span>
-                        {a.after != null && <span><code>{fmtKey(a.before)}</code> → <code>{fmtKey(a.after)}</code></span>}</li>
+                        {a.after != null && <span><code>{plain(fmtKey(a.before)) || "—"}</code> → <code>{plain(fmtKey(a.after))}</code></span>}</li>
                     ))}
                   </ul>
-                </section>
-              )}
-            </div>
-
-            <div className="actionbar">
-              {editing
-                ? <EditBox row={row} onSave={(v) => act("edit", v)} onCancel={() => setEditing(false)} />
-                : (
-                  <>
-                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : isKey ? <>Approving changes the key from <b>{fmtKey(row.edit.find)}</b> to <b>{fmtKey(row.edit.replace)}</b>.</> : row.edit ? <>Approving accepts the change shown above.</> : <>No content change is proposed for this report.</>}</div>
-                    <button className="btn quiet" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
-                    <button className="btn quiet" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
-                    <button className="btn primary" onClick={() => act("approve")}>{row.edit ? "Approve change" : "Approve"} <kbd>A</kbd></button>
-                  </>
                 )}
+              </section>
             </div>
-          </div>
+          </section>
+          </>
           );
         })()}
       </main>
+      </>
+      )}
     </div>
   );
 }
