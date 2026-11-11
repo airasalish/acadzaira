@@ -135,39 +135,44 @@ function Diff({ row, q }) {
   );
 }
 
-function Trust({ rec, q, hideKey }) {
+function Trust({ rec, q, n, comment }) {
   if (!rec) return null;
   const failed = rec.checks.filter((c) => !c.passed);
   const sa = rec.solves.solve_a, sb = rec.solves.solve_b;
   const okA = sa && !sa.error && sa.answer != null, okB = sb && !sb.error && sb.answer != null;
   const agree = okA && okB && same(sa.answer, sb.answer);
   const key = body(q).answer;
-  const keyOff = agree && !same([].concat(sa.answer).map(String), [].concat(key).map(String));
-  const Tile = ({ label, value, tone, note }) => (
-    <div className={`tile tile-${tone}`}>
-      <div className="tile-l">{label}</div>
-      <div className="tile-v">{value}</div>
-      {note && <div className="tile-n">{note}</div>}
-    </div>
-  );
+  const norm = (v) => [].concat(v).map(String);
+  const keyOff = agree && !same(norm(sa.answer), norm(key));
+  const solOk = agree && rec.solution_final != null && same(norm(rec.solution_final), norm(sa.answer));
+  const steps = [
+    { st: "info", t: `${n} student report${n > 1 ? "s" : ""}`, note: comment ? `“${comment}”` : "No comment text" },
+    failed.length === 0
+      ? { st: "ok", t: "Automatic checks on the question", v: `${rec.checks.length} passed` }
+      : { st: "warn", t: "Automatic checks on the question", v: `${failed.length} flagged`, note: failed.map((c) => c.detail).join(" · ") },
+    okA ? { st: "ok", t: "Independent solve 1", v: fmt(sa.answer), note: "Solved without seeing the key or the comments" }
+        : { st: "off", t: "Independent solve 1", v: "—", note: "Not available for this question" },
+    okB ? { st: "ok", t: "Independent solve 2", v: fmt(sb.answer), note: "Solved without seeing the key or the comments" }
+        : { st: "off", t: "Independent solve 2", v: "—", note: "Not available for this question" },
+    { st: solOk ? "ok" : "info", t: "Stored solution ends at", v: fmt(rec.solution_final), note: solOk ? "Agrees with both solves" : null },
+    { st: keyOff ? "bad" : agree ? "ok" : "info", t: "Stored answer key", v: fmtKey(key), note: keyOff ? "Disagrees with both independent solves" : agree ? "Matches both solves" : null },
+  ];
   return (
     <div className="trust">
+      <ol className="tl">
+        {steps.map((x, i) => (
+          <li key={i} className={`tl-${x.st}`}>
+            <span className="tl-dot" />
+            <div className="tl-main"><span className="tl-t">{x.t}</span>{x.note && <span className="tl-n">{x.note}</span>}</div>
+            {x.v != null && <span className="tl-v">{x.v}</span>}
+          </li>
+        ))}
+      </ol>
       <div className={`agree ${agree ? "yes" : "no"}`}>
-        {agree ? <>Two independent solves agree on <b>{fmt(sa.answer)}</b>{rec.solution_final != null && same([].concat(rec.solution_final).map(String), [].concat(sa.answer).map(String)) ? <>, and so does the stored solution</> : null}</>
+        {agree ? <>Two independent solves agree on <b>{fmt(sa.answer)}</b>{solOk ? <>, and so does the stored solution</> : null}</>
           : okA && okB ? <>The two independent solves disagree, so this needs a careful look</>
           : okA || okB ? <>Only one independent solve was available for this question</>
           : <>No independent solve was available for this question</>}
-      </div>
-      <div className={`tiles ${hideKey ? "three" : ""}`}>
-        <Tile label="Independent solve 1" value={okA ? fmt(sa.answer) : "—"} tone={okA ? "good" : "muted"} note={okA ? "did not see the key" : "not available"} />
-        <Tile label="Independent solve 2" value={okB ? fmt(sb.answer) : "—"} tone={okB ? "good" : "muted"} note={okB ? "did not see the key" : "not available"} />
-        <Tile label="Stored solution ends at" value={fmt(rec.solution_final)} tone="plain" />
-        {!hideKey && <Tile label="Stored answer key" value={fmtKey(key)} tone={keyOff ? "bad" : "plain"} note={keyOff ? "disagrees with both solves" : agree ? "matches both solves" : null} />}
-      </div>
-      <div className="checks">
-        {failed.length === 0
-          ? <span className="ok">✔ {rec.checks.length} automatic checks on the question passed</span>
-          : failed.map((c, i) => <span key={i} className="bad">✘ {c.detail}</span>)}
       </div>
     </div>
   );
@@ -215,10 +220,9 @@ export default function App() {
   useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(null), 1800); return () => clearTimeout(t); }, [toast]);
   const [theme, setTheme] = useState(() => load("acadza-theme", null));
   useEffect(() => {
-    if (theme) document.documentElement.dataset.theme = theme;
-    else delete document.documentElement.dataset.theme;
+    document.documentElement.dataset.theme = theme || "light";
   }, [theme]);
-  const isDark = theme ? theme === "dark" : typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDark = theme === "dark";
   const toggleTheme = () => { const t = isDark ? "light" : "dark"; setTheme(t); save("acadza-theme", t); };
   const detailRef = useRef(null);
 
@@ -328,7 +332,6 @@ export default function App() {
       <header>
         <div className="brand"><span className="logo">A</span>Acadza <span>Question Review</span></div>
         <div className="progress"><div className="bar"><i style={{ width: `${(100 * done) / data.results.length}%` }} /></div><b>{done}</b> of {data.results.length} reports reviewed</div>
-        <div className="keys"><kbd>J</kbd><kbd>K</kbd> move · <kbd>A</kbd> approve · <kbd>E</kbd> edit · <kbd>R</kbd> reject</div>
         <div className="who">{name && <>Reviewing as <b>{name}</b></>}</div>
         <button className="btn ghost" onClick={toggleTheme} title="Switch between light and dark">{isDark ? "☀ Light" : "☾ Dark"}</button>
         <button className="btn" onClick={exportAudit}>Export audit (JSON)</button>
@@ -341,102 +344,121 @@ export default function App() {
           {showDone ? "▾" : "▸"} No content change <span>{model.calm.length} questions</span>
         </button>
         {showDone && model.calm.map((g) => <Group key={g.qid} g={g} />)}
+        <div className="hint"><span><kbd>J</kbd><kbd>K</kbd> move</span><span><kbd>A</kbd> approve</span><span><kbd>E</kbd> edit</span><span><kbd>R</kbd> reject</span></div>
       </aside>
 
       <main ref={detailRef}>
-        {row && (
-          <>
-            <section key={row.reportId} className={`card hero hero-${row.verdict === "defect" ? "defect" : "calm"}`}>
-              <div className="hero-top">
+        {row && (() => {
+          const ev = splitEvidence(row.evidence);
+          const isKey = !!(row.edit && row.edit.field === "answer");
+          const n = group?.rows.length || 1;
+          const qtype = q?.questionType === "scq" ? "Single correct" : q?.questionType === "mcq" ? "Multiple correct" : "Numerical";
+          const lede = isKey
+            ? <>Students are currently marked against <b>{fmtKey(row.edit.find)}</b>. The evidence points to <b>{fmtKey(row.edit.replace)}</b>.</>
+            : stripSolves(ev.main);
+          return (
+          <div className="work" key={row.reportId}>
+            <article className="doc">
+              <div className="eyebrow">
+                <span className={`tag ${row.verdict === "defect" ? "tag-attn" : "tag-calm"}`}>{issueTag(row)}</span>
                 <span className="rid">{row.reportId}</span>
-                <span className="crumbs">{q?.subject} · {q?.chapter} · {q?.questionType === "scq" ? "Single correct" : q?.questionType === "mcq" ? "Multiple correct" : "Numerical"}</span>
-                <Chip kind={row.route}>{NEXT[row.route]}</Chip>
+                <span className="crumbs">{q?.subject} · {q?.chapter}</span>
               </div>
               <h1>{emph(headline(row))}</h1>
-              {row.edit && row.edit.field === "answer" && <div className="lab"><i>1</i>What changes</div>}
-              {row.edit && row.edit.field === "answer" && (
+              {lede && <p className="lede">{lede}</p>}
+
+              {isKey && (
                 <div className="keychange">
-                  <div className="kc old"><small>Stored key · current</small><b>{fmtKey(row.edit.find)}</b><em>what students are marked against today</em></div>
-                  <div className="kc-arrow">→</div>
-                  <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>what the evidence below supports</em></div>
+                  <div className="kc old"><small>Stored key</small><b>{fmtKey(row.edit.find)}</b><em>marked against today</em></div>
+                  <div className="kc-arrow" aria-hidden="true">→</div>
+                  <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>supported by the evidence</em></div>
                 </div>
               )}
-              {(() => { const ev = splitEvidence(row.evidence); return (
-                <>
-                  <div className="lab"><i>{row.edit && row.edit.field === "answer" ? 2 : 1}</i>Why</div>
-                  {!(row.edit && row.edit.field === "answer") && stripSolves(ev.main) && <p className="evidence">{stripSolves(ev.main)}</p>}
-                  <Trust rec={rec} q={q} hideKey={!!(row.edit && row.edit.field === "answer")} />
-                  <div className="notes">
-                    <span className="conf">Engine confidence {Math.round(row.confidence * 100)}%</span>
-                    {ev.why && <span>Nothing is applied automatically yet, so this waits for you</span>}
-                    {ev.missing && <details><summary>Some automatic steps were unavailable for this question</summary><div>{ev.missing}</div></details>}
-                  </div>
-                </>
-              ); })()}
-            </section>
+              {!isKey && (
+                <section className="block">
+                  <h3>Proposed change</h3>
+                  <Diff row={row} q={q} />
+                </section>
+              )}
 
-            {!(row.edit && row.edit.field === "answer") && (
-              <section className="card">
-                <h3>Proposed change</h3>
-                <Diff row={row} q={q} />
+              <section className="block">
+                <h3>Evidence</h3>
+                <Trust rec={rec} q={q} n={n} comment={model.rby[row.reportId]?.comment} />
               </section>
-            )}
 
-            <div className="split" key={"s" + row.reportId}><div className="col-main">
-            <section className="card question">
-              <h3>Question as students see it</h3>
-              <Html className="qhtml" html={body(q).question} />
-              <details>
-                <summary>Stored solution · key {fmtKey(body(q).answer)}</summary>
-                <Html className="qhtml" html={body(q).solution} />
-              </details>
-            </section>
-
-            </div><div className="col-side">
-            <section className="card">
-              <h3>Reply the student will see</h3>
-              <div className="bubble">{row.student_reply}</div>
-            </section>
-
-            <section className="card">
-              <h3>Reports on this question ({group?.rows.length})</h3>
-              {group?.rows.map((r) => {
-                const rep = model.rby[r.reportId];
-                return (
-                  <div key={r.reportId} className={`rep ${r.reportId === sel ? "me" : ""}`}>
-                    <span className="i-id">{r.reportId}</span>
-                    <span className="rep-c">“{rep?.comment || "(empty)"}”</span>
-                    <span className="rep-m"><i>{rep?.source}</i>{rep?.reportedAt?.slice(0, 10)}</span>
-                  </div>
-                );
-              })}
-            </section>
-            </div></div>
-            {mine.length > 0 && (
-              <section className="card">
-                <h3>Audit trail for this report</h3>
-                <ul className="audit">
-                  {mine.map((a, i) => (
-                    <li key={i}><b>{a.action === "approve" ? "Approved" : a.action === "reject" ? "Rejected" : "Edited"}</b> by {a.actor} · {new Date(a.at).toLocaleString()}
-                      {a.after != null && <> · change: <code>{fmtKey(a.before)}</code> → <code>{fmtKey(a.after)}</code></>}</li>
-                  ))}
-                </ul>
+              <section className="block question">
+                <h3>Question as students see it</h3>
+                <Html className="qhtml" html={body(q).question} />
+                <details>
+                  <summary>Stored solution · key {fmtKey(body(q).answer)}</summary>
+                  <Html className="qhtml" html={body(q).solution} />
+                </details>
               </section>
-            )}
+            </article>
+
+            <div className="rail">
+              <section className="panel">
+                <h3>Details</h3>
+                <dl className="props">
+                  <dt>Status</dt><dd><Chip kind={row.route}>{NEXT[row.route]}</Chip></dd>
+                  <dt>Finding</dt><dd>{VERDICT_LABEL[row.verdict] || row.verdict}{row.repair ? ` · ${SHORT[row.repair] || row.repair}` : ""}</dd>
+                  <dt>Confidence</dt><dd><span className="meter"><i style={{ width: `${Math.round(row.confidence * 100)}%` }} /></span>{Math.round(row.confidence * 100)}%</dd>
+                  <dt>Reports</dt><dd>{n}</dd>
+                  <dt>Subject</dt><dd>{q?.subject}</dd>
+                  <dt>Chapter</dt><dd>{q?.chapter}</dd>
+                  <dt>Type</dt><dd>{qtype}</dd>
+                </dl>
+                {ev.why && <p className="fine">Nothing is applied automatically yet, so every change waits for a teacher.</p>}
+                {ev.missing && <details className="fine"><summary>Some automatic steps were unavailable</summary><div>{ev.missing}</div></details>}
+              </section>
+
+              <section className="panel">
+                <h3>Reply the student will see</h3>
+                <div className="bubble">{row.student_reply}</div>
+              </section>
+
+              <section className="panel">
+                <h3>Reports on this question · {n}</h3>
+                {group?.rows.map((r) => {
+                  const rep = model.rby[r.reportId];
+                  return (
+                    <div key={r.reportId} className={`rep ${r.reportId === sel ? "me" : ""}`}>
+                      <span className="i-id">{r.reportId}</span>
+                      <span className="rep-c">“{rep?.comment || "(empty)"}”</span>
+                      <span className="rep-m"><i>{rep?.source}</i>{rep?.reportedAt?.slice(0, 10)}</span>
+                    </div>
+                  );
+                })}
+              </section>
+
+              {mine.length > 0 && (
+                <section className="panel">
+                  <h3>Audit trail</h3>
+                  <ul className="audit">
+                    {mine.map((a, i) => (
+                      <li key={i}><b>{a.action === "approve" ? "Approved" : a.action === "reject" ? "Rejected" : "Edited"}</b> by {a.actor}<span>{new Date(a.at).toLocaleString()}</span>
+                        {a.after != null && <span><code>{fmtKey(a.before)}</code> → <code>{fmtKey(a.after)}</code></span>}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+            </div>
+
             <div className="actionbar">
               {editing
                 ? <EditBox row={row} onSave={(v) => act("edit", v)} onCancel={() => setEditing(false)} />
                 : (
                   <>
-                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : <><b>{group?.rows.length} student{group?.rows.length > 1 ? "s" : ""}</b> reported this question{row.edit ? ". Approving accepts the change shown above." : "."}</>}</div>
-                    <button className="btn danger" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
-                    <button className="btn" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
+                    <div className="ab-info">{status[sel] ? <>Already <b>{status[sel] === "approve" ? "approved" : status[sel] === "reject" ? "rejected" : "edited"}</b>. You can act again.</> : isKey ? <>Approving changes the key from <b>{fmtKey(row.edit.find)}</b> to <b>{fmtKey(row.edit.replace)}</b>.</> : row.edit ? <>Approving accepts the change shown above.</> : <>No content change is proposed for this report.</>}</div>
+                    <button className="btn quiet" onClick={() => act("reject")}>Reject <kbd>R</kbd></button>
+                    <button className="btn quiet" onClick={() => setEditing(true)}>Edit <kbd>E</kbd></button>
                     <button className="btn primary" onClick={() => act("approve")}>{row.edit ? "Approve change" : "Approve"} <kbd>A</kbd></button>
                   </>
                 )}
             </div>
-          </>
-        )}
+          </div>
+          );
+        })()}
       </main>
     </div>
   );
