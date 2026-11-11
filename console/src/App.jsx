@@ -87,6 +87,7 @@ const splitEvidence = (text) => {
   if (i >= 0) { missing = main.slice(i + 28).replace(/\)\.?$/, ""); main = main.slice(0, i); }
   return { main: main.trim(), why, missing };
 };
+const stripSolves = (t) => t.replace(/\s*Blind solve A = [^.]*stored key = [^.]*\./, "").trim();
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 // ---------------------------------------------------------------- components
@@ -286,7 +287,7 @@ export default function App() {
       <div className={`group tone-${tone} ${g.rows.some((r) => r.reportId === sel) ? "open" : ""}`}>
         <div className="g-head">
           <span className="g-tag">{issueTag(g.top)}</span>
-          <span className="g-meta">{gq?.subject} · {gq?.chapter}</span>
+          <span className="g-meta" title={`${gq?.subject} · ${gq?.chapter}`}>{gq?.subject} · {gq?.chapter}</span>
           <span className="g-count" title="Reports on this question">{g.rows.length} report{g.rows.length > 1 ? "s" : ""}</span>
         </div>
         {g.rows.map((r) => (
@@ -334,14 +335,14 @@ export default function App() {
               <h1>{headline(row)}</h1>
               {row.edit && row.edit.field === "answer" && (
                 <div className="keychange">
-                  <div className="kc old"><small>Stored key</small><b>{fmtKey(row.edit.find)}</b></div>
+                  <div className="kc old"><small>Stored key · current</small><b>{fmtKey(row.edit.find)}</b></div>
                   <div className="kc-arrow">→</div>
                   <div className="kc new"><small>Proposed key</small><b>{fmtKey(row.edit.replace)}</b></div>
                 </div>
               )}
               {(() => { const ev = splitEvidence(row.evidence); return (
                 <>
-                  <p className="evidence">{ev.main}</p>
+                  {!(row.edit && row.edit.field === "answer") && stripSolves(ev.main) && <p className="evidence">{stripSolves(ev.main)}</p>}
                   <Trust rec={rec} q={q} />
                   <div className="notes">
                     <span className="conf">Engine confidence {Math.round(row.confidence * 100)}%</span>
@@ -359,7 +360,7 @@ export default function App() {
               </section>
             )}
 
-            <section className="card">
+            <section className="card question">
               <h3>Question as students see it</h3>
               <Html className="qhtml" html={body(q).question} />
               <details>

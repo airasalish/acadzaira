@@ -178,3 +178,18 @@ header .btn { padding: 7px 14px; font-size: 13px; }
   header .btn { margin-left: auto; }
   .hero h1 { font-size: 21px; }
 }
+
+/* ---------- polish pass: red only on the stored key ---------- */
+.kc.old b { text-decoration: none; opacity: .85; }
+.hero, .hero-defect, .hero-calm { border-top: 1px solid var(--line); }
+.card.question { padding-bottom: 84px; }
+.group.tone-high { border-left-color: #c77700; }
+.tone-high .g-tag { background: var(--amber-bg); color: var(--amber); }
+.group.tone-mid { border-left-color: var(--faint); }
+.tone-mid .g-tag { background: var(--calm-bg); color: var(--muted); }
+.bad { color: var(--amber); }
+.btn.danger { color: var(--ink); border-color: var(--line); }
+.st-reject { color: var(--muted); background: var(--calm-bg); }
+.diff.key .old { text-decoration: none; }
+.i-c { font-size: 13px; }
+.g-meta { cursor: default; }
