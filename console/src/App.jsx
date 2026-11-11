@@ -150,6 +150,12 @@ function Trust({ rec, q, hideKey }) {
   );
   return (
     <div className="trust">
+      <div className={`agree ${agree ? "yes" : "no"}`}>
+        {agree ? <>Two independent solves agree on <b>{fmt(sa.answer)}</b>{rec.solution_final != null && same([].concat(rec.solution_final).map(String), [].concat(sa.answer).map(String)) ? <>, and so does the stored solution</> : null}</>
+          : okA && okB ? <>The two independent solves disagree, so this needs a careful look</>
+          : okA || okB ? <>Only one independent solve was available for this question</>
+          : <>No independent solve was available for this question</>}
+      </div>
       <div className={`tiles ${hideKey ? "three" : ""}`}>
         <Tile label="Independent solve 1" value={okA ? fmt(sa.answer) : "—"} tone={okA ? "good" : "muted"} note={okA ? "did not see the key" : "not available"} />
         <Tile label="Independent solve 2" value={okB ? fmt(sb.answer) : "—"} tone={okB ? "good" : "muted"} note={okB ? "did not see the key" : "not available"} />
@@ -203,6 +209,13 @@ export default function App() {
   const [sel, setSel] = useState(null);
   const [editing, setEditing] = useState(false);
   const [showDone, setShowDone] = useState(false);
+  const [theme, setTheme] = useState(() => load("acadza-theme", null));
+  useEffect(() => {
+    if (theme) document.documentElement.dataset.theme = theme;
+    else delete document.documentElement.dataset.theme;
+  }, [theme]);
+  const isDark = theme ? theme === "dark" : typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const toggleTheme = () => { const t = isDark ? "light" : "dark"; setTheme(t); save("acadza-theme", t); };
   const detailRef = useRef(null);
 
   const model = useMemo(() => {
@@ -311,6 +324,7 @@ export default function App() {
         <div className="progress"><div className="bar"><i style={{ width: `${(100 * done) / data.results.length}%` }} /></div><b>{done}</b> of {data.results.length} reports reviewed</div>
         <div className="keys"><kbd>J</kbd><kbd>K</kbd> move · <kbd>A</kbd> approve · <kbd>E</kbd> edit · <kbd>R</kbd> reject</div>
         <div className="who">{name && <>Reviewing as <b>{name}</b></>}</div>
+        <button className="btn ghost" onClick={toggleTheme} title="Switch between light and dark">{isDark ? "☀ Light" : "☾ Dark"}</button>
         <button className="btn" onClick={exportAudit}>Export audit (JSON)</button>
       </header>
 
@@ -360,6 +374,7 @@ export default function App() {
               </section>
             )}
 
+            <div className="split"><div className="col-main">
             <section className="card question">
               <h3>Question as students see it</h3>
               <Html className="qhtml" html={body(q).question} />
@@ -369,6 +384,7 @@ export default function App() {
               </details>
             </section>
 
+            </div><div className="col-side">
             <section className="card">
               <h3>Reply the student will see</h3>
               <div className="bubble">{row.student_reply}</div>
@@ -382,11 +398,12 @@ export default function App() {
                   <div key={r.reportId} className={`rep ${r.reportId === sel ? "me" : ""}`}>
                     <span className="i-id">{r.reportId}</span>
                     <span className="rep-c">“{rep?.comment || "(empty)"}”</span>
-                    <span className="rep-m">{rep?.source} · {rep?.reportedAt?.slice(0, 10)}</span>
+                    <span className="rep-m"><i>{rep?.source}</i>{rep?.reportedAt?.slice(0, 10)}</span>
                   </div>
                 );
               })}
             </section>
+            </div></div>
             {mine.length > 0 && (
               <section className="card">
                 <h3>Audit trail for this report</h3>
