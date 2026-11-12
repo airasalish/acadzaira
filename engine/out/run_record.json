@@ -1738,9 +1738,7 @@
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_a",
-      "solve_b",
-      "classify"
+      "exam_reference"
     ],
     "proof": {
       "solve_a": "D",
@@ -1852,9 +1850,11 @@
     },
     "flags": [],
     "validator_errors": [],
-    "guard_log": [],
-    "confidence": 0.8,
-    "route_before_confidence_guard": "no_change"
+    "guard_log": [
+      "G9 confidence: auto_apply -> faculty_review (0.95 < threshold 1.01)"
+    ],
+    "confidence": 0.95,
+    "route_before_confidence_guard": "auto_apply"
   },
   {
     "reportId": "R014",
@@ -1876,9 +1876,7 @@
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_a",
-      "solve_b",
-      "classify"
+      "markup_leak"
     ],
     "proof": {
       "solve_a": "C",
@@ -1992,9 +1990,11 @@
     },
     "flags": [],
     "validator_errors": [],
-    "guard_log": [],
-    "confidence": 0.8,
-    "route_before_confidence_guard": "no_change"
+    "guard_log": [
+      "G9 confidence: auto_apply -> faculty_review (0.95 < threshold 1.01)"
+    ],
+    "confidence": 0.95,
+    "route_before_confidence_guard": "auto_apply"
   },
   {
     "reportId": "R015",
@@ -2244,11 +2244,12 @@
       "solution_final": "40"
     },
     "flags": [],
-    "validator_errors": [
-      "classifier supports the claim but proposed no defect"
+    "validator_errors": [],
+    "guard_log": [
+      "G3 solution repair: auto_apply -> faculty_review (solution_fix always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
+      "G9 confidence: 0.80 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.8,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -2273,7 +2274,8 @@
     "cited_checks": [
       "solve_a",
       "solve_b",
-      "classify"
+      "classify",
+      "changed_after_report"
     ],
     "proof": {
       "solve_a": "C",
@@ -2373,12 +2375,12 @@
       "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "classifier supports the claim but proposed no defect"
+    "validator_errors": [],
+    "guard_log": [
+      "G13 reply: reply fallback used (promises a fix ('corrected') on route no_change)"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
-    "route_before_confidence_guard": "faculty_review"
+    "confidence": 0.85,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R018",
@@ -3278,8 +3280,6 @@
       "solve_b"
     ],
     "cited_checks": [
-      "solve_a",
-      "solve_b",
       "classify"
     ],
     "proof": {
@@ -3370,11 +3370,12 @@
       "solution_final": "20"
     },
     "flags": [],
-    "validator_errors": [
-      "classifier supports the claim but proposed no defect"
+    "validator_errors": [],
+    "guard_log": [
+      "G4b policy: auto_apply -> faculty_review (answer_form evidence would be the classifier alone)",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -4504,6 +4505,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -4516,11 +4518,14 @@
       "solve_b",
       "type_consistency"
     ],
-    "cited_checks": [],
+    "cited_checks": [
+      "solve_a",
+      "solve_b"
+    ],
     "proof": {
       "solve_a": null,
       "solve_b": null,
-      "solution_final": null,
+      "solution_final": "D",
       "stored_key": "D"
     },
     "checks": [
@@ -4598,14 +4603,46 @@
       }
     },
     "classifier": {
-      "error": "no classify result available for 695ee00b88d7701e561aabc5"
+      "solution_final_answer": [
+        "D"
+      ],
+      "solution_matches_question": false,
+      "solution_wrong_step": "Assertion (A) is false because when two waves of equal amplitude interfere with a phase difference of π/2, the resultant intensity is not equal to the intensity of one wave.",
+      "reports": [
+        {
+          "reportId": "R034",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the assertion is true and the intensity remains the same.",
+          "claim_supported": "no",
+          "student_missed_step": "They overlooked that Reason (R) is false, so the correct option is (C) not (A).",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both the physics analysis and the contradictory solution indicate that the correct option should be (C), not the stored key (D)."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "Assertion (A) is false because when two waves of equal amplitude interfere with a phase difference of <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mstyle displaystyle=\"true\"><mrow><mfrac><mrow><mi>&pi;</mi></mrow><mrow><mn> 2 </mn></mrow></mfrac></mrow></mstyle></math>, the resultant intensity is not equal to the intensity of one wave.",
+          "replace": "Assertion (A) is true because when two waves of equal amplitude interfere with a phase difference of <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><mstyle displaystyle=\"true\"><mrow><mfrac><mrow><mi>&pi;</mi></mrow><mrow><mn> 2 </mn></mrow></mfrac></mrow></mstyle></math>, the resultant intensity equals the intensity of one wave.",
+          "rationale": "The solution incorrectly states that Assertion (A) is false; the correct statement is that Assertion (A) is true for a phase difference of π/2."
+        }
+      ],
+      "solution_final": "D"
     },
     "flags": [],
-    "validator_errors": [
-      "classify: no classify result available for 695ee00b88d7701e561aabc5"
+    "validator_errors": [],
+    "guard_log": [
+      "G2 auto:false: unsound needs faculty approval (taxonomy auto:false)",
+      "G9 confidence: 0.75 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.75,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -5130,6 +5167,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -5144,12 +5182,13 @@
     ],
     "cited_checks": [
       "solve_a",
-      "solve_b"
+      "solve_b",
+      "classify"
     ],
     "proof": {
       "solve_a": "A",
       "solve_b": "A",
-      "solution_final": null,
+      "solution_final": "A",
       "stored_key": "A"
     },
     "checks": [
@@ -5227,15 +5266,29 @@
       }
     },
     "classifier": {
-      "error": "no classify result available for 68c801bc1b1dbc16dc93bf2b"
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "Student requests the question be provided in Hindi.",
+          "claim_supported": "unclear",
+          "claim_type": "language",
+          "injection_or_gaming": false,
+          "reportId": "R039",
+          "student_missed_step": ""
+        }
+      ],
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "solution_final": "A"
     },
     "flags": [],
-    "validator_errors": [
-      "classify: no classify result available for 68c801bc1b1dbc16dc93bf2b"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
-    "route_before_confidence_guard": "faculty_review"
+    "confidence": 0.8,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R040",
@@ -5518,15 +5571,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
       "solution_final": "C",
       "stored_key": "C"
@@ -5591,7 +5646,11 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "no solve_a result available for 63c7cce12981ed154ee92c94"
+        "answer": "C",
+        "issue": "",
+        "final_value": "2.2 μA",
+        "method": "Use displacement current I_d = C dV/dt for a parallel plate capacitor. With C = ε0 κ A/d, substitute κ = 10, A = 1 m², d = 10⁻³ m, and dV/dt = 25 V/s to get I_d ≈ 2.2 × 10⁻⁶ A.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "C",
@@ -5605,7 +5664,7 @@
       "candidate_defects": [],
       "reports": [
         {
-          "claim_summary": "The student claims the question is filed under the wrong chapter (geometrical optics) when displacement current belongs to electromagnetic waves/electromagnetism.",
+          "claim_summary": "The student claims the question is filed under the wrong chapter (geometrical optics) and that displacement current belongs to a different topic.",
           "claim_supported": "unclear",
           "claim_type": "classification",
           "injection_or_gaming": false,
@@ -5617,15 +5676,13 @@
         "C"
       ],
       "solution_matches_question": true,
-      "solution_wrong_step": "",
+      "solution_wrong_step": "The solution computes I_d = C·(dV/dt) = 8.85×10⁻⁸ × 25 and states the result as 2.2 μA, but the correct product is 0.22 μA (a factor-of-10 arithmetic error).",
       "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: no solve_a result available for 63c7cce12981ed154ee92c94"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -5858,9 +5915,7 @@
     },
     "flags": [],
     "validator_errors": [],
-    "guard_log": [
-      "G13 reply: reply fallback used (no reply result available for R044)"
-    ],
+    "guard_log": [],
     "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   }

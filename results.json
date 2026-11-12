@@ -182,24 +182,32 @@
   {
     "reportId": "R013",
     "questionId": "617fa18efd53ff1629ed890f",
-    "verdict": "display_issue",
-    "repair": null,
-    "edit": null,
-    "route": "no_change",
-    "confidence": 0.8,
-    "evidence": "Report is about display (The student asks why the exam reference '(NEET 2019)' appears in the question.); deterministic checks found no content defect.",
-    "student_reply": "Thank you for letting us know. The question itself is correct; the issue you’re seeing is due to how it displays on your device, and our team is checking it."
+    "verdict": "defect",
+    "repair": "exam_reference",
+    "edit": {
+      "field": "question",
+      "find": "(NEET 2019) ",
+      "replace": ""
+    },
+    "route": "faculty_review",
+    "confidence": 0.95,
+    "evidence": "Exam reference check found '(NEET 2019)' in question. Sent to faculty: 0.95 < threshold 1.01.",
+    "student_reply": "Thank you for letting us know. Our teachers are reviewing the question to see if there is an issue. We will let you know once the review is complete."
   },
   {
     "reportId": "R014",
     "questionId": "63765a28f1d8416ae0408d89",
-    "verdict": "display_issue",
-    "repair": null,
-    "edit": null,
-    "route": "no_change",
-    "confidence": 0.8,
-    "evidence": "Report is about display (The question displays raw LaTeX code \\frac instead of rendering it.); deterministic checks found no content defect.",
-    "student_reply": "Thank you for letting us know. The question itself is correct; the display issue you’re seeing is being reviewed by our team to ensure it shows properly on all devices."
+    "verdict": "defect",
+    "repair": "markup_leak",
+    "edit": {
+      "field": "question",
+      "find": "\\frac{7}{8} ",
+      "replace": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mfrac><mn>7</mn><mn>8</mn></mfrac></math> "
+    },
+    "route": "faculty_review",
+    "confidence": 0.95,
+    "evidence": "Markup leak check found '\\frac{7}{8}' in question. Sent to faculty: 0.95 < threshold 1.01.",
+    "student_reply": "Thank you for letting us know. A teacher is currently reviewing the question, and we’ll update you once the issue is resolved."
   },
   {
     "reportId": "R015",
@@ -215,24 +223,28 @@
   {
     "reportId": "R016",
     "questionId": "6263d75bdd44e265ef926d97",
-    "verdict": "no_error",
-    "repair": null,
-    "edit": null,
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edit": {
+      "field": "solution",
+      "find": "<span style=\"color:#000000\">800 &times; g = (2) &times; (a<span style=\"color:#000000\"><sup>2</sup><span style=\"color:#000000\">) &times; 1 &times; g</span></span>",
+      "replace": "<span style=\"color:#000000\">(a-2) &times; a<sup>2</sup> &times; g = a<sup>3</sup> &times; g - 800 &times; g</span>"
+    },
     "route": "faculty_review",
-    "confidence": 0.25,
-    "evidence": "Classifier supports the claim (The student notes that the solution states 40 cm while the stored answer key is 20 cm and asks which is correct.) but no check or solve confirms a defect. Blind solve A = 20, solve B = 20, stored solution ends at 40, stored key = 20.",
-    "student_reply": "Thank you for reporting this. A teacher will review the question and get back to you soon."
+    "confidence": 0.8,
+    "evidence": "Both blind solves give 20, matching the key, but the stored solution ends at 40, so the solution has a wrong step. Sent to faculty: solution_fix always goes to faculty (SOLUTION_REPAIRS_AUTO off.",
+    "student_reply": "Thank you for letting us know. A teacher is currently reviewing the question and will get back to you soon."
   },
   {
     "reportId": "R017",
     "questionId": "6208e80a9cb2ab67dac61bd0",
-    "verdict": "no_error",
+    "verdict": "already_fixed",
     "repair": null,
     "edit": null,
-    "route": "faculty_review",
-    "confidence": 0.25,
-    "evidence": "Classifier supports the claim (The student reports a spelling mistake ('mere') in the options; this was corrected on 2026-11-07 after the report was filed.) but no check or solve confirms a defect. Blind solve A = C, solve B = C, stored solution ends at none, stored key = C.",
-    "student_reply": "Thank you for letting us know. A teacher will review the question and the options shortly."
+    "route": "no_change",
+    "confidence": 0.85,
+    "evidence": "The live record changed after the report (errorHistory after report (2026-11-04T02:08:00Z): Spelling mistake at 2026-11-07T10:42:00Z: 'mere' -> 'more' in options A-C; 'shurbs' -> 'shrubs') and the claimed problem is no longer present.",
+    "student_reply": "Thank you, you spotted a real problem, and our team has already sorted it out. Please reload the question to see the current version."
   },
   {
     "reportId": "R018",
@@ -325,13 +337,17 @@
   {
     "reportId": "R024",
     "questionId": "5fc60508028950133eac8963",
-    "verdict": "no_error",
-    "repair": null,
-    "edit": null,
+    "verdict": "defect",
+    "repair": "answer_form",
+    "edit": {
+      "field": "question",
+      "find": "equal to",
+      "replace": "equal to (in N)"
+    },
     "route": "faculty_review",
-    "confidence": 0.25,
-    "evidence": "Classifier supports the claim (The student claims that the unit for the answer is not mentioned in the question.) but no check or solve confirms a defect. Blind solve A = 20, solve B = 20, stored solution ends at 20, stored key = 20.",
-    "student_reply": "Thank you for reporting this. A teacher will review the question and get back to you soon."
+    "confidence": 0.6,
+    "evidence": "The question text ends with 'Then the frictional force is equal to' without specifying a unit, while the answer expects a force in newtons. Sent to faculty: answer_form evidence would be the classifier alone.",
+    "student_reply": "Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon."
   },
   {
     "reportId": "R025",
@@ -435,13 +451,13 @@
   {
     "reportId": "R034",
     "questionId": "695ee00b88d7701e561aabc5",
-    "verdict": "not_actionable",
-    "repair": null,
+    "verdict": "defect",
+    "repair": "unsound",
     "edit": null,
     "route": "faculty_review",
-    "confidence": 0.25,
-    "evidence": "Classifier output unavailable (classify: no classify result available for 695ee00b88d7701e561aabc5); Blind solve A = none, solve B = none, stored solution ends at none, stored key = D.",
-    "student_reply": "Thanks for flagging that. A teacher is now reviewing the question to confirm the details."
+    "confidence": 0.75,
+    "evidence": "Both blind solves find no correct option (A: No option corresponds to the case where both the assertion and the reason are false. B: None of the options matches the correct answer.)",
+    "student_reply": "Thanks for flagging this. A teacher is currently reviewing the question to confirm the details, so please hold tight while we check it out."
   },
   {
     "reportId": "R035",
@@ -490,13 +506,13 @@
   {
     "reportId": "R039",
     "questionId": "68c801bc1b1dbc16dc93bf2b",
-    "verdict": "no_error",
+    "verdict": "language_mode",
     "repair": null,
     "edit": null,
-    "route": "faculty_review",
-    "confidence": 0.25,
-    "evidence": "Classifier output unavailable (classify: no classify result available for 68c801bc1b1dbc16dc93bf2b); Blind solve A = A, solve B = A, stored solution ends at none, stored key = A.",
-    "student_reply": "Thank you for letting us know. A teacher will review the question and get back to you soon."
+    "route": "no_change",
+    "confidence": 0.8,
+    "evidence": "Report is about language (Student requests the question be provided in Hindi.); deterministic checks found no content defect.",
+    "student_reply": "Thank you for letting us know. This question is currently only available in English, and we’ll pass your request to the team."
   },
   {
     "reportId": "R040",
@@ -527,8 +543,8 @@
     "repair": null,
     "edit": null,
     "route": "no_change",
-    "confidence": 0.25,
-    "evidence": "Claim checked: The student claims the question is filed under the wrong chapter (geometrical optics) when displacement current belongs to electromagnetic waves/electromagnetism.. Blind solve A = none, solve B = C, stored solution ends at C, stored key = C.",
+    "confidence": 0.9,
+    "evidence": "Claim checked: The student claims the question is filed under the wrong chapter (geometrical optics) and that displacement current belongs to a different topic.. Blind solve A = C, solve B = C, stored solution ends at C, stored key = C.",
     "student_reply": "Thank you for reporting the issue. The solution is correct; the step you missed is calculating the displacement current (Id = ε₀ dΦE/dt = dQ/dt = 2 µC·s⁻¹), which then leads to B = μ₀ Id/(2πr)."
   },
   {
@@ -551,6 +567,6 @@
     "route": "no_change",
     "confidence": 0.9,
     "evidence": "Claim checked: Student claims the correct answer is 22 V instead of the stored 14 V; however, 22 V is the potential at point P relative to infinity (11V/8 = 22), not the potential difference between P and S.. Blind solve A = 14, solve B = 14, stored solution ends at 14, stored key = 14.",
-    "student_reply": "Thanks for checking this carefully. We re-solved it and the given answer holds. The student computed V_P − V∞ = 11V/8 = 22 V, but the question asks for V_P − V_S = 11V/8 − V/2 = 7V/8 = 14 V."
+    "student_reply": "Thanks for flagging this. The question asks for V_P − V_S, so you need to subtract V/2 from your 11V/8 result, which gives 7V/8 or 14 V."
   }
 ]

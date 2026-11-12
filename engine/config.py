@@ -161,7 +161,14 @@ CLAIM_TO_REPAIRS = {
     "typo": ("spelling", "notation", "noise", "exam_reference", "markup_leak", "answer_form"),
     "solution": ("solution_fix", "solution_missing", "wrong_question"),
     "classification": ("wrong_chapter", "syllabus"),
+    # A "looks wrong on screen" report whose cause is stored in the content (a raw LaTeX leak, an
+    # exam tag, stray text) is a content defect, not a display issue, when a check finds it.
+    "display": ("markup_leak", "exam_reference", "noise"),
 }
+# When the classifier says a report's claim holds but the claim type maps to no defect that was
+# found, the report takes the question's top finding (by REPAIR_PRIORITY) instead of being left
+# as an inconsistent no_error. Set False to restore the strict claim → repair mapping.
+SUPPORTED_CLAIM_TAKES_ANY_FINDING = True
 CLAIM_TO_VERDICT = {"display": "display_issue", "app": "app_issue", "language": "language_mode"}
 
 # Defects that change what a student can answer correctly. Such a defect is attached to every
@@ -182,6 +189,8 @@ CONFIDENCE_RULES = {
     "check_defect_with_edit": 0.95,
     "check_defect_no_edit": 0.85,
     "classifier_defect": 0.60,
+    "solves_find_no_option": 0.75,
+    "solution_contradicts_key": 0.80,  # both solves = key, stored solution ends elsewhere (→ solution_fix)     # both blind solves: no option is correct (→ unsound)
     "no_error_solves_confirm_key": 0.90,
     "no_error_unconfirmed": 0.55,
     "platform_verdict": 0.80,          # display_issue / app_issue / language_mode

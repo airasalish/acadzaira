@@ -142,6 +142,14 @@ def investigate(nq: NormQ, checks: list[CheckResult], solves: dict, obs: dict | 
         add(Finding("solution_missing", None, f"Solution check: {failed['solution_present'].detail}.",
                     "check_defect_no_edit", ["solution_present"]))
 
+    # --- stored solution ends at a different answer than the key, and both blind solves side with
+    #     the key: the solution is what is wrong (code-checked, so it outranks the classifier's wording)
+    if inv.facts["solves_confirm_key"] and nsol is not None and nsol != nkey:
+        add(Finding("solution_fix", classifier_edit("solution_fix", "solution"),
+                    f"Both blind solves give {_fmt(a)}, matching the key, but the stored solution ends at "
+                    f"{_fmt(sol)}, so the solution has a wrong step.",
+                    "solution_contradicts_key", solve_cites + ["classify"]))
+
     # --- classifier observations (never auto-applied on their own; see config.AUTO_POLICY)
     if obs is not None:
         if not obs["solution_matches_question"]:
@@ -157,6 +165,15 @@ def investigate(nq: NormQ, checks: list[CheckResult], solves: dict, obs: dict | 
             add(Finding(repair, classifier_edit(repair, d["field"]) if d["field"] != "none" else None,
                         d["rationale"].strip() or f"Classifier proposes {repair}.",
                         "classifier_defect", ["classify"], True))
+
+    # Both blind solves worked the question and found no correct option, and nothing more specific
+    # (missing data, identical options, a missing figure…) explains it → no valid answer as written.
+    if nq.qtype in ("scq", "mcq") and sa and sb and a is None and b is None \
+            and sa.get("issue", "").strip() and sb.get("issue", "").strip() \
+            and not any(f.repair in config.MAJOR_REPAIRS for f in inv.findings):
+        add(Finding("unsound", None,
+                    f"Both blind solves find no correct option (A: {sa['issue'].strip()} B: {sb['issue'].strip()})",
+                    "solves_find_no_option", solve_cites))
     return inv
 
 
@@ -184,6 +201,10 @@ def decide(inv: Investigation, report: dict, report_checks: list[CheckResult], t
     d.missed_step = (robs or {}).get("student_missed_step", "").strip()
 
     eligible = [f for f in inv.findings if f.repair in config.MAJOR_REPAIRS or f.repair in claim_repairs]
+    changed = next((c for c in report_checks if c.id == "changed_after_report" and not c.passed), None)
+    if not eligible and robs and robs["claim_supported"] == "yes" and claim not in config.CLAIM_TO_VERDICT \
+            and not (changed and claim_repairs) and config.SUPPORTED_CLAIM_TAKES_ANY_FINDING:
+        eligible = list(inv.findings)
     eligible.sort(key=lambda f: config.REPAIR_PRIORITY.index(f.repair)
                   if f.repair in config.REPAIR_PRIORITY else len(config.REPAIR_PRIORITY))
     if eligible:
@@ -202,7 +223,6 @@ def decide(inv: Investigation, report: dict, report_checks: list[CheckResult], t
         return d
 
     # ---- no defect applies to this report
-    changed = next((c for c in report_checks if c.id == "changed_after_report" and not c.passed), None)
     d.route, d.repair, d.edit = "no_change", None, None
     d.cited_checks = [r for r in ("solve_a", "solve_b") if facts.get(r) is not None]
     if robs:
@@ -216,7 +236,9 @@ def decide(inv: Investigation, report: dict, report_checks: list[CheckResult], t
         d.confidence = _confidence("no_error_unconfirmed", errors)
         d.evidence = f"Classifier output unavailable ({'; '.join(errors) or 'unknown'}); {facts['solve_sentence']}"
         return d
-    if changed and claim_repairs and robs["claim_supported"] != "yes":
+    # The record changed after the report and no defect of the claimed kind is present now. (The
+    # classifier may still call the claim "supported": it was true when the student filed it.)
+    if changed and claim_repairs:
         d.verdict = "already_fixed"
         d.confidence = _confidence("already_fixed", errors)
         d.cited_checks.append("changed_after_report")

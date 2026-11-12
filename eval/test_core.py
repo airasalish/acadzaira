@@ -147,6 +147,43 @@ def test_apply_change_set():
     assert rep[0]["status"] == "applied" and "(NEET 2019)" not in patched[tag["questionId"]]["scq"]["question"]
 
 
+def test_decide_rules():
+    """Synthetic observations on real question records: the 12 Nov decision rules."""
+    from engine.checks import CheckResult
+    from engine.decide import decide, investigate
+
+    def obs(claim, supported="yes", wrong_step=""):
+        return {"solution_final": None, "solution_matches_question": True, "solution_wrong_step": wrong_step,
+                "candidate_defects": [], "reports": [{"reportId": "T1", "claim_type": claim, "claim_summary": "x",
+                                                      "claim_supported": supported, "student_missed_step": "",
+                                                      "injection_or_gaming": False}]}
+
+    def run(qid, solves, o, report_checks=()):
+        q = nq(qid)
+        inv = investigate(q, run_question_checks(q), solves, o, None)
+        return decide(inv, {"reportId": "T1"}, list(report_checks), TAX)
+
+    clean = "68c801bc1b1dbc16dc93bf2b"     # every deterministic check passes
+    ok = lambda ans: ({"answer": ans, "issue": "", "final_value": "", "method": "m"}, None)
+    none = ({"answer": None, "issue": "no option fits", "final_value": "", "method": "m"}, None)
+    # both blind solves find no correct option, nothing more specific → unsound, faculty
+    d = run(clean, {"solve_a": none, "solve_b": none}, obs("answer_key"))
+    assert (d.verdict, d.repair, d.route) == ("defect", "unsound", "faculty_review"), d
+    # supported claim of another kind still gets the question's real finding
+    d = run(clean, {"solve_a": ok("A"), "solve_b": ok("A")}, obs("answer_key", wrong_step="step 2 is wrong"))
+    assert (d.verdict, d.repair) == ("defect", "solution_fix"), d
+    # record changed after the report, claimed problem gone → already_fixed even if the claim "held"
+    changed = CheckResult("changed_after_report", False, "errorHistory after report")
+    d = run(clean, {"solve_a": ok("A"), "solve_b": ok("A")}, obs("typo"), [changed])
+    assert d.verdict == "already_fixed", d
+    # a "display" report whose cause is stored in the content → content defect
+    d = run("617fa18efd53ff1629ed890f", {"solve_a": ok("D"), "solve_b": ok("D")}, obs("display"))
+    assert (d.verdict, d.repair) == ("defect", "exam_reference"), d
+    # a display report with nothing stored wrong stays display_issue
+    d = run(clean, {"solve_a": ok("A"), "solve_b": ok("A")}, obs("display"))
+    assert d.verdict == "display_issue", d
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     tests = [v for k, v in globals().items() if k.startswith("test_")]

@@ -228,3 +228,15 @@
 {"ts": "2026-11-12T08:32:29+00:00", "role": "reply", "subject_id": "R043", "model": "openai/gpt-oss-120b", "input_tokens": 581, "output_tokens": 308, "cost_usd": 0.0}
 {"ts": "2026-11-12T08:32:35+00:00", "role": "solve_a", "subject_id": "68dea577d0cda73d07e9391c", "model": "qwen/qwen3.8-27b", "input_tokens": 882, "output_tokens": 536, "cost_usd": 0.0}
 {"ts": "2026-11-12T08:33:38+00:00", "role": "classify", "subject_id": "68dea577d0cda73d07e9391c", "model": "qwen/qwen3.8-27b", "input_tokens": 2839, "output_tokens": 1215, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:05+00:00", "role": "reply", "subject_id": "R013", "model": "openai/gpt-oss-120b", "input_tokens": 520, "output_tokens": 164, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:11+00:00", "role": "reply", "subject_id": "R014", "model": "openai/gpt-oss-120b", "input_tokens": 519, "output_tokens": 144, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:16+00:00", "role": "reply", "subject_id": "R016", "model": "openai/gpt-oss-120b", "input_tokens": 526, "output_tokens": 138, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:21+00:00", "role": "reply", "subject_id": "R017", "model": "openai/gpt-oss-120b", "input_tokens": 507, "output_tokens": 347, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:26+00:00", "role": "reply", "subject_id": "R024", "model": "openai/gpt-oss-120b", "input_tokens": 516, "output_tokens": 135, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:35+00:00", "role": "classify", "subject_id": "695ee00b88d7701e561aabc5", "model": "openai/gpt-oss-120b", "input_tokens": 3075, "output_tokens": 2340, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:40+00:00", "role": "reply", "subject_id": "R034", "model": "qwen/qwen3.8-27b", "input_tokens": 393, "output_tokens": 34, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:47+00:00", "role": "classify", "subject_id": "68c801bc1b1dbc16dc93bf2b", "model": "qwen/qwen3.8-27b", "input_tokens": 3628, "output_tokens": 1115, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:32:52+00:00", "role": "reply", "subject_id": "R039", "model": "openai/gpt-oss-120b", "input_tokens": 505, "output_tokens": 191, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:33:36+00:00", "role": "solve_a", "subject_id": "63c7cce12981ed154ee92c94", "model": "qwen/qwen3.8-27b", "input_tokens": 1280, "output_tokens": 443, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:33:43+00:00", "role": "classify", "subject_id": "63c7cce12981ed154ee92c94", "model": "qwen/qwen3.8-27b", "input_tokens": 2711, "output_tokens": 1198, "cost_usd": 0.0}
+{"ts": "2026-11-12T09:34:12+00:00", "role": "reply", "subject_id": "R044", "model": "qwen/qwen3.8-27b", "input_tokens": 441, "output_tokens": 53, "cost_usd": 0.0}

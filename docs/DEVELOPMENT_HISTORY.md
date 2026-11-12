@@ -138,6 +138,30 @@ Result of the completed run (`python -m eval.score`: 656 checks passed, 0 failed
 
 With both solves available, the two multiple-correct questions with malformed keys were resolved by evidence rather than by format, as decided on day one: one is an answer-key defect with a structured list edit (`['A, B, D']` to `["A","B","D"]`), the other is a type mismatch (both solves find exactly one correct option). The confidently wrong "mu should be 0.4" report now comes out as no error, with the missed step in the reply. Hand-labelled accuracy is still not measured, and nothing auto-applies.
 
+### Second pass (12 Nov, evening): full coverage and four decision-rule fixes
+
+Groq's daily quota had reset, so the three remaining calls went through: both solves and the classifier now cover 39 of 39 questions, and no row has an unavailable step. Reading the rows that were still `no_error` with "classifier supports the claim but proposed no defect", or `not_actionable` with a failed step, showed four gaps in `engine/decide.py`. Each is a general rule, with a switch or value in `engine/config.py` and a synthetic test in `eval/test_core.py`:
+
+- **A supported claim takes the question's real finding.** When the classifier says the student's claim holds but the claim type maps to no defect that was found, the report now takes the question's top finding instead of an inconsistent `no_error` (`SUPPORTED_CLAIM_TAKES_ANY_FINDING`). Example: a "unit not mentioned" report now gets `answer_form`.
+- **Stored solution contradicts the key.** When both blind solves agree with the key but the stored solution ends at a different answer, code records a `solution_fix` defect with that evidence (confidence rule `solution_contradicts_key`).
+- **Already fixed.** If the record changed after the report and no defect of the claimed kind is present now, the verdict is `already_fixed`, even when the classifier calls the claim "supported" (it was true when the student filed it).
+- **Display reports caused by stored content.** A "looks wrong on screen" report whose cause a check finds in the stored text (raw LaTeX, an exam tag, stray text) is a content defect, not a display issue (`CLAIM_TO_REPAIRS["display"]`).
+- **No correct option.** When both blind solves work the question and find no correct option, and nothing more specific (missing data, identical options, a missing figure) explains it, the verdict is `unsound`, which always goes to faculty. A first version of this rule overrode more specific findings on three reports; it was narrowed before the run.
+
+Result (`python -m eval.score`: 662 checks passed, 0 failed; `python -m eval.test_core`: 8/8; two cached runs byte-identical):
+
+| | Submitted (11 Nov) | First pass | Second pass |
+|---|---|---|---|
+| Solve A coverage | 7 of 39 | 38 of 39 | 39 of 39 |
+| Classifier coverage | 25 of 39 | 37 of 39 | 39 of 39 |
+| Rows with an unavailable step | 40 | 6 | 0 |
+| `defect` | 14 | 19 | 24 |
+| `no_error` | 11 | 17 | 13 |
+| `not_actionable` | 14 | 3 | 2 |
+| `already_fixed` | 0 | 0 | 1 |
+| `display_issue` / `app_issue` / `language_mode` | 5 | 5 | 4 |
+| Auto-applied | 0 | 0 | 0 |
+
 ## 11. Next steps
 
 Finish the hand labels and calibrate the threshold; rerun solve A on a paid or less loaded tier so answer keys can be proven across all questions; run the checks and solves on the four unreported questions for `docs/UNREPORTED.md`; move the queue's urgency weights from the console into `engine/config.py`.

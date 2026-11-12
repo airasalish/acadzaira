@@ -326,8 +326,14 @@
  "63c7cce12981ed154ee92c94|classify": {
   "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "c5e28c79d3f728d5",
-  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student claims the question is filed under the wrong chapter (geometrical optics) when displacement current belongs to electromagnetic waves/electromagnetism.\", \"claim_supported\": \"unclear\", \"claim_type\": \"classification\", \"injection_or_gaming\": false, \"reportId\": \"R042\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"C\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+  "request_hash": "99340f66d647a718",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student claims the question is filed under the wrong chapter (geometrical optics) and that displacement current belongs to a different topic.\", \"claim_supported\": \"unclear\", \"claim_type\": \"classification\", \"injection_or_gaming\": false, \"reportId\": \"R042\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"C\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"The solution computes I_d = C·(dV/dt) = 8.85×10⁻⁸ × 25 and states the result as 2.2 μA, but the correct product is 0.22 μA (a factor-of-10 arithmetic error).\"}"
+ },
+ "63c7cce12981ed154ee92c94|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "d178e507b04b57d6",
+  "response": "{\"answer\": [\"C\"], \"final_value\": \"2.2 μA\", \"issue\": \"\", \"method\": \"Use displacement current I_d = C dV/dt for a parallel plate capacitor. With C = ε0 κ A/d, substitute κ = 10, A = 1 m², d = 10⁻³ m, and dV/dt = 25 V/s to get I_d ≈ 2.2 × 10⁻⁶ A.\", \"solvable\": true}"
  },
  "63c7cce12981ed154ee92c94|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -352,6 +358,12 @@
   "prompt_version": "v1",
   "request_hash": "ae16143ffe0d025f",
   "response": "{\"solvable\":true,\"answer\":[\"D\"],\"final_value\":\"Relaxin - Inhibin\",\"issue\":\"\",\"method\":\"I reviewed the physiological actions of each hormone pair: PTH and calcitonin have opposite effects on calcium, insulin and glucagon oppose glucose regulation, aldosterone and ANF have opposite effects on sodium/water balance. Relaxin and inhibin act on different reproductive processes and are not antagonistic. Hence the non‑antagonistic pair is Relaxin‑Inhibin, option D.\"}"
+ },
+ "68c801bc1b1dbc16dc93bf2b|classify": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "dd7b569e7b8eb5b7",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"Student requests the question be provided in Hindi.\", \"claim_supported\": \"unclear\", \"claim_type\": \"language\", \"injection_or_gaming\": false, \"reportId\": \"R039\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"A\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
  },
  "68c801bc1b1dbc16dc93bf2b|solve_a": {
   "model": "qwen/qwen3.8-27b",
@@ -656,8 +668,8 @@
  "695ee00b88d7701e561aabc5|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "4b45f6c404633309",
-  "response": "{\"solution_final_answer\":[\"D\"],\"solution_matches_question\":false,\"solution_wrong_step\":\"The solution incorrectly states that Assertion (A) is false, whereas the calculation shows the intensity equals that of one wave, making the assertion true.\",\"reports\":[{\"reportId\":\"R034\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the assertion is true, so the answer key stating D is incorrect.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Both the physics calculation and the stored solution show that the intensity equals that of one wave, making Assertion (A) true, so the correct option is C, not D.\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"Assertion (A) is false because\",\"replace\":\"Assertion (A) is true because\",\"rationale\":\"The solution incorrectly states Assertion (A) is false, contradicting the derived intensity I = I0 which makes the assertion true.\"}]}"
+  "request_hash": "d4fb3e61a68a8bec",
+  "response": "{\"solution_final_answer\":[\"D\"],\"solution_matches_question\":false,\"solution_wrong_step\":\"Assertion (A) is false because when two waves of equal amplitude interfere with a phase difference of π/2, the resultant intensity is not equal to the intensity of one wave.\",\"reports\":[{\"reportId\":\"R034\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the assertion is true and the intensity remains the same.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They overlooked that Reason (R) is false, so the correct option is (C) not (A).\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Both the physics analysis and the contradictory solution indicate that the correct option should be (C), not the stored key (D).\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"Assertion (A) is false because when two waves of equal amplitude interfere with a phase difference of <math display=\\\"inline\\\" xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mstyle displaystyle=\\\"true\\\"><mrow><mfrac><mrow><mi>&pi;</mi></mrow><mrow><mn> 2 </mn></mrow></mfrac></mrow></mstyle></math>, the resultant intensity is not equal to the intensity of one wave.\",\"replace\":\"Assertion (A) is true because when two waves of equal amplitude interfere with a phase difference of <math display=\\\"inline\\\" xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mstyle displaystyle=\\\"true\\\"><mrow><mfrac><mrow><mi>&pi;</mi></mrow><mrow><mn> 2 </mn></mrow></mfrac></mrow></mstyle></math>, the resultant intensity equals the intensity of one wave.\",\"rationale\":\"The solution incorrectly states that Assertion (A) is false; the correct statement is that Assertion (A) is true for a phase difference of π/2.\"}]}"
  },
  "695ee00b88d7701e561aabc5|solve_a": {
   "model": "qwen/qwen3.8-27b",
@@ -764,14 +776,14 @@
  "R013|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "28e497176e9e6715",
-  "response": "{\"reply\":\"Thank you for letting us know. The question itself is correct; the issue you’re seeing is due to how it displays on your device, and our team is checking it.\"}"
+  "request_hash": "6846ad7badc97f2e",
+  "response": "{\"reply\":\"Thank you for letting us know. Our teachers are reviewing the question to see if there is an issue. We will let you know once the review is complete.\"}"
  },
  "R014|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "9c15e3a6945e2021",
-  "response": "{\"reply\":\"Thank you for letting us know. The question itself is correct; the display issue you’re seeing is being reviewed by our team to ensure it shows properly on all devices.\"}"
+  "request_hash": "ccd38ffb072526de",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is currently reviewing the question, and we’ll update you once the issue is resolved.\"}"
  },
  "R015|reply": {
   "model": "openai/gpt-oss-120b",
@@ -782,14 +794,14 @@
  "R016|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "1c35b006aade2062",
-  "response": "{\"reply\":\"Thank you for reporting this. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "6a35bddfc421d1b7",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is currently reviewing the question and will get back to you soon.\"}"
  },
  "R017|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "f1170359070481f0",
-  "response": "{\"reply\":\"Thank you for letting us know. A teacher will review the question and the options shortly.\"}"
+  "request_hash": "88fdecfc2f4433dc",
+  "response": "{\"reply\":\"Thank you for letting us know. The spelling mistake you pointed out has already been corrected.\"}"
  },
  "R018|reply": {
   "model": "openai/gpt-oss-120b",
@@ -830,8 +842,8 @@
  "R024|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "01497cc26dade275",
-  "response": "{\"reply\":\"Thank you for reporting this. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "be1364cdb7dcd68b",
+  "response": "{\"reply\":\"Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon.\"}"
  },
  "R025|reply": {
   "model": "openai/gpt-oss-120b",
@@ -890,8 +902,8 @@
  "R034|reply": {
   "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "3bbd6753db2faf4b",
-  "response": "{\"reply\": \"Thanks for flagging that. A teacher is now reviewing the question to confirm the details.\"}"
+  "request_hash": "422888436fc1b3ed",
+  "response": "{\"reply\": \"Thanks for flagging this. A teacher is currently reviewing the question to confirm the details, so please hold tight while we check it out.\"}"
  },
  "R035|reply": {
   "model": "qwen/qwen3.8-27b",
@@ -920,8 +932,8 @@
  "R039|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "65f34aac54dffb71",
-  "response": "{\"reply\":\"Thank you for letting us know. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "41836585e747bb93",
+  "response": "{\"reply\":\"Thank you for letting us know. This question is currently only available in English, and we’ll pass your request to the team.\"}"
  },
  "R040|reply": {
   "model": "qwen/qwen3.8-27b",
@@ -948,9 +960,9 @@
   "response": "{\"reply\":\"Thank you for reporting. The solution is correct; the step you missed is that while the larger drop’s area is 16 times the smaller (R = 4r), its total charge is 64 times larger (Q = 64q), so the surface charge density ratio is 64/16 = 4, i.e., 4 : 1, not 1 : 4.\"}"
  },
  "R044|reply": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "24c4985b80d4d067",
-  "response": "{\"reply\":\"Thank you for reporting the issue. The solution is correct; the step you missed is that the potential at r = R/2 is (11/8)·(KQ/R), which gives a voltage difference of (7/8)·16 V = 14 V, not 22 V.\"}"
+  "request_hash": "016ea6650323eced",
+  "response": "{\"reply\": \"Thanks for flagging this. The question asks for V_P − V_S, so you need to subtract V/2 from your 11V/8 result, which gives 7V/8 or 14 V.\"}"
  }
 }

@@ -31,11 +31,12 @@ If an LLM call fails, `engine.run` keeps the banked `results.json` and writes `e
 
 | | Submitted (11 Nov) | Current |
 |---|---|---|
-| Solve A | 7 of 39 | 38 of 39 |
+| Solve A | 7 of 39 | 39 of 39 |
 | Solve B | 39 of 39 | 39 of 39 |
-| Classifier | 25 of 39 | 37 of 39 |
+| Classifier | 25 of 39 | 39 of 39 |
+| Rows with an unavailable step | 40 | 0 |
 
-Solve A uses Gemini where a cached answer exists (9 questions) and a second Groq model, `qwen/qwen3.8-27b`, elsewhere (29). On those 29 both solves run on Groq with two different models, which is weaker independence than two providers. Nothing auto-applies, and accuracy against hand labels has not been measured. Details: [docs/DEVELOPMENT_HISTORY.md](docs/DEVELOPMENT_HISTORY.md).
+Solve A uses Gemini where a cached answer exists (9 questions) and a second Groq model, `qwen/qwen3.8-27b`, elsewhere (30). On those 30 both solves run on Groq with two different models, which is weaker independence than two providers. Nothing auto-applies, and accuracy against hand labels has not been measured. Details: [docs/DEVELOPMENT_HISTORY.md](docs/DEVELOPMENT_HISTORY.md).
 
 ## Applying approved changes
 Approving in the console records a decision in that browser only; nothing is written to any question bank. To turn decisions into fixed data, use **Audit log → Export approved changes** in the console, then:
