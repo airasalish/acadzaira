@@ -115,6 +115,21 @@ PROVIDERS = {
 # Providers used from cache only: a cache miss becomes a routed error instead of a live call.
 # Gemini is here because its free tier stalled the 11 Nov run; cached solve A results still count.
 CACHE_ONLY_PROVIDERS = {"gemini"}
+# 12 Nov: Gemini's free daily quota is used up, so solve A falls back to a second Groq model of a
+# different family from solve B's. Cached Gemini solves are kept. Trade-off, decided by the
+# candidate: on fallback questions both solves run on one provider (two different models), which
+# is weaker independence than the Gemini + Groq split. The run record names the model per solve.
+# The classifier and reply writer fall back to the same second model when the main Groq model's
+# free daily token allowance (200,000 tokens) is used up. They only describe and phrase; code decides.
+ROLE_FALLBACK = {"solve_a": ("groq", "qwen/qwen3.8-27b"),
+                 "classify": ("groq", "qwen/qwen3.8-27b"),
+                 "reply": ("groq", "qwen/qwen3.8-27b")}
+# Free-tier pacing (Groq allows 8,000 tokens a minute per model): wait out rate limits, and leave
+# a gap after every live call.
+RATE_LIMIT_RETRIES = 3
+RATE_LIMIT_WAIT = 30.0     # seconds, when the provider gives no retry-after
+CALL_SPACING = 4.0         # seconds after each successful live call
+CALL_TIMEOUT = 90.0        # seconds; a hung request is dropped and retried
 PROVIDER_ENDPOINTS = {
     "gemini": {"base_url": "https://generativelanguage.googleapis.com/v1beta/openai/", "key_env": "GEMINI_API_KEY"},
     "groq": {"base_url": "https://api.groq.com/openai/v1", "key_env": "GROQ_API_KEY"},
@@ -130,7 +145,7 @@ REASONING_EFFORT = {"solve_a": "high", "solve_b": "high", "classify": "medium", 
 PROMPT_VERSIONS = {"solve_a": "v1", "solve_b": "v1", "classify": "v1", "reply": "v1"}
 SOLVE_B_SCOPE = "all"         # every reported question gets two independent solves
 
-MAX_WORKERS = 2               # free tiers are rate-limited: keep parallel questions low
+MAX_WORKERS = 1               # one question at a time: free tiers are limited per minute
 MAX_RETRIES = 6               # SDK backoff on 429 / 5xx (honours retry-after)
 MAX_TOKENS = {"solve_a": 8192, "solve_b": 8192, "classify": 8192, "reply": 1024}
 FREE_TIER = True              # usage log records cost_usd 0.0 while on free tiers

@@ -26,6 +26,17 @@ python -m eval.test_core                 # unit tests for parser, edits, guards,
 ```
 If an LLM call fails, `engine.run` keeps the banked `results.json` and writes `engine/out/results.partial.json`; rows whose LLM steps failed are routed to `faculty_review` with the reason, never dropped.
 
+## Results and coverage
+`results.json` in this repository is the completed run of 12 Nov 2026 (after the deadline). The run submitted on 11 Nov is commit `7ccd01c`; free-tier quotas had left it with solve A on 7 of 39 questions and the classifier on 25 of 39.
+
+| | Submitted (11 Nov) | Current |
+|---|---|---|
+| Solve A | 7 of 39 | 38 of 39 |
+| Solve B | 39 of 39 | 39 of 39 |
+| Classifier | 25 of 39 | 37 of 39 |
+
+Solve A uses Gemini where a cached answer exists (9 questions) and a second Groq model, `qwen/qwen3.8-27b`, elsewhere (29). On those 29 both solves run on Groq with two different models, which is weaker independence than two providers. Nothing auto-applies, and accuracy against hand labels has not been measured. Details: [docs/DEVELOPMENT_HISTORY.md](docs/DEVELOPMENT_HISTORY.md).
+
 ## Applying approved changes
 Approving in the console records a decision in that browser only; nothing is written to any question bank. To turn decisions into fixed data, use **Audit log → Export approved changes** in the console, then:
 

@@ -114,6 +114,30 @@ Commits: first commit 23:13, repository public at 23:25, `PRODUCT.md` and `PROMP
 - The classifier gave usable output for 25 of 39 questions. Reports on the other 14 fall back to code-check findings or `not_actionable`.
 - The reproducibility check was run on the banked results, not re-run on the final file.
 
-## 10. Next steps
+## 10. After the deadline: completing coverage (12 Nov, 11:00–14:05)
+
+*This section describes work done after the 23:59 deadline. The results submitted on 11 Nov are commit `7ccd01c`; sections 7 and 9 describe them.*
+
+The submitted run was limited by free-tier quotas, not by the design, so the run was finished the next day:
+
+- Gemini's free daily quota was still used up, so solve A falls back to a second Groq model from a different family (`qwen/qwen3.8-27b`) for questions with no cached Gemini answer. This was a deliberate trade: on those questions both solves run on one provider with two different models, which is weaker independence than the Gemini + Groq split. The run record names the model behind every solve.
+- A first attempt made results worse (most classifier calls were rejected) and was rolled back to the verified backup. The cause was pacing: Groq allows 8,000 tokens a minute and 200,000 a day per model. The engine now runs one question at a time, waits out rate limits, times out hung calls, and lets the classifier and reply writer fall back to the second model when the first is out of daily tokens.
+- A failed step now produces the same message in a live run and a cached run, so results stay reproducible after a run with failures.
+
+Result of the completed run (`python -m eval.score`: 656 checks passed, 0 failed; two cached runs byte-identical):
+
+| | Submitted (11 Nov) | Completed (12 Nov) |
+|---|---|---|
+| Solve A coverage | 7 of 39 | 38 of 39 (9 Gemini, 29 second Groq model) |
+| Classifier coverage | 25 of 39 | 37 of 39 |
+| Rows with an unavailable step | 40 | 6 |
+| `not_actionable` rows | 14 | 3 |
+| `no_error` rows | 11 | 17 |
+| Defect rows | 14 | 19 |
+| Auto-applied | 0 | 0 |
+
+With both solves available, the two multiple-correct questions with malformed keys were resolved by evidence rather than by format, as decided on day one: one is an answer-key defect with a structured list edit (`['A, B, D']` to `["A","B","D"]`), the other is a type mismatch (both solves find exactly one correct option). The confidently wrong "mu should be 0.4" report now comes out as no error, with the missed step in the reply. Hand-labelled accuracy is still not measured, and nothing auto-applies.
+
+## 11. Next steps
 
 Finish the hand labels and calibrate the threshold; rerun solve A on a paid or less loaded tier so answer keys can be proven across all questions; run the checks and solves on the four unreported questions for `docs/UNREPORTED.md`; move the queue's urgency weights from the console into `engine/config.py`.

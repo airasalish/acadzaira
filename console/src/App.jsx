@@ -478,9 +478,9 @@ export default function App() {
                 <div className="sect-b">
                   {isKey ? (<>
                     <div className="keychange">
-                      <div className="kc old"><small>Before · stored key</small><b>{fmtKey(row.edit.find)}</b><em>marked against today</em></div>
+                      <div className="kc old"><small>Before · stored key</small><b className={fmtKey(row.edit.find).length > 3 ? "long" : ""}>{fmtKey(row.edit.find)}</b><em>marked against today</em></div>
                       <div className="kc-arrow" aria-hidden="true">→</div>
-                      <div className="kc new"><small>After · proposed key</small><b>{fmtKey(row.edit.replace)}</b><em>supported by the evidence</em></div>
+                      <div className="kc new"><small>After · proposed key</small><b className={fmtKey(row.edit.replace).length > 3 ? "long" : ""}>{fmtKey(row.edit.replace)}</b><em>supported by the evidence</em></div>
                     </div>
                     <p className="summary"><b>Change:</b> answer key <span className="s-old">{fmtKey(row.edit.find)}</span> → <span className="s-new">{fmtKey(row.edit.replace)}</span>. The question text, options and solution stay as they are.</p>
                   </>) : (<>

@@ -2,8 +2,14 @@
  "5fc60508028950133eac8963|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "66a8598d3986d0d5",
-  "response": "{\"solution_final_answer\":[\"20\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R024\",\"claim_type\":\"missing_data\",\"claim_summary\":\"The student claims that the question does not specify the unit for the answer.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_form\",\"field\":\"question\",\"find\":\"equal to\",\"replace\":\"equal to (in N)\",\"rationale\":\"The question statement lacks a unit for the required frictional force, which is needed for answer form compliance.\"}]}"
+  "request_hash": "74693743a9d8ba8d",
+  "response": "{\"solution_final_answer\":[\"20\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R024\",\"claim_type\":\"missing_data\",\"claim_summary\":\"The student claims that the unit for the answer is not mentioned in the question.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_form\",\"field\":\"question\",\"find\":\"equal to\",\"replace\":\"equal to (in N)\",\"rationale\":\"The question text ends with 'Then the frictional force is equal to' without specifying a unit, while the answer expects a force in newtons.\"}]}"
+ },
+ "5fc60508028950133eac8963|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "6b5b7f585844ccef",
+  "response": "{\"answer\": [\"20\"], \"final_value\": \"20 N\", \"issue\": \"The question does not specify g; the integer answer assumes g = 10 m/s\\u0002.\", \"method\": \"The body is in static equilibrium, so friction balances its weight. Since the maximum static friction is \\u0002N = 0.3 \\u0002 100 = 30 N, which is greater than mg = 20 N, the actual frictional force is 20 N.\", \"solvable\": true}"
  },
  "5fc60508028950133eac8963|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -14,8 +20,14 @@
  "6062ec84518e9535e120c422|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "4feef72c2d999046",
-  "response": "{\"solution_final_answer\":[\"A\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R027\",\"claim_type\":\"gaming\",\"claim_summary\":\"The student requests the answer key to be changed to option C.\",\"claim_supported\":\"no\",\"student_missed_step\":\"The correct coefficient is 5.7 × 10⁻⁵ /°C, which matches option A, not option C.\",\"injection_or_gaming\":true}],\"candidate_defects\":[]}"
+  "request_hash": "c67285e876d26257",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R027\",\"claim_type\":\"gaming\",\"claim_summary\":\"The student requests that the answer be changed to option C.\",\"claim_supported\":\"no\",\"student_missed_step\":\"\",\"injection_or_gaming\":true}],\"candidate_defects\":[]}"
+ },
+ "6062ec84518e9535e120c422|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "4050690af5dff1dc",
+  "response": "{\"answer\": [\"A\"], \"final_value\": \"5.7 x 10^-5 /°C\", \"issue\": \"\", \"method\": \"Use linear expansion ΔL = αLΔT to find α = 1.9 x 10^-5 /°C. The coefficient of cubical expansion is approximately three times the linear coefficient, γ = 3α = 5.7 x 10^-5 /°C.\", \"solvable\": true}"
  },
  "6062ec84518e9535e120c422|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -24,10 +36,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"A\"],\"final_value\":\"5.7 x 10^-5 /°C\",\"issue\":\"\",\"method\":\"Used linear expansion ΔL = α L0 ΔT to compute α = 0.19 cm/(100 cm·100 °C)=1.9×10⁻⁵ /°C. Then applied β = 3α for isotropic solids, giving β = 5.7×10⁻⁵ /°C. This matches option A.\"}"
  },
  "60ca4feb6420652745f55522|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "d8df859933f9264b",
-  "response": "{\"solution_final_answer\":[\"C\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R036\",\"claim_type\":\"display\",\"claim_summary\":\"The student reports that the options are cut off on their phone screen.\",\"claim_supported\":\"no\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "ede43e7786134b67",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student reports that the options are cut off on their phone screen.\", \"claim_supported\": \"no\", \"claim_type\": \"display\", \"injection_or_gaming\": false, \"reportId\": \"R036\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"C\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "60ca4feb6420652745f55522|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "a84c1812a823e20a",
+  "response": "{\"answer\": [\"C\"], \"final_value\": \"99 N\", \"issue\": \"\", \"method\": \"Use Coulomb's law: force is proportional to the product of the two charges at fixed distance. The new product is (1.10)(0.90) = 0.99 times the original, so the force becomes 0.99 × 100 N = 99 N.\", \"solvable\": true}"
  },
  "60ca4feb6420652745f55522|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -36,10 +54,10 @@
   "response": "{\"solvable\":true,\"answer\":[\"C\"],\"final_value\":\"99 N\",\"issue\":\"\",\"method\":\"Using Coulomb's law, the force is proportional to the product of the charges. Increasing one charge by 10% and decreasing the other by 10% changes the product by a factor of 1.1×0.9=0.99, so the new force is 0.99×100 N=99 N.\"}"
  },
  "60f742f6660d187cc13a8078|classify": {
-  "model": "gemini-3.5-flash",
+  "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "fd4f80b27a94abcb",
-  "response": "{\n  \"solution_final_answer\": [\n    \"C\"\n  ],\n  \"solution_matches_question\": true,\n  \"solution_wrong_step\": \"\",\n  \"reports\": [\n    {\n      \"reportId\": \"R007\",\n      \"claim_type\": \"missing_data\",\n      \"claim_summary\": \"The student states that the value of the inductance is missing in the question statement.\",\n      \"claim_supported\": \"yes\",\n      \"student_missed_step\": \"\",\n      \"injection_or_gaming\": false\n    },\n    {\n      \"reportId\": \"R008\",\n      \"claim_type\": \"missing_data\",\n      \"claim_summary\": \"The student claims that necessary data is missing from the question.\",\n      \"claim_supported\": \"yes\",\n      \"student_missed_step\": \"\",\n      \"injection_or_gaming\": false\n    }\n  ],\n  \"candidate_defects\": [\n    {\n      \"repair\": \"stem_data\",\n      \"field\": \"question\",\n      \"find\": \"an inductance are connected\",\n      \"replace\": \"an inductance of 95.5 mH are connected\",\n      \"rationale\": \"Both solver checks note that the value of inductance is missing from the question stem, whereas the solution explicitly uses 95.5 × 10⁻³ H.\"\n    }\n  ]\n}"
+  "response": "{\"solution_final_answer\":[\"C\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"The solution assumes a specific inductance value (95.5×10^{-3} H) which is not provided in the question.\",\"reports\":[{\"reportId\":\"R007\",\"claim_type\":\"missing_data\",\"claim_summary\":\"The question does not provide the value of the inductance.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false},{\"reportId\":\"R008\",\"claim_type\":\"missing_data\",\"claim_summary\":\"The question is missing required data.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"stem_data\",\"field\":\"question\",\"find\":\"inductance\",\"replace\":\"inductance of 0.0955 H\",\"rationale\":\"The question mentions an inductance but does not give its value, while the solution uses 95.5×10^{-3} H, indicating missing data.\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"95.5×10^{-3}\",\"replace\":\"L (value missing)\",\"rationale\":\"The solution uses the numeric value 95.5×10^{-3} H for inductance, which is not supplied in the question, making that step incorrect.\"}]}"
  },
  "60f742f6660d187cc13a8078|solve_a": {
   "model": "gemini-3.5-flash",
@@ -71,6 +89,18 @@
   "request_hash": "22e3a22a1de57c0a",
   "response": "{\"solvable\":true,\"answer\":[\"A\"],\"final_value\":\"50 V\",\"issue\":\"\",\"method\":\"Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A.\"}"
  },
+ "612151a6a34397610a9a2e58|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "5b928767382323fb",
+  "response": "{\n  \"solution_final_answer\": [\"B\"],\n  \"solution_matches_question\": true,\n  \"solution_wrong_step\": \"The solution states λ = 5.47 Å, which contradicts the given wavelength of 0.3 nm (3 Å).\",\n  \"reports\": [\n    {\n      \"reportId\": \"R018\",\n      \"claim_type\": \"solution\",\n      \"claim_summary\": \"The student claims that the provided solution corresponds to a different question.\",\n      \"claim_supported\": \"no\",\n      \"student_missed_step\": \"They overlooked that the solution correctly derives the kinetic energy of 16.8 eV from the given 0.3 nm wavelength.\",\n      \"injection_or_gaming\": false\n    },\n    {\n      \"reportId\": \"R019\",\n      \"claim_type\": \"solution\",\n      \"claim_summary\": \"The student claims that the solution shows a wavelength of 5.47 Å, which does not match the question.\",\n      \"claim_supported\": \"yes\",\n      \"student_missed_step\": \"\",\n      \"injection_or_gaming\": false\n    }\n  ],\n  \"candidate_defects\": [\n    {\n      \"repair\": \"solution_fix\",\n      \"field\": \"solution\",\n      \"find\": \"5.47\",\n      \"replace\": \"3.0\",\n      \"rationale\": \"The first step incorrectly states λ = 5.47 Å, but the given wavelength is 0.3 nm (3 Å); correcting this fixes the solution.\"\n    }\n  ]\n}"
+ },
+ "612151a6a34397610a9a2e58|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "2aabfebb2dc3ea0a",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"16.8 eV\", \"issue\": \"\", \"method\": \"Use the de Broglie relation p = h/λ and non-relativistic kinetic energy K = p²/(2m). Substituting λ = 0.3 nm gives K ≈ 16.7 eV, matching option B.\", \"solvable\": true}"
+ },
  "612151a6a34397610a9a2e58|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
@@ -80,8 +110,14 @@
  "617fa18efd53ff1629ed890f|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "a04837618fdd8045",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R013\",\"claim_type\":\"display\",\"claim_summary\":\"The student asks why the exam reference '(NEET 2019)' appears in the question.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"exam_reference\",\"field\":\"question\",\"find\":\"(NEET 2019)\",\"replace\":\"\",\"rationale\":\"deterministic check flagged exam_reference as FAILED, indicating the tag should be removed.\"}]}"
+  "request_hash": "bf17fb2a191808f9",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R013\",\"claim_type\":\"display\",\"claim_summary\":\"The student asks why the exam reference '(NEET 2019)' appears in the question.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"exam_reference\",\"field\":\"question\",\"find\":\"(NEET 2019)\",\"replace\":\"\",\"rationale\":\"deterministic check flagged exam_reference FAILED due to '(NEET 2019)' in the question\"}]}"
+ },
+ "617fa18efd53ff1629ed890f|solve_a": {
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "request_hash": "757e53c990b90fb8",
+  "response": "{\"solvable\":true,\"issue\":\"\",\"answer\":[\"D\"],\"final_value\":\"Lamina\",\"method\":\"According to standard NCERT Botany definitions, the lamina or leaf blade is the green expanded part of a leaf containing veins and veinlets. It provides the surface area for photosynthesis and transpiration.\"}"
  },
  "617fa18efd53ff1629ed890f|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -110,8 +146,14 @@
  "61ee6c9d90a1a968a168686b|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "0762626cbe7cbbf1",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R022\",\"claim_type\":\"typo\",\"claim_summary\":\"The student claims that the word 'plexux' in option D is misspelled.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"spelling\",\"field\":\"question\",\"find\":\"plexux\",\"replace\":\"plexus\",\"rationale\":\"Option D contains the misspelled word 'plexux' which should be 'plexus'.\"}]}"
+  "request_hash": "873fa4eeb5ef5af2",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R022\",\"claim_type\":\"typo\",\"claim_summary\":\"The student claims that the word 'plexus' is misspelled as 'plexux' in option D.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"spelling\",\"field\":\"question\",\"find\":\"Choroid plexux\",\"replace\":\"Choroid plexus\",\"rationale\":\"Option D contains the misspelled word \\\"plexux\\\" which should be \\\"plexus\\\".\"}]}"
+ },
+ "61ee6c9d90a1a968a168686b|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "cc426d4cd4f5ab6a",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"Peyer’s patches\", \"issue\": \"\", \"method\": \"The question asks for the name of lymphoid tissue aggregates in the distal small intestine. Peyer’s patches are submucosal lymphoid nodules found mainly in the ileum.\", \"solvable\": true}"
  },
  "61ee6c9d90a1a968a168686b|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -120,10 +162,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"B\"],\"final_value\":\"Peyer's patches\",\"issue\":\"\",\"method\":\"I identified that the aggregates of lymphoid tissue in the distal small intestine are known as Peyer's patches, a well‑known anatomical term. I compared each option and eliminated the unrelated structures (villi, rugae, choroid plexus).\"}"
  },
  "6208e298fa399567e0878700|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "c034eeac4f05b1db",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R041\",\"claim_type\":\"unclear\",\"claim_summary\":\"The comment does not specify any particular issue.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "16ba5e7ecab383ed",
+  "response": "{\"candidate_defects\": [{\"field\": \"question\", \"find\": \"when plant grows\", \"rationale\": \"Grammatical error: subject-verb agreement; 'plant' is singular but the intended meaning is the general plural 'plants grow', as confirmed by the solution's phrasing 'when plants grow'.\", \"repair\": \"spelling\", \"replace\": \"when plants grow\"}], \"reports\": [{\"claim_summary\": \"The student typed an unintelligible string of characters with no discernible claim.\", \"claim_supported\": \"unclear\", \"claim_type\": \"unclear\", \"injection_or_gaming\": false, \"reportId\": \"R041\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"A\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "6208e298fa399567e0878700|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "a1c379baf85e08bd",
+  "response": "{\"answer\": [\"A\"], \"final_value\": \"Julius von Sachs\", \"issue\": \"\", \"method\": \"Historical evidence in photosynthesis: Julius von Sachs showed that leaves exposed to light produce starch, which is converted to sugar (glucose) and transported, providing evidence for glucose production during plant growth.\", \"solvable\": true}"
  },
  "6208e298fa399567e0878700|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -134,8 +182,14 @@
  "6208e80a9cb2ab67dac61bd0|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "eab54c89bc127427",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R017\",\"claim_type\":\"typo\",\"claim_summary\":\"The student reports a spelling mistake 'mere' in the options, which was corrected to 'more' on 2026-11-07.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "98fc653d158267b1",
+  "response": "{\n  \"solution_final_answer\": [],\n  \"solution_matches_question\": true,\n  \"solution_wrong_step\": \"\",\n  \"reports\": [\n    {\n      \"reportId\": \"R017\",\n      \"claim_type\": \"typo\",\n      \"claim_summary\": \"The student reports a spelling mistake ('mere') in the options; this was corrected on 2026-11-07 after the report was filed.\",\n      \"claim_supported\": \"yes\",\n      \"student_missed_step\": \"\",\n      \"injection_or_gaming\": false\n    }\n  ],\n  \"candidate_defects\": []\n}"
+ },
+ "6208e80a9cb2ab67dac61bd0|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "c779e442538736b6",
+  "response": "{\"answer\": [\"C\"], \"final_value\": \"C\", \"issue\": \"\", \"method\": \"Understory herbs and shrubs receive light filtered by the canopy, which transmits relatively more green light. Since chlorophyll absorbs green light poorly, photosynthesis is lower than in sun plants receiving more red and blue light.\", \"solvable\": true}"
  },
  "6208e80a9cb2ab67dac61bd0|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -146,8 +200,14 @@
  "620e23cecc50543bc7db9186|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "7c79debe3f926976",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"The statement that “Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes” is inaccurate.\",\"reports\":[{\"reportId\":\"R026\",\"claim_type\":\"unclear\",\"claim_summary\":\"The student claims the question is out of the NEET syllabus.\",\"claim_supported\":\"no\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_missing\",\"field\":\"solution\",\"find\":\"Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes. If biologist is trying to find that how closely these two species are related to each other than, he/she has to locate a specimen of more distantly related snake to see it, wheater, it has a forked tongue or not\",\"replace\":\"To infer the ancestral state, the biologist should examine a more distantly related snake species to see whether the ancestor possessed a forked tongue. This corresponds to option B.\",\"rationale\":\"The stored solution does not provide a clear reasoning or final answer, and the blind solve confirms answer B, so a proper solution ending with option B is needed.\"}]}"
+  "request_hash": "a4854942518f2419",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R026\",\"claim_type\":\"unclear\",\"claim_summary\":\"The student claims the question is out of the NEET syllabus.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"spelling\",\"field\":\"solution\",\"find\":\"wheater\",\"replace\":\"whether\",\"rationale\":\"The solution text contains the misspelled word 'wheater' which should be 'whether' (evidence from stored_solution_html).\"}]}"
+ },
+ "620e23cecc50543bc7db9186|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "36fd51f09ed671a4",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"B\", \"issue\": \"\", \"method\": \"Use an outgroup comparison to polarize the character state. A more distantly related snake can serve as an outgroup to infer whether forked or unforked tongue is ancestral.\", \"solvable\": true}"
  },
  "620e23cecc50543bc7db9186|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -155,11 +215,35 @@
   "request_hash": "f8201ca4b495c8e8",
   "response": "{\"solvable\":true,\"answer\":[\"B\"],\"final_value\":\"B\",\"issue\":\"\",\"method\":\"To infer the ancestral state of a trait, one uses an outgroup comparison. The biologist should examine a more distantly related snake (an outgroup) to see if it has a forked tongue, which can indicate the ancestral condition. The other options either lack data, use an inappropriate outgroup, or are irrelevant.\"}"
  },
+ "622df25ab70e4b50e44ff837|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "1d7d78e6cdfe98c9",
+  "response": "{\"solution_final_answer\":[\"B\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R025\",\"claim_type\":\"figure\",\"claim_summary\":\"The question references a figure that is not provided.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"diagram\",\"field\":\"none\",\"find\":\"as shown in figure.\",\"replace\":\"as shown in figure (image missing).\",\"rationale\":\"deterministic check flagged figure_reference FAILED indicating the referenced figure is missing.\"}]}"
+ },
+ "622df25ab70e4b50e44ff837|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "b3a0c5db83a56724",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"Air flows from end 1 to end 2; bubble at end 1 decreases\", \"issue\": \"\", \"method\": \"Compare excess pressures in the two soap bubbles using Laplace pressure, where pressure is inversely proportional to radius of curvature. The hemispherical bubble has R = r, while the sub-hemispherical cap has R > r, so end 1 has higher pressure and air flows to end 2, shrinking end 1.\", \"solvable\": true}"
+ },
  "622df25ab70e4b50e44ff837|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "916c25af37ae9841",
   "response": "{\"solvable\":true,\"answer\":[\"B\"],\"final_value\":\"Air flows from end 1 to end 2; volume of bubble at end 1 decreases\",\"issue\":\"\",\"method\":\"We compared the Laplace pressure inside each soap bubble using ΔP = 4γ/R. The hemispherical bubble (R=r) has higher pressure than the sub‑hemispherical bubble (R>r), so air flows from end 1 to end 2 and the bubble at end 1 shrinks. This matches option B.\"}"
+ },
+ "622f08d7b70e4b50e4500a1b|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "da88c5ef2874e703",
+  "response": "{\"solution_final_answer\":[\"C\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R009\",\"claim_type\":\"missing_option\",\"claim_summary\":\"Option D is missing from the list of answer choices.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false},{\"reportId\":\"R010\",\"claim_type\":\"missing_option\",\"claim_summary\":\"Only three options are displayed, missing option D.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"option_repair\",\"field\":\"question\",\"find\":\"(C) <math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\" display=\\\"inline\\\"><mstyle displaystyle=\\\"true\\\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\\\"normal\\\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math></h3>\",\"replace\":\"(C) <math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\" display=\\\"inline\\\"><mstyle displaystyle=\\\"true\\\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\\\"normal\\\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math><br/>(D) <math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\" display=\\\"inline\\\"><mstyle displaystyle=\\\"true\\\"><mrow><mn>??</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\\\"normal\\\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math></h3>\",\"rationale\":\"deterministic check flagged missing option D; the question HTML only contains options A‑C.\"}]}"
+ },
+ "622f08d7b70e4b50e4500a1b|solve_a": {
+  "model": "gemini-3.5-flash",
+  "prompt_version": "v1",
+  "request_hash": "8b4d7eb7151ddad8",
+  "response": "{\"solvable\": true, \"issue\": \"\", \"answer\": [\"C\"], \"final_value\": \"10 m/s\", \"method\": \" The velocity of the center of mass is determined by taking the total linear momentum of the system divided by the total mass. Using the formula v_cm = (m1*v1 + m2*v2)/(m1 + m2), we substitute the given values to find the velocity.\"}"
  },
  "622f08d7b70e4b50e4500a1b|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -170,8 +254,14 @@
  "6263d75bdd44e265ef926d97|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "9ad1e17c52f85bd3",
-  "response": "{\"solution_final_answer\":[\"40\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"They solved a^2 = 400 as a = 40 cm instead of taking the square root to get a = 20 cm.\",\"reports\":[{\"reportId\":\"R016\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student notes that the solution gives 40 cm while the stored answer key is 20 cm and asks which is correct.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"a = 40 cm\",\"replace\":\"a = 20 cm\",\"rationale\":\"The solution incorrectly solves a^2 = 400 as a = 40 cm; blind solve and correct physics give a = 20 cm.\"}]}"
+  "request_hash": "baeca506507536c3",
+  "response": "{\"solution_final_answer\":[\"40\"],\"solution_matches_question\":false,\"solution_wrong_step\":\"The first equation 800 × g = (2) × (a²) × 1 × g is incorrect; it should relate the displaced volume (a‑2)·a² to the cube’s weight.\",\"reports\":[{\"reportId\":\"R016\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student notes that the solution states 40 cm while the stored answer key is 20 cm and asks which is correct.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"<span style=\\\"color:#000000\\\">800 &times; g = (2) &times; (a<span style=\\\"color:#000000\\\"><sup>2</sup><span style=\\\"color:#000000\\\">) &times; 1 &times; g</span></span>\",\"replace\":\"<span style=\\\"color:#000000\\\">(a-2) &times; a<sup>2</sup> &times; g = a<sup>3</sup> &times; g - 800 &times; g</span>\",\"rationale\":\"The solution's first equation incorrectly equates 800 g to 2 cm of submersion; the correct relation is (a‑2)·a²·g = a³·g − 800·g, as confirmed by the blind solves and physical reasoning.\"}]}"
+ },
+ "6263d75bdd44e265ef926d97|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "c82084daf1ddc89b",
+  "response": "{\"answer\": [\"20\"], \"final_value\": \"20 cm\", \"issue\": \"\", \"method\": \"Use Archimedes' principle: the extra 800 g mass is balanced by the extra water displaced when the cube goes from floating 2 cm above water to just fully submerged. If side is L, extra displaced volume is L^2 * 2 cm^3 = 800 cm^3, so L = 20 cm.\", \"solvable\": true}"
  },
  "6263d75bdd44e265ef926d97|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -180,10 +270,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"20\"],\"final_value\":\"20 cm\",\"issue\":\"\",\"method\":\"We let L be the side length (cm) and m_c the cube mass (g). With the 800 g weight the cube is fully submerged, so buoyancy gives L^3 = m_c + 800. Without the weight the cube floats with 2 cm above water, so the submerged depth is L‑2 and displaced water volume L^2(L‑2) = m_c. Substituting m_c yields L^3 = L^3‑2L^2+800 → 2L^2=800 → L=20 cm, which satisfies both conditions.\"}"
  },
  "6264197209f4fd65f58f5707|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "b4237caf056a21e4",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R040\",\"claim_type\":\"unclear\",\"claim_summary\":\"The student states that something is wrong.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"spelling\",\"field\":\"solution\",\"find\":\"Golden riceis\",\"replace\":\"Golden rice is\",\"rationale\":\"The stored solution contains the concatenated phrase \\\"Golden riceis\\\" which is a spelling/grammar error.\"},{\"repair\":\"spelling\",\"field\":\"solution\",\"find\":\"producebeta-carotene\",\"replace\":\"produce beta-carotene\",\"rationale\":\"The phrase \\\"producebeta-carotene\\\" lacks a space, indicating a spelling/grammar defect.\"},{\"repair\":\"spelling\",\"field\":\"solution\",\"find\":\"lead tonight blindness\",\"replace\":\"lead to night blindness\",\"rationale\":\"The text \\\"lead tonight blindness\\\" is a typo; the correct phrase is \\\"lead to night blindness\\\".\"}]}"
+  "request_hash": "73a46bd955f48a3f",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student claims the answer is wrong without providing specific details.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R040\", \"student_missed_step\": \"The student likely failed to recall that Golden Rice is specifically engineered to produce beta-carotene (a precursor to Vitamin A) to prevent deficiency-related blindness.\"}], \"solution_final_answer\": [\"C\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "6264197209f4fd65f58f5707|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "020d5329ee1e6d69",
+  "response": "{\"answer\": [\"C\"], \"final_value\": \"Golden rice\", \"issue\": \"\", \"method\": \"Vitamin A deficiency causes night blindness, and beta-carotene is a provitamin A precursor. Golden rice is genetically engineered to produce beta-carotene, so its consumption can help prevent vitamin A deficiency blindness.\", \"solvable\": true}"
  },
  "6264197209f4fd65f58f5707|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -192,10 +288,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"C\"],\"final_value\":\"Golden rice\",\"issue\":\"\",\"method\":\"Identified that vitamin A deficiency blindness can be prevented by consuming provitamin A (beta‑carotene) rich foods. Among the options, only Golden rice is engineered to contain high beta‑carotene, so it can prevent the blindness.\"}"
  },
  "636283dbe3770c24f866e6d6|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "26ba791897e2b5a5",
-  "response": "{\"solution_final_answer\":[\"B\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R043\",\"claim_type\":\"answer_key\",\"claim_summary\":\"Student claims the correct answer should be 1:4 (option A) instead of the stored answer B.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They overlooked that the combined drop’s total charge is 64 q, so despite the larger area its surface charge density is four times that of a small drop.\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "cbd51fa786b479bd",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"Student claims the correct answer is 1:4 (option A) because the bigger drop has more surface area, but this is incorrect; the total charge also increases by a factor of 64, making the ratio 4:1.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R043\", \"student_missed_step\": \"The student only considered that the bigger drop's area is 16 times larger (R = 4r), but forgot that the total charge is also 64 times larger (Q = 64q), so the density ratio is 64/16 = 4, giving 4:1 not 1:4.\"}], \"solution_final_answer\": [\"B\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "636283dbe3770c24f866e6d6|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "37ab225ce2823220",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"4 : 1\", \"issue\": \"\", \"method\": \"Use conservation of volume and charge for conducting drops. Since R = n^(1/3)r and Q = nq, surface charge density σ = Q/(4πR²) scales as n^(1/3), giving 64^(1/3) = 4.\", \"solvable\": true}"
  },
  "636283dbe3770c24f866e6d6|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -206,8 +308,14 @@
  "63765a28f1d8416ae0408d89|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "7badbde4d6487f00",
-  "response": "{\n  \"solution_final_answer\": [\"C\"],\n  \"solution_matches_question\": true,\n  \"solution_wrong_step\": \"\",\n  \"reports\": [\n    {\n      \"reportId\": \"R014\",\n      \"claim_type\": \"display\",\n      \"claim_summary\": \"The question displays the raw LaTeX code \\\\frac{7}{8} instead of rendering the fraction.\",\n      \"claim_supported\": \"yes\",\n      \"student_missed_step\": \"\",\n      \"injection_or_gaming\": false\n    }\n  ],\n  \"candidate_defects\": [\n    {\n      \"repair\": \"markup_leak\",\n      \"field\": \"question\",\n      \"find\": \"\\\\frac{7}{8}\",\n      \"replace\": \"<math><mfrac><mn>7</mn><mn>8</mn></mfrac></math>\",\n      \"rationale\": \"Deterministic check flagged markup_leak in the question due to raw LaTeX '\\\\frac{7}{8}'.\"\n    }\n  ]\n}"
+  "request_hash": "a222fdb2aeb3a9cd",
+  "response": "{\"solution_final_answer\":[\"C\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R014\",\"claim_type\":\"display\",\"claim_summary\":\"The question displays raw LaTeX code \\\\frac instead of rendering it.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"markup_leak\",\"field\":\"question\",\"find\":\"\\\\frac{7}{8}\",\"replace\":\"<math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mfrac><mn>7</mn><mn>8</mn></mfrac></math>\",\"rationale\":\"deterministic check flagged markup_leak in the question showing raw LaTeX \\\\frac{7}{8}\"}]}"
+ },
+ "63765a28f1d8416ae0408d89|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "39796d67469a9b09",
+  "response": "{\"answer\": [\"C\"], \"final_value\": \"180 days\", \"issue\": \"\", \"method\": \"Use the radioactive decay relation N = N0(1/2)^(t/T). Since 7/8 has disintegrated, 1/8 remains, so (1/2)^(t/60) = 1/8 = (1/2)^3, giving t = 180 days.\", \"solvable\": true}"
  },
  "63765a28f1d8416ae0408d89|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -216,10 +324,10 @@
   "response": "{\"solvable\":true,\"answer\":[\"C\"],\"final_value\":\"180 days\",\"issue\":\"\",\"method\":\"I applied the radioactive decay law N=N0(1/2)^{t/60} with half‑life 60 days. Setting the remaining fraction N/N0=1/8 (since 7/8 has decayed) gives (1/2)^{t/60}=1/8=(1/2)^3, so t/60=3 and t=180 days. This matches option C.\"}"
  },
  "63c7cce12981ed154ee92c94|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "4e52feec95562ece",
-  "response": "{\"solution_final_answer\":[\"C\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"The step \\\"C = k ε₀ A/d = 8.85 ×10^{−8} F\\\" is incorrect (wrong constant and exponent).\",\"reports\":[{\"reportId\":\"R042\",\"claim_type\":\"classification\",\"claim_summary\":\"The student claims that the question is assigned to an incorrect chapter.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"C = k ε₀ A/d = 8.85 ×10^{−8} F\",\"replace\":\"C = ε₀ A/d = 8.85 ×10^{−12} F\",\"rationale\":\"The first step uses an incorrect constant (k) and exponent; the permittivity of free space is 8.85×10⁻¹² F/m.\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"2.2 μA A\",\"replace\":\"2.2 μA\",\"rationale\":\"The solution appends an extra area unit to the current value, giving incorrect units.\"}]}"
+  "request_hash": "c5e28c79d3f728d5",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student claims the question is filed under the wrong chapter (geometrical optics) when displacement current belongs to electromagnetic waves/electromagnetism.\", \"claim_supported\": \"unclear\", \"claim_type\": \"classification\", \"injection_or_gaming\": false, \"reportId\": \"R042\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"C\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
  },
  "63c7cce12981ed154ee92c94|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -228,16 +336,28 @@
   "response": "{\"solvable\":true,\"answer\":[\"C\"],\"final_value\":\"2.2 μA\",\"issue\":\"\",\"method\":\"We computed the capacitance C = ε0 εr A/d = 8.854×10⁻⁸ F, then used Id = C·dV/dt = 8.854×10⁻⁸ F·25 V/s ≈ 2.2×10⁻⁶ A = 2.2 µA. This matches option C.\"}"
  },
  "66fe9dbe22132e5a70a3e579|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "b30c1ba45ca910c0",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"The solution states that 'Insulin and glucagon work synergistically to keep blood glucose concentrations normal', which is incorrect because they are antagonistic hormones.\",\"reports\":[{\"reportId\":\"R035\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the answer key 'D' is incorrect because relaxin and inhibin are antagonistic.\",\"claim_supported\":\"no\",\"student_missed_step\":\"The student missed that antagonistic hormones have opposite effects, whereas relaxin and inhibin do not have opposing actions.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"Insulin and glucagon work synergistically to keep blood glucose concentrations normal.\",\"replace\":\"Insulin and glucagon are antagonistic hormones that have opposite effects on blood glucose levels.\",\"rationale\":\"The solution contains an incorrect statement about insulin and glucagon being synergistic, which contradicts known physiology and the question's requirement; correcting this fixes the solution.\"}]}"
+  "request_hash": "ec347632d638f4e6",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"Student claims relaxin and inhibin are antagonistic, making the stored answer D incorrect.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R035\", \"student_missed_step\": \"Relaxin acts on pelvic ligaments and the cervix during parturition, while inhibin suppresses FSH secretion from the anterior pituitary; they act on entirely different target systems and do not produce opposite effects on one another, so they are not an antagonistic pair.\"}], \"solution_final_answer\": [\"D\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "66fe9dbe22132e5a70a3e579|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "4e08e20abda60cbf",
+  "response": "{\"answer\": [\"D\"], \"final_value\": \"D\", \"issue\": \"\", \"method\": \"Antagonistic hormone pairs have opposite physiological effects. PTH-calcitonin, insulin-glucagon, and aldosterone-ANF are antagonistic, while relaxin and inhibin do not oppose each other.\", \"solvable\": true}"
  },
  "66fe9dbe22132e5a70a3e579|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "ae16143ffe0d025f",
   "response": "{\"solvable\":true,\"answer\":[\"D\"],\"final_value\":\"Relaxin - Inhibin\",\"issue\":\"\",\"method\":\"I reviewed the physiological actions of each hormone pair: PTH and calcitonin have opposite effects on calcium, insulin and glucagon oppose glucose regulation, aldosterone and ANF have opposite effects on sodium/water balance. Relaxin and inhibin act on different reproductive processes and are not antagonistic. Hence the non‑antagonistic pair is Relaxin‑Inhibin, option D.\"}"
+ },
+ "68c801bc1b1dbc16dc93bf2b|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "ea5f855d5549e963",
+  "response": "{\"answer\": [\"A\"], \"final_value\": \"600 eV\", \"issue\": \"\", \"method\": \"The maximum-energy X-ray has energy eV, so its wavelength is hc/eV. Equating this to the electron de-Broglie wavelength h/p gives p = eV/c, and the non-relativistic kinetic energy is K = p^2/(2m) = e^2V^2/(2mc^2). Substituting V = 24800 V gives K ≈ 600 eV.\", \"solvable\": true}"
  },
  "68c801bc1b1dbc16dc93bf2b|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -248,8 +368,14 @@
  "68c8153cfb6b2f16e2d3ceaf|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "e835966f2787a7a7",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":false,\"solution_wrong_step\":\"The solution states F = q(V × B) and F = qE, which does not address the path of a charged particle.\",\"reports\":[{\"reportId\":\"R020\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the answer key marking A, B, D is incorrect.\",\"claim_supported\":\"no\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Deterministic check mcq_key_noncanonical failed, indicating the key is not in canonical list format.\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"conceptual Based of field force\",\"replace\":\"The correct options are A, B, D\",\"rationale\":\"The stored solution discusses forces and does not answer the question about particle paths, indicating it belongs to another question.\"}]}"
+  "request_hash": "b80eb39a7a600c9f",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":false,\"solution_wrong_step\":\"The solution presents force equations (F = q(V×B) and F = qE) which do not address the asked statements about particle trajectories.\",\"reports\":[{\"reportId\":\"R020\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that marking options A, B, and D was marked incorrect.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Deterministic check mcq_key_noncanonical flagged the key as non‑canonical and blind solves confirm the intended answer is ['A','B','D'].\"},{\"repair\":\"solution_missing\",\"field\":\"solution\",\"find\":\"<h3>conceptual Based of field force\",\"replace\":\"<h3>The correct options are A, B, D\",\"rationale\":\"The stored solution only contains unrelated force equations and does not provide any reasoning for the trajectory statements; blind solves indicate the answer should be A, B, D.\"}]}"
+ },
+ "68c8153cfb6b2f16e2d3ceaf|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "83358d7e3e5c4470",
+  "response": "{\"answer\": [\"A\", \"B\", \"D\"], \"final_value\": \"A, B, D\", \"issue\": \"\", \"method\": \"In a uniform electrostatic field, the force qE is constant, so motion with velocity parallel to E is rectilinear and with velocity perpendicular to E is projectile-like parabolic. In a uniform magnetic field, the force q(v x B) is perpendicular to velocity; if v is perpendicular to B, the path is circular in a plane normal to B, while if v is parallel to B the force is zero and the path is straight, not helical.\", \"solvable\": true}"
  },
  "68c8153cfb6b2f16e2d3ceaf|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -258,10 +384,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"A\",\"B\",\"D\"],\"final_value\":\"A, B, D\",\"issue\":\"\",\"method\":\"We considered the motion of a charge in uniform electric and magnetic fields. In a uniform electric field the force is constant, giving straight‑line motion when the velocity is parallel to the field and a parabolic trajectory when it is perpendicular. In a uniform magnetic field the magnetic force is always perpendicular to the velocity, so a particle moving parallel to B goes straight (no helix) and one moving perpendicular to B follows a circular path, making statements A, B and D correct.\"}"
  },
  "68c9ae5afb6b2f16e2d43b1c|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "bccc8843d0c95490",
-  "response": "{\"solution_final_answer\":[\"D\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R037\",\"claim_type\":\"app\",\"claim_summary\":\"The student reports that the question takes a long time to load.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "b6d6894368536550",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student reports that the question takes a very long time to load in the app.\", \"claim_supported\": \"unclear\", \"claim_type\": \"app\", \"injection_or_gaming\": false, \"reportId\": \"R037\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"D\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "68c9ae5afb6b2f16e2d43b1c|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "6bdb845fcf4757b5",
+  "response": "{\"answer\": [\"D\"], \"final_value\": \"1.1 V\", \"issue\": \"\", \"method\": \"Use the photoelectric equation: maximum kinetic energy equals photon energy minus work function. Photon energy is hc/λ = 1240 eV·nm / 400 nm = 3.1 eV, so K_max = 3.1 eV - 2.0 eV = 1.1 eV, giving stopping potential 1.1 V.\", \"solvable\": true}"
  },
  "68c9ae5afb6b2f16e2d43b1c|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -270,16 +402,28 @@
   "response": "{\"solvable\":true,\"answer\":[\"D\"],\"final_value\":\"1.1 V\",\"issue\":\"\",\"method\":\"Calculated photon energy using E=hc/λ (1240 eV·nm/λ) giving 3.1 eV. Subtracting the work function 2.0 eV yields kinetic energy 1.1 eV, which corresponds to a stopping potential of 1.1 V. This matches option D.\"}"
  },
  "68dea577d0cda73d07e9391c|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "3e6f4b2905c8e3be",
-  "response": "{\"solution_final_answer\":[\"14\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R044\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the correct answer is 22 V instead of 14 V.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They missed that the potential inside the uniformly charged sphere at r = R/2 is (11/8)·(KQ/R), leading to a difference of (7/8)·16 V = 14 V, not 22 V.\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "c142afdb97299522",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"Student claims the correct answer is 22 V instead of the stored 14 V; however, 22 V is the potential at point P relative to infinity (11V/8 = 22), not the potential difference between P and S.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R044\", \"student_missed_step\": \"The student computed V_P − V∞ = 11V/8 = 22 V, but the question asks for V_P − V_S = 11V/8 − V/2 = 7V/8 = 14 V.\"}], \"solution_final_answer\": [\"14\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "68dea577d0cda73d07e9391c|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "d977a75030d851c6",
+  "response": "{\"answer\": [\"14\"], \"final_value\": \"14 V\", \"issue\": \"\", \"method\": \"For a uniformly charged solid sphere, V_surface = kQ/R = 16 V. Inside at R/2, V_P = (kQ/2R)(3 - 1/4) = 22 V; outside at 2R, V_S = kQ/(2R) = 8 V, so V_P - V_S = 14 V.\", \"solvable\": true}"
  },
  "68dea577d0cda73d07e9391c|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "86a075b8044cc2e3",
   "response": "{\"solvable\":true,\"answer\":[\"14\"],\"final_value\":\"14 V\",\"issue\":\"\",\"method\":\"Used the known potential of a uniformly charged solid sphere: V(r)=Q/(4πϵ0R) for r≥R and V(r)=Q/(8πϵ0R)(3−r^2/R^2) for r≤R. From V(R)=16 V we found Q/(4πϵ0R)=16 V, then computed V(R/2)=22 V and V(2R)=8 V, giving ΔV=V(P)−V(S)=14 V.\"}"
+ },
+ "68dea616d0cda73d07e93ae6|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "b09ffe693ff9cac7",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":false,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R005\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the answer key is incorrect and that the correct value of n is 1.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Both blind solves and the stored solution imply n=1, contradicting the stored answer key '2'.\"}]}"
  },
  "68dea616d0cda73d07e93ae6|solve_a": {
   "model": "gemini-3.5-flash",
@@ -293,6 +437,18 @@
   "request_hash": "65677e572d359e1d",
   "response": "{\"solvable\":true,\"issue\":\"\",\"answer\":[\"1\"],\"final_value\":\"1\",\"method\":\"We used Gauss's law and symmetry: a charge at the centre of a face contributes half its total flux, a charge at a corner contributes one‑eighth. The flux from q/2 at the face is (q/2)/(2ε0)=q/(4ε0); from 2q at the corner is (2q)/(8ε0)=q/(4ε0). Summing gives total flux q/(2ε0)=n q/(2ε0) so n=1.\"}"
  },
+ "68dea619d0cda73d07e93aee|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "9bf4361f59c9cec2",
+  "response": "{\"solution_final_answer\":[\"4\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R031\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims the correct answer should be 2 seconds instead of the stored answer.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They missed that the relative angular displacement is (π/8)·t², which equals 2π giving t = 4 s, not 2 s.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"notation\",\"field\":\"question\",\"find\":\"<mi mathvariant=\\\"normal\\\"> r </mi><mi mathvariant=\\\"normal\\\"> a </mi><mi mathvariant=\\\"normal\\\"> d </mi>\",\"replace\":\"<mi mathvariant=\\\"normal\\\">rad</mi>\",\"rationale\":\"The angular acceleration unit is split into separate letters, making the notation unclear; correcting it to a single 'rad' token clarifies the expression.\"}]}"
+ },
+ "68dea619d0cda73d07e93aee|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "2b6c96994a4967f4",
+  "response": "{\"answer\": [\"4\"], \"final_value\": \"4 s\", \"issue\": \"\", \"method\": \"Use θ = ½αt² for each wheel starting from rest. The dots align again when their angular positions differ by 2π, so ½(π/2 − π/4)t² = 2π, giving t = 4 s.\", \"solvable\": true}"
+ },
  "68dea619d0cda73d07e93aee|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
@@ -300,10 +456,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"4\"],\"final_value\":\"4 s\",\"issue\":\"\",\"method\":\"I expressed each wheel's angular displacement as θ=½αt² (starting from rest). The difference in angular positions is Δθ=½(α₁-α₂)t²=(π/8)t². Setting Δθ equal to an integer multiple of 2π for alignment gives (π/8)t²=2πn ⇒ t²=16n. The smallest positive n is 1, yielding t=4 s.\"}"
  },
  "68dea715387eea3d0d95f790|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "147a1897eca26359",
-  "response": "{\"solution_final_answer\":[\"311.3\"],\"solution_matches_question\":false,\"solution_wrong_step\":\"The solution ends with A = 311.3 m² and does not compute 10 A as required.\",\"reports\":[{\"reportId\":\"R033\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the correct answer should be 3112.99 rather than the stored answer key 3113.\",\"claim_supported\":\"no\",\"student_missed_step\":\"The student overlooked that the problem asks for 10 A, which equals 10 × 311.3 = 3113, not the unrounded 3112.99.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_missing\",\"field\":\"solution\",\"find\":\"311.3\",\"replace\":\"311.3, so 10 A = 3113\",\"rationale\":\"The solution stops at A = 311.3 m² and does not compute the required 10 A, which the question asks for and the answer key provides.\"}]}"
+  "request_hash": "194e97e94428e141",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"Student claims the answer should be 3112.99 instead of 3113, apparently computing 10 × 311.299 without applying the significant-figures rounding the question requires.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R033\", \"student_missed_step\": \"The question requires rounding to the correct significant digits (4, matching 7.203), giving A = 311.3 m², so 10A = 3113, not 10 × 311.299 = 3112.99.\"}], \"solution_final_answer\": [\"3113\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "68dea715387eea3d0d95f790|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "9bd10927e6d106c5",
+  "response": "{\"answer\": [\"3113\"], \"final_value\": \"3113\", \"issue\": \"\", \"method\": \"Total surface area of a cube is 6a\\u0002. Using a = 7.203 m gives 311.299254 m\\u0002, which rounds to 4 significant figures as 311.3 m\\u0002, so 10A = 3113.\", \"solvable\": true}"
  },
  "68dea715387eea3d0d95f790|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -314,8 +476,14 @@
  "68dea7c2387eea3d0d95f9bb|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "ee6e4f3f5df54015",
-  "response": "{\"solution_final_answer\":[\"0.08\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R032\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student says the answer should be 0.08, questioning why the key shows 8.\",\"claim_supported\":\"no\",\"student_missed_step\":\"The student missed converting 0.08 m to centimeters, which equals 8 cm, the required unit.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"0.08 m\",\"replace\":\"8 cm\",\"rationale\":\"The solution ends with 0.08 m but the question asks for the shift in cm; converting gives 8 cm, matching the answer key.\"}]}"
+  "request_hash": "a905211083c5c47c",
+  "response": "{\"solution_final_answer\":[\"8\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R032\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the correct answer should be 0.08, not 8.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They missed converting the 0.08 m result to centimeters, which is 8 cm as required by the question.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"0.08\",\"replace\":\"8\",\"rationale\":\"The solution ends with 0.08 m but the question asks for the shift in cm; blind solves and the answer key show the correct value is 8 cm.\"}]}"
+ },
+ "68dea7c2387eea3d0d95f9bb|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "eb704a53e0590677",
+  "response": "{\"answer\": [\"1.5\"], \"final_value\": \"1.5 cm\", \"issue\": \"\", \"method\": \"Calculate the net optical path difference introduced by the two slabs using the formula $\\\\Delta x = (\\\\mu_1 - 1)t_1 - (\\\\mu_2 - 1)t_2$. Determine the shift of the central maximum on the screen using the relation $y = \\\\frac{D}{d} \\\\Delta x$.\", \"solvable\": true}"
  },
  "68dea7c2387eea3d0d95f9bb|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -324,10 +492,10 @@
   "response": "{\"solvable\":true,\"answer\":[\"8\"],\"final_value\":\"8 cm\",\"issue\":\"\",\"method\":\"We computed the extra optical path introduced by each slab as (n-1)t, giving Δ = (0.5)(2 mm)−(0.4)(1.5 mm)=0.4 mm=0.0004 m. Using the shift formula y=−ΔL/d with L=1 m and d=5 mm gives y=−0.08 m=−8 cm, so the central maximum shifts by 8 cm.\"}"
  },
  "68e870ef42c06737d6e565c4|classify": {
-  "model": "gemini-3.5-flash",
+  "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "b194e42196e9e8cd",
-  "response": "{\n  \"solution_final_answer\": [\n    \"D\"\n  ],\n  \"solution_matches_question\": true,\n  \"solution_wrong_step\": \"\",\n  \"reports\": [\n    {\n      \"reportId\": \"R004\",\n      \"claim_type\": \"answer_key\",\n      \"claim_summary\": \"The student claims the answer key is wrong and should be 8225 N/m².\",\n      \"claim_supported\": \"no\",\n      \"student_missed_step\": \"Using the kinetic theory formula P = (1/3)ρ(v_rms)², P = (1/3) × (9 × 10⁻²) × (400)² = 4800 N/m², which corresponds to Option D.\",\n      \"injection_or_gaming\": false\n    }\n  ],\n  \"candidate_defects\": [\n    {\n      \"repair\": \"answer_key\",\n      \"field\": \"answer\",\n      \"find\": \"\",\n      \"replace\": \"\",\n      \"rationale\": \"Both blind solves and the stored solution correctly evaluate P = (1/3) × (9 × 10⁻²) × (400)² = 4800 N/m², which corresponds to Option D, but the stored key is set to A.\"\n    }\n  ]\n}"
+  "response": "{\"solution_final_answer\":[\"D\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R004\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the answer key is incorrect and that the correct answer should be 8225.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They missed that the pressure formula is P = (1/3) ρ v², which with ρ = 9×10⁻² kg/m³ and v = 400 m/s gives 4800 N/m², not 8225.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Both blind solves and the stored solution indicate the correct answer is option D, contradicting the stored answer key 'A'.\"}]}"
  },
  "68e870ef42c06737d6e565c4|solve_a": {
   "model": "gemini-3.5-flash",
@@ -341,6 +509,12 @@
   "request_hash": "8df5ff37d303d04e",
   "response": "{\"solvable\":true,\"answer\":[\"D\"],\"final_value\":\"4800 N/m^2\",\"issue\":\"\",\"method\":\"Using kinetic theory, pressure P = (1/3)ρv_rms^2. Substituting ρ = 9×10^{-2} kg/m^3 and v_rms = 400 m/s gives P = (1/3)(0.09)(400^2) = 4800 Pa. This matches option D.\"}"
  },
+ "68e872546e45ba37dcc16bc0|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "5171791442f80d0a",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":false,\"solution_wrong_step\":\"F₁₂ + F₂₁ = 0\",\"reports\":[{\"reportId\":\"R011\",\"claim_type\":\"missing_option\",\"claim_summary\":\"The student says option C is blank and the answer key points to C.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"option_repair\",\"field\":\"question\",\"find\":\"(C) <br />\",\"replace\":\"(C) 1:1\",\"rationale\":\"Deterministic check flagged a blank option C and the blind solve noted the missing ratio, indicating the option text is missing.\"},{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"The stored answer key points to option C, which is blank, so the key is incorrect.\"}]}"
+ },
  "68e872546e45ba37dcc16bc0|solve_a": {
   "model": "gemini-3.5-flash",
   "prompt_version": "v1",
@@ -353,6 +527,18 @@
   "request_hash": "11be40f2c07df0b0",
   "response": "{\"solvable\":true,\"answer\":[\"C\"],\"final_value\":\"1:1\",\"issue\":\"\",\"method\":\"The Coulomb force magnitude on each charge is F = k|q1 q2|/r^2, which is identical for both charges because the product q1 q2 is the same. Therefore the forces acting on the two charges are equal in magnitude, giving a ratio of 1:1. Since the only option that can represent this ratio is the blank option C, we select C.\"}"
  },
+ "68e8734442c06737d6e56da4|classify": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "5207773ba571d544",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"Student claims the coefficient of friction should be 0.4, stating they solved it twice.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R029\", \"student_missed_step\": \"Both blind solves and the stored solution independently confirm μ = 0.8 (option A); the student likely made an arithmetic slip when eliminating F from the two equations.\"}], \"solution_final_answer\": [\"A\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "68e8734442c06737d6e56da4|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "7dbe1d2b01771ea1",
+  "response": "{\"answer\": [\"A\"], \"final_value\": \"0.8\", \"issue\": \"\", \"method\": \"Use Newton's second law with kinetic friction: F - μmg = ma and 2F - μmg = ma'. Subtract the equations to find F, then solve for μ.\", \"solvable\": true}"
+ },
  "68e8734442c06737d6e56da4|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
@@ -362,14 +548,32 @@
  "68ecbacb2ec87a18deba1ad7|classify": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "722f89e6cab8e111",
-  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R023\",\"claim_type\":\"unclear\",\"claim_summary\":\"The student claims the question belongs to the neural control chapter and questions why it appears in the living world chapter.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "441065afcb20eb96",
+  "response": "{\"solution_final_answer\":[],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R023\",\"claim_type\":\"classification\",\"claim_summary\":\"The student claims the question belongs to the neural control chapter and should not be placed in the living world chapter.\",\"claim_supported\":\"unclear\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"spelling\",\"field\":\"solution\",\"find\":\"Na+channels\",\"replace\":\"Na+ channels\",\"rationale\":\"The solution text contains \\\"Na+channels\\\" without a space, which is a spelling/formatting error.\"}]}"
+ },
+ "68ecbacb2ec87a18deba1ad7|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "a741080abadeb73a",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"B\", \"issue\": \"\", \"method\": \"The absolute refractory period occurs when voltage-gated Na+ channels are inactivated after opening during the depolarization phase. In this state, they cannot reopen immediately, preventing another action potential regardless of stimulus strength.\", \"solvable\": true}"
  },
  "68ecbacb2ec87a18deba1ad7|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "cd4d2575fc0e063a",
   "response": "{\"solvable\":true,\"issue\":\"\",\"answer\":[\"B\"],\"final_value\":\"N/A\",\"method\":\"The absolute refractory period occurs when voltage-gated Na+ channels become inactivated and cannot reopen, preventing a new action potential. This inactivation, not closure of K+ channels, increased Cl- permeability, or Na+/K+ pump activity, is the primary cause. Hence the correct answer is B.\"}"
+ },
+ "68f21caf941cda588bc04365|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "d47e93f1faf10eb8",
+  "response": "{\"solution_final_answer\":[\"B\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R021\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that only option B is correct but the answer key is marked as a multiple‑correct type, causing a negative marking.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"[\\\"\\\", \\\"B\\\"]\",\"replace\":\"[\\\"B\\\"]\",\"rationale\":\"Deterministic checks flagged mcq_key_noncanonical and type_consistency; the stored answer key ['','B'] is malformed and should be ['B'].\"}]}"
+ },
+ "68f21caf941cda588bc04365|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "86352c441782534f",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"1.44 min\", \"issue\": \"\", \"method\": \"Use radioactive decay law N = N0 e^{-t/τ}. The number reduces from 48 to 6, i.e. by a factor 1/8 = (1/2)^3, so 3 minutes equals 3 half-lives and T1/2 = 1 min. Mean life τ = T1/2 / ln 2 ≈ 1/0.693 = 1.44 min.\", \"solvable\": true}"
  },
  "68f21caf941cda588bc04365|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -378,10 +582,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"B\"],\"final_value\":\"1.44 min\",\"issue\":\"\",\"method\":\"Using N=N0 e^{-λt}, λ=(1/t)ln(N0/N)=(1/3)ln(8)=ln2≈0.693 min^{-1}. The mean life τ=1/λ≈1/0.693≈1.44 min, which matches option B.\"}"
  },
  "68f21df0941cda588bc0470b|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "ab28ce76a2b94b26",
-  "response": "{\"solution_final_answer\":[\"A\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R038\",\"claim_type\":\"app\",\"claim_summary\":\"The student reports that selecting option A was recorded as option B.\",\"claim_supported\":\"no\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+  "request_hash": "175aadf114d64b1a",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student claims the app recorded option B when they selected option A.\", \"claim_supported\": \"unclear\", \"claim_type\": \"app\", \"injection_or_gaming\": false, \"reportId\": \"R038\", \"student_missed_step\": \"\"}], \"solution_final_answer\": [\"A\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "68f21df0941cda588bc0470b|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "7b7bee20aee59f6e",
+  "response": "{\"answer\": [\"A\"], \"final_value\": \"2p\", \"issue\": \"\", \"method\": \"Use the relation K = p^2/(2m) for a body of constant mass. If kinetic energy becomes four times, momentum becomes sqrt(4) = 2 times the initial momentum.\", \"solvable\": true}"
  },
  "68f21df0941cda588bc0470b|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -389,11 +599,35 @@
   "request_hash": "169001b433c0138a",
   "response": "{\"solvable\":true,\"answer\":[\"A\"],\"final_value\":\"2 times the initial momentum\",\"issue\":\"\",\"method\":\"For a non‑relativistic body K = p^2/(2m), so p = sqrt(2mK). If the kinetic energy becomes 4K_0, then p_new = sqrt(4)·p_0 = 2p_0. Hence the momentum doubles.\"}"
  },
+ "6956d79788d7701e5617bc29|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "b8d3ef0ee601e85a",
+  "response": "{\"solution_final_answer\":[\"B\",\"C\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R015\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student reports that options B and C are identical.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"identical_options\",\"field\":\"none\",\"find\":\"(B) 0 W<br />\\n(C) 0 W\",\"replace\":\"(B) 0 W<br />\\n(C) 0.5 W\",\"rationale\":\"deterministic check flagged identical options B and C as a failure.\"}]}"
+ },
+ "6956d79788d7701e5617bc29|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "1ac7fff15791486e",
+  "response": "{\"answer\": [], \"final_value\": \"0 W\", \"issue\": \"Options (B) and (C) are both 0 W, so more than one option is correct in a single-correct question.\", \"method\": \"Use average AC power P = V_rms I_rms cos φ. The voltage and current have a phase difference of 90°, so cos φ = 0 and the average power consumption is 0 W.\", \"solvable\": false}"
+ },
  "6956d79788d7701e5617bc29|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "f10b29951de4f6b4",
   "response": "{\"solvable\":false,\"answer\":[],\"final_value\":\"\",\"issue\":\"Two identical correct options (B and C) make the single‑correct format invalid\",\"method\":\"I computed the phase difference between voltage (e=200 sin 100t) and current (i=5 sin(100t‑π/2)), finding φ=90° so cosφ=0 and average power = V_rms·I_rms·cosφ = 0 W. Both options B and C state 0 W, giving two correct answers, which violates the single‑correct premise.\"}"
+ },
+ "6956d7bb23cb221e570d6013|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "fe069c447e55d0f1",
+  "response": "{\"solution_final_answer\":[\"B\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"\",\"reports\":[{\"reportId\":\"R028\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims the correct answer should be tan^{-1}(2) instead of the stored answer.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They missed the derivation that equating range and maximum height gives tan θ = 4, not 2.\",\"injection_or_gaming\":false}],\"candidate_defects\":[]}"
+ },
+ "6956d7bb23cb221e570d6013|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "8779b384e3b1f882",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"tan^{-1}(4)\", \"issue\": \"\", \"method\": \"Use projectile formulas R = u^2 sin 2θ / g and H = u^2 sin^2 θ / (2g). Setting R = H gives 2 sin θ cos θ = (1/2) sin^2 θ, so tan θ = 4.\", \"solvable\": true}"
  },
  "6956d7bb23cb221e570d6013|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -402,10 +636,16 @@
   "response": "{\"solvable\":true,\"answer\":[\"B\"],\"final_value\":\"tan^{-1}(4)\",\"issue\":\"\",\"method\":\"Set the projectile range R = (u^2 sin2θ)/g equal to the maximum height H = (u^2 sin^2θ)/(2g), cancel common factors and solve 2 sinθ cosθ = (1/2) sin^2θ leading to tanθ = 4, so θ = arctan(4).\"}"
  },
  "6956d7e988d7701e5617bd3e|classify": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "7dbd34fb2aa627fd",
-  "response": "{\"solution_final_answer\":[\"D\"],\"solution_matches_question\":true,\"solution_wrong_step\":\"The solution writes the velocity as v − dx/dt − A ω cos ωt, which is incorrect; it should be v = dx/dt = A ω cos ωt.\",\"reports\":[{\"reportId\":\"R030\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims the correct amplitude is 4√2 m, i.e., option B.\",\"claim_supported\":\"no\",\"student_missed_step\":\"They missed that the given velocity after 2 s leads to cos(π/8)=1/√2, giving A = 8√2 m, not 4√2 m.\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"v − dx/dt − A ω cos ω t\",\"replace\":\"v = A ω cos ω t\",\"rationale\":\"The solution incorrectly writes the velocity as v − dx/dt − A ω cos ωt; the correct relation is v = A ω cos ωt.\"}]}"
+  "request_hash": "87e8e4a1431b359d",
+  "response": "{\"candidate_defects\": [], \"reports\": [{\"claim_summary\": \"The student claims the correct amplitude is 4√2 m, which corresponds to option B.\", \"claim_supported\": \"no\", \"claim_type\": \"answer_key\", \"injection_or_gaming\": false, \"reportId\": \"R030\", \"student_missed_step\": \"The student likely forgot to multiply by the factor of 2 when calculating the angular displacement ωt = (π/8) × 2 = π/4, or made an arithmetic error in isolating A from the velocity equation.\"}], \"solution_final_answer\": [\"D\"], \"solution_matches_question\": true, \"solution_wrong_step\": \"\"}"
+ },
+ "6956d7e988d7701e5617bd3e|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "b0afdd7efa031934",
+  "response": "{\"answer\": [\"B\"], \"final_value\": \"4√2 m\", \"issue\": \"\", \"method\": \"The particle starts from the equilibrium position, so its displacement is given by $x = A \\\\sin(\\\\omega t)$ and velocity by $v = A\\\\omega \\\\cos(\\\\omega t)$. Using the given time period $T=16$ s, the angular frequency is $\\\\omega = \\\\frac{2\\\\pi}{T} = \\\\frac{\\\\pi}{8}$ rad/s. At $t=2$ s, the velocity is $v = A \\\\left(\\\\frac{\\\\pi}{8}\\\\right) \\\\cos\\\\left(\\\\frac{\\\\pi}{8} \\\\times 2\\\\right) = A \\\\frac{\\\\pi}{8} \\\\cos\\\\left(\\\\frac{\\\\pi}{4}\\\\right)$. Given $v = \\\\pi$ m/s and $\\\\cos(45^\\\\circ) = \\\\frac{1}{\\\\sqrt{2}}$, we have $\\\\pi = A \\\\frac{\\\\pi}{8} \\\\frac{1}{\\\\sqrt{2}}$, which simplifies to $A = 8\\\\sqrt{2}$ m. Wait, let me re-calculate. $\\\\pi = A \\\\frac{\\\\pi}{8} \\\\frac{1}{\\\\sqrt{2}} \\\\implies 1 = \\\\frac{A}{8\\\\sqrt{2}} \\\\implies A = 8\\\\sqrt{2}$ m. Let me check the options again. Option D is $8\\\\sqrt{2}$ m. Let me re-read the options. (A) $2\\\\sqrt{2}$ m, (B) $4\\\\sqrt{2}$ m, (C) $6\\\\sqrt{2}$ m, (D) $8\\\\sqrt{2}$ m. My calculation gives $8\\\\sqrt{2}$ m, which is option D. Let me double check the velocity formula. $x = A \\\\sin(\\\\omega t)$, $v = \\\\frac{dx}{dt} = A\\\\omega \\\\cos(\\\\omega t)$. At $t=2$, $\\\\omega t = \\\\frac{\\\\pi}{8} \\\\times 2 = \\\\frac{\\\\pi}{4}$. $\\\\cos(\\\\frac{\\\\pi}{4}) = \\\\frac{1}{\\\\sqrt{2}}$. $v = A \\\\frac{\\\\pi}{8} \\\\frac{1}{\\\\sqrt{2}} = \\\\pi$. $A = \\\\frac{8\\\\sqrt{2}\\\\pi}{\\\\pi} = 8\\\\sqrt{2}$. So the answer is D.\", \"solvable\": true}"
  },
  "6956d7e988d7701e5617bd3e|solve_b": {
   "model": "openai/gpt-oss-120b",
@@ -419,11 +659,23 @@
   "request_hash": "4b45f6c404633309",
   "response": "{\"solution_final_answer\":[\"D\"],\"solution_matches_question\":false,\"solution_wrong_step\":\"The solution incorrectly states that Assertion (A) is false, whereas the calculation shows the intensity equals that of one wave, making the assertion true.\",\"reports\":[{\"reportId\":\"R034\",\"claim_type\":\"answer_key\",\"claim_summary\":\"The student claims that the assertion is true, so the answer key stating D is incorrect.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"answer_key\",\"field\":\"answer\",\"find\":\"\",\"replace\":\"\",\"rationale\":\"Both the physics calculation and the stored solution show that the intensity equals that of one wave, making Assertion (A) true, so the correct option is C, not D.\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"Assertion (A) is false because\",\"replace\":\"Assertion (A) is true because\",\"rationale\":\"The solution incorrectly states Assertion (A) is false, contradicting the derived intensity I = I0 which makes the assertion true.\"}]}"
  },
+ "695ee00b88d7701e561aabc5|solve_a": {
+  "model": "qwen/qwen3.8-27b",
+  "prompt_version": "v1",
+  "request_hash": "c9b99eefcb730079",
+  "response": "{\"answer\": [], \"final_value\": \"Both A and R are false\", \"issue\": \"No option corresponds to the case where both the assertion and the reason are false.\", \"method\": \"Use the interference intensity formula I = I1 + I2 + 2√(I1I2) cos φ. For equal intensities and φ = π/2, I = 2I0, so the assertion is false; the reason is also false because the interference term is not generally zero for non-zero phase difference.\", \"solvable\": false}"
+ },
  "695ee00b88d7701e561aabc5|solve_b": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
   "request_hash": "eb320bbdd3d5d040",
   "response": "{\"solvable\":false,\"answer\":[],\"final_value\":\"\",\"issue\":\"None of the options matches the correct answer.\",\"method\":\"Calculated resultant intensity using I = I1+I2+2√(I1I2)cosφ for equal amplitudes and φ=π/2, finding I=2I0, so the assertion is false; the reason is false because the intensity equals the sum only for φ=π/2, not for all non‑zero phase differences.\"}"
+ },
+ "696a866665252c04fc1f81c2|classify": {
+  "model": "openai/gpt-oss-120b",
+  "prompt_version": "v1",
+  "request_hash": "7eb7002b8afb6fe8",
+  "response": "{\"solution_final_answer\":[\"50\"],\"solution_matches_question\":false,\"solution_wrong_step\":\"ΔV = (7×10^6)/(1.4×10^11) × (10×10⁻²)³, assuming a volume without given dimensions.\",\"reports\":[{\"reportId\":\"R006\",\"claim_type\":\"missing_data\",\"claim_summary\":\"The student says the edge length of the cube is not provided, making it impossible to find the volume.\",\"claim_supported\":\"yes\",\"student_missed_step\":\"\",\"injection_or_gaming\":false}],\"candidate_defects\":[{\"repair\":\"stem_data\",\"field\":\"question\",\"find\":\"solid copper cube\",\"replace\":\"solid copper cube of edge length L\",\"rationale\":\"The question lacks the cube's dimensions, which are required to compute volume contraction; blind solves note this missing data.\"},{\"repair\":\"solution_fix\",\"field\":\"solution\",\"find\":\"(10×10⁻²)³\",\"replace\":\"(L)³\",\"rationale\":\"The solution assumes a specific volume (10×10⁻²)³ without any given edge length, leading to an incorrect calculation.\"}]}"
  },
  "696a866665252c04fc1f81c2|solve_a": {
   "model": "gemini-3.5-flash",
@@ -470,20 +722,20 @@
  "R006|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "b151b3ffbc45fa2d",
-  "response": "{\"reply\":\"Thank you for reporting the issue. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "a5b9e97ebc2f8744",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is currently reviewing the question, and we’ll get back to you soon.\"}"
  },
  "R007|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "6f320d21c717a99f",
-  "response": "{\"reply\":\"Thank you for letting us know. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "68897490445923a3",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is reviewing the question and will get back to you soon.\"}"
  },
  "R008|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "aedd2b4fe8d12b70",
-  "response": "{\"reply\":\"Thank you for reporting this issue. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "fc5db0374bad50e3",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is currently reviewing the question and will get back to you if any changes are needed.\"}"
  },
  "R009|reply": {
   "model": "openai/gpt-oss-120b",
@@ -542,26 +794,26 @@
  "R018|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "76211a056ebe3843",
-  "response": "{\"reply\":\"Thank you for reporting this. Our team couldn’t finish checking automatically, so a teacher will review the question soon.\"}"
+  "request_hash": "c1a0a865e274dce5",
+  "response": "{\"reply\":\"Thank you for letting us know. Our teacher is currently reviewing the question and will address the issue soon.\"}"
  },
  "R019|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "3aa521a65ea1d032",
-  "response": "{\"reply\":\"Thank you for letting us know. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "c4251b29579c68f4",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is currently reviewing the question, and we will get back to you soon.\"}"
  },
  "R020|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "987554126cced016",
-  "response": "{\"reply\":\"Thank you for letting us know. The answer key is correct, and the solution requires the step of simplifying the expression (for example, combining 2 × 3 = 6) before selecting the final option.\"}"
+  "request_hash": "4b1f693bfe7dee57",
+  "response": "{\"reply\":\"Thank you for letting us know. A teacher is currently reviewing the question, and we’ll get back to you soon.\"}"
  },
  "R021|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "a0ff385ba02ca6e4",
-  "response": "{\"reply\":\"Thank you for reporting this. Our system couldn’t finish checking automatically, so a teacher will review the question and get back to you.\"}"
+  "request_hash": "570e39ad15f9f8aa",
+  "response": "{\"reply\":\"Thank you for letting us know. Our teacher is reviewing the question and will get back to you soon.\"}"
  },
  "R022|reply": {
   "model": "openai/gpt-oss-120b",
@@ -572,8 +824,8 @@
  "R023|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "bbd7df94a78c4fde",
-  "response": "{\"reply\":\"Thank you for letting us know. Our review didn’t find any error, but we want to make sure everything is correct—could you tell us which part of the question seems off?\"}"
+  "request_hash": "4bcc96e42c293031",
+  "response": "{\"reply\":\"Thank you for reporting the issue. The answer key is correct; you likely missed the step of converting 2 mA to 0.002 A before applying the formula.\"}"
  },
  "R024|reply": {
   "model": "openai/gpt-oss-120b",
@@ -590,62 +842,62 @@
  "R026|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "d6a0128029148528",
-  "response": "{\"reply\":\"Thank you for letting us know. Our teacher is currently reviewing the question and will get back to you soon.\"}"
+  "request_hash": "330b9a180054cff2",
+  "response": "{\"reply\":\"Thank you for letting us know. Our review didn’t find any issue with the question, but we want to make sure it matches the NEET syllabus—could you tell us which part looks out of syllabus?\"}"
  },
  "R027|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "9722b6e563eab7c9",
-  "response": "{\"reply\":\"Thank you for reporting this question. Our review didn’t find any error, so could you let us know which part you think is incorrect? We’ll look into it right away.\"}"
+  "request_hash": "9890852f4352142b",
+  "response": "{\"reply\":\"Thank you for letting us know. After review, the answer provided is correct and the discrepancy was due to a missed step in your own work. A teacher will look over the report, but no change to the question is needed.\"}"
  },
  "R028|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "cca3cf858c49eb3c",
-  "response": "{\"reply\":\"Thank you for reporting this question. A teacher will review the problem and get back to you soon.\"}"
+  "request_hash": "98acb194d3d57917",
+  "response": "{\"reply\":\"Thank you for letting us know. When we equate the range and the maximum height, the calculation gives tan θ = 4 (not 2), as the algebra leads to 4 = tan θ.\"}"
  },
  "R029|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "a2d274914cdcf62a",
-  "response": "{\"reply\":\"Thank you for reporting this. A teacher will review the question to verify the solution.\"}"
+  "request_hash": "8683d084df7b246c",
+  "response": "{\"reply\":\"Thank you for letting us know. Both blind solves and the stored solution give μ = 0.8 (option A); the step you missed is the arithmetic when eliminating F from the two equations, which leads to μ = 0.8.\"}"
  },
  "R030|reply": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "dbac0487ec51485f",
-  "response": "{\"reply\":\"Thank you for letting us know. The answer is correct; the step that was missed is that using the given velocity after 2 s gives cos(π/8)=1/√2, which leads to A = 8√2 m rather than 4√2 m.\"}"
+  "request_hash": "17db684e76915883",
+  "response": "{\"reply\": \"Thanks for flagging this. The answer is actually correct, but it looks like you might have missed multiplying by the factor of 2 when calculating the angular displacement, which gives ωt = (π/8) × 2 = π/4.\"}"
  },
  "R031|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "293eb9193fcc8ff6",
-  "response": "{\"reply\":\"Thank you for reporting this. A teacher will review the question and get back to you soon.\"}"
+  "request_hash": "cd990c34ae220d92",
+  "response": "{\"reply\":\"Thank you for reporting. The question and answer are correct; the step you missed is that the relative angular displacement is (π/8)·t², and setting it equal to 2π gives t = 4 s, not 2 s.\"}"
  },
  "R032|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "9d72d9eb7f1c947d",
-  "response": "{\"reply\":\"Thank you for reporting. The question and answer are correct; the step you missed was converting 0.08 m to centimeters: 0.08 m × 100 = 8 cm, which is the required unit.\"}"
+  "request_hash": "540b293690ae4bd0",
+  "response": "{\"reply\":\"Thank you for your report. The solution is correct; the step you missed was converting 0.08 m to centimeters: 0.08 m × 100 = 8 cm, which matches the required answer.\"}"
  },
  "R033|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "8aff6d4f56d9eb06",
-  "response": "{\"reply\":\"Thank you for letting us know. Our teacher is reviewing the question and will get back to you soon.\"}"
+  "request_hash": "21b9b2ed0f0be191",
+  "response": "{\"reply\":\"Thank you for your feedback. The answer key is correct; the problem requires rounding the area to four significant figures (311.3 m²), so 10 × A = 3113, not 3112.99.\"}"
  },
  "R034|reply": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "54da23e366b05f79",
-  "response": "{\"reply\":\"Thank you for reporting this. Our system couldn’t finish the automatic check, so a teacher will review the question soon.\"}"
+  "request_hash": "3bbd6753db2faf4b",
+  "response": "{\"reply\": \"Thanks for flagging that. A teacher is now reviewing the question to confirm the details.\"}"
  },
  "R035|reply": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "bd9376c4902ec285",
-  "response": "{\"reply\":\"Thank you for letting us know. The answer is correct; the step you missed is that antagonistic hormones have opposite effects, whereas relaxin and inhibin do not have opposing actions.\"}"
+  "request_hash": "1545640049db3d0d",
+  "response": "{\"reply\": \"Thanks for flagging this. Relaxin acts on pelvic ligaments and the cervix, while inhibin suppresses FSH from the anterior pituitary, so they target different systems and are not an antagonistic pair.\"}"
  },
  "R036|reply": {
   "model": "openai/gpt-oss-120b",
@@ -668,14 +920,14 @@
  "R039|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "e5ea66c8b1274836",
+  "request_hash": "65f34aac54dffb71",
   "response": "{\"reply\":\"Thank you for letting us know. A teacher will review the question and get back to you soon.\"}"
  },
  "R040|reply": {
-  "model": "openai/gpt-oss-120b",
+  "model": "qwen/qwen3.8-27b",
   "prompt_version": "v1",
-  "request_hash": "713726a62d281141",
-  "response": "{\"reply\":\"Thank you for letting us know. Our review didn’t find any error, but a teacher will double‑check the question. Could you tell us which part looks wrong to you?\"}"
+  "request_hash": "2068425dc5fa1c34",
+  "response": "{\"reply\": \"Thanks for flagging this. The answer is actually correct because Golden Rice is specifically engineered to produce beta-carotene, which helps prevent Vitamin A deficiency and related blindness.\"}"
  },
  "R041|reply": {
   "model": "openai/gpt-oss-120b",
@@ -692,8 +944,8 @@
  "R043|reply": {
   "model": "openai/gpt-oss-120b",
   "prompt_version": "v1",
-  "request_hash": "8ee1549bff7f1e86",
-  "response": "{\"reply\":\"Thank you for your report. The answer is correct; the step you missed is that the combined drop’s total charge is 64 q, so even though its area is larger, its surface charge density is four times that of the small drop.\"}"
+  "request_hash": "1cb4821f39b60e6d",
+  "response": "{\"reply\":\"Thank you for reporting. The solution is correct; the step you missed is that while the larger drop’s area is 16 times the smaller (R = 4r), its total charge is 64 times larger (Q = 64q), so the surface charge density ratio is 64/16 = 4, i.e., 4 : 1, not 1 : 4.\"}"
  },
  "R044|reply": {
   "model": "openai/gpt-oss-120b",

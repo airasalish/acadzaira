@@ -92,13 +92,15 @@
         "answer": "A",
         "issue": "",
         "final_value": "50 V",
-        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V."
+        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "50 V",
-        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A."
+        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -245,13 +247,15 @@
         "answer": "A",
         "issue": "",
         "final_value": "50 V",
-        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V."
+        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "50 V",
-        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A."
+        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -398,13 +402,15 @@
         "answer": "A",
         "issue": "",
         "final_value": "50 V",
-        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V."
+        "method": "The total supply voltage in a series LCR circuit is calculated using phasor addition of the individual voltages: V = √(V_R² + (V_L - V_C)²). Substituting V_R = 40 V, V_L = 60 V, and V_C = 30 V gives V = 50 V.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "50 V",
-        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A."
+        "method": "Treat the resistor voltage as the real component and the inductor and capacitor voltages as opposite imaginary components. The net reactive voltage is V_L‑V_C = 60‑30 = 30 V, so the supply magnitude is sqrt(V_R^2+(V_L‑V_C)^2)=sqrt(40^2+30^2)=50 V, which matches option A.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -464,6 +470,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -478,12 +485,13 @@
     ],
     "cited_checks": [
       "solve_a",
-      "solve_b"
+      "solve_b",
+      "classify"
     ],
     "proof": {
       "solve_a": "D",
       "solve_b": "D",
-      "solution_final": null,
+      "solution_final": "D",
       "stored_key": "A"
     },
     "checks": [
@@ -549,29 +557,51 @@
         "answer": "D",
         "issue": "",
         "final_value": "4800 N/m²",
-        "method": "Using kinetic theory of gases, the pressure exerted by a gas is related to its density and root mean square velocity by P = (1/3)ρv_rms². Substituting ρ = 9 × 10⁻² kg/m³ and v_rms = 400 m/s gives P = 4800 N/m²."
+        "method": "Using kinetic theory of gases, the pressure exerted by a gas is related to its density and root mean square velocity by P = (1/3)ρv_rms². Substituting ρ = 9 × 10⁻² kg/m³ and v_rms = 400 m/s gives P = 4800 N/m².",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "D",
         "issue": "",
         "final_value": "4800 N/m^2",
-        "method": "Using kinetic theory, pressure P = (1/3)ρv_rms^2. Substituting ρ = 9×10^{-2} kg/m^3 and v_rms = 400 m/s gives P = (1/3)(0.09)(400^2) = 4800 Pa. This matches option D."
+        "method": "Using kinetic theory, pressure P = (1/3)ρv_rms^2. Substituting ρ = 9×10^{-2} kg/m^3 and v_rms = 400 m/s gives P = (1/3)(0.09)(400^2) = 4800 Pa. This matches option D.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68e870ef42c06737d6e565c4"
+      "solution_final_answer": [
+        "D"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R004",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the answer key is incorrect and that the correct answer should be 8225.",
+          "claim_supported": "no",
+          "student_missed_step": "They missed that the pressure formula is P = (1/3) ρ v², which with ρ = 9×10⁻² kg/m³ and v = 400 m/s gives 4800 N/m², not 8225.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both blind solves and the stored solution indicate the correct answer is option D, contradicting the stored answer key 'A'."
+        }
+      ],
+      "solution_final": "D"
     },
     "flags": [],
-    "validator_errors": [
-      "classify: offline: no cached classify response for 68e870ef42c06737d6e565c4"
-    ],
+    "validator_errors": [],
     "guard_log": [
-      "G5 answer_key proof: auto_apply -> faculty_review (unmet: solves_match_solution)",
-      "G9 confidence: 0.30 < threshold 1.01",
-      "G10 validator: classify: offline: no cached classify response for 68e870ef42c06737d6e565c4"
+      "G9 confidence: auto_apply -> faculty_review (0.95 < threshold 1.01)"
     ],
-    "confidence": 0.3,
-    "route_before_confidence_guard": "faculty_review"
+    "confidence": 0.95,
+    "route_before_confidence_guard": "auto_apply"
   },
   {
     "reportId": "R005",
@@ -579,6 +609,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "markup_leak",
@@ -640,28 +671,49 @@
         "answer": "1",
         "issue": "",
         "final_value": "1",
-        "method": "Gauss's law is applied to calculate the total electric flux through the cube from both charges. The face-centered charge contributes half of its flux to the cube and the corner charge contributes one-eighth of its flux."
+        "method": "Gauss's law is applied to calculate the total electric flux through the cube from both charges. The face-centered charge contributes half of its flux to the cube and the corner charge contributes one-eighth of its flux.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "1",
         "issue": "",
         "final_value": "1",
-        "method": "We used Gauss's law and symmetry: a charge at the centre of a face contributes half its total flux, a charge at a corner contributes one‑eighth. The flux from q/2 at the face is (q/2)/(2ε0)=q/(4ε0); from 2q at the corner is (2q)/(8ε0)=q/(4ε0). Summing gives total flux q/(2ε0)=n q/(2ε0) so n=1."
+        "method": "We used Gauss's law and symmetry: a charge at the centre of a face contributes half its total flux, a charge at a corner contributes one‑eighth. The flux from q/2 at the face is (q/2)/(2ε0)=q/(4ε0); from 2q at the corner is (2q)/(8ε0)=q/(4ε0). Summing gives total flux q/(2ε0)=n q/(2ε0) so n=1.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68dea616d0cda73d07e93ae6"
+      "solution_final_answer": [],
+      "solution_matches_question": false,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R005",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that the answer key is incorrect and that the correct value of n is 1.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Both blind solves and the stored solution imply n=1, contradicting the stored answer key '2'."
+        }
+      ],
+      "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "classify: offline: no cached classify response for 68dea616d0cda73d07e93ae6"
-    ],
+    "validator_errors": [],
     "guard_log": [
       "G5 answer_key proof: auto_apply -> faculty_review (unmet: solves_match_solution)",
-      "G9 confidence: 0.30 < threshold 1.01",
-      "G10 validator: classify: offline: no cached classify response for 68dea616d0cda73d07e93ae6"
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "confidence": 0.3,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -670,6 +722,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "markup_leak",
@@ -679,12 +732,12 @@
       "solve_b"
     ],
     "cited_checks": [
-      "solve_b"
+      "classify"
     ],
     "proof": {
       "solve_a": null,
       "solve_b": "50000",
-      "solution_final": null,
+      "solution_final": "50",
       "stored_key": "50"
     },
     "checks": [
@@ -730,24 +783,58 @@
         "answer": null,
         "issue": "The initial edge length or volume of the copper cube is not given in the question statement, making it impossible to calculate the absolute volume contraction.",
         "final_value": "",
-        "method": "The volume contraction is given by the relation ΔV = (P × V) / B using the bulk modulus formula, but it requires the initial volume or edge length of the cube which is missing."
+        "method": "The volume contraction is given by the relation ΔV = (P × V) / B using the bulk modulus formula, but it requires the initial volume or edge length of the cube which is missing.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "50000",
         "issue": "",
         "final_value": "5×10^4 mm^3",
-        "method": "Used bulk modulus K = -ΔP/(ΔV/V) → ΔV = -ΔP·V/K. Assuming a unit cube (V=1 m³), ΔV = -(7×10⁶ Pa)/(1.4×10¹¹ Pa) × 1 m³ = -5×10⁻⁵ m³ = -5×10⁴ mm³. The contraction magnitude is 5×10⁴ mm³."
+        "method": "Used bulk modulus K = -ΔP/(ΔV/V) → ΔV = -ΔP·V/K. Assuming a unit cube (V=1 m³), ΔV = -(7×10⁶ Pa)/(1.4×10¹¹ Pa) × 1 m³ = -5×10⁻⁵ m³ = -5×10⁴ mm³. The contraction magnitude is 5×10⁴ mm³.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 696a866665252c04fc1f81c2"
+      "solution_final_answer": [
+        "50"
+      ],
+      "solution_matches_question": false,
+      "solution_wrong_step": "ΔV = (7×10^6)/(1.4×10^11) × (10×10⁻²)³, assuming a volume without given dimensions.",
+      "reports": [
+        {
+          "reportId": "R006",
+          "claim_type": "missing_data",
+          "claim_summary": "The student says the edge length of the cube is not provided, making it impossible to find the volume.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "stem_data",
+          "field": "question",
+          "find": "solid copper cube",
+          "replace": "solid copper cube of edge length L",
+          "rationale": "The question lacks the cube's dimensions, which are required to compute volume contraction; blind solves note this missing data."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "(10×10⁻²)³",
+          "replace": "(L)³",
+          "rationale": "The solution assumes a specific volume (10×10⁻²)³ without any given edge length, leading to an incorrect calculation."
+        }
+      ],
+      "solution_final": "50"
     },
     "flags": [],
-    "validator_errors": [
-      "classify: offline: no cached classify response for 696a866665252c04fc1f81c2"
+    "validator_errors": [],
+    "guard_log": [
+      "G4 value from solution: auto_apply -> faculty_review (replacement value not found in the stored solution)",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -756,6 +843,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -768,11 +856,13 @@
       "solve_b",
       "type_consistency"
     ],
-    "cited_checks": [],
+    "cited_checks": [
+      "classify"
+    ],
     "proof": {
       "solve_a": null,
       "solve_b": null,
-      "solution_final": null,
+      "solution_final": "C",
       "stored_key": "C"
     },
     "checks": [
@@ -838,24 +928,66 @@
         "answer": null,
         "issue": "The numerical value of the inductance is missing from the question statement, making it impossible to calculate the impedance.",
         "final_value": "",
-        "method": "The impedance of an RL series circuit is given by Z = sqrt(R^2 + (2*pi*f*L)^2). Since the value of the inductance L is not provided, the impedance cannot be uniquely determined."
+        "method": "The impedance of an RL series circuit is given by Z = sqrt(R^2 + (2*pi*f*L)^2). Since the value of the inductance L is not provided, the impedance cannot be uniquely determined.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": null,
         "issue": "Inductance value missing, cannot compute impedance",
         "final_value": "",
-        "method": "Identified that impedance Z = sqrt(R^2 + (2πfL)^2) requires the inductance L, which is not provided. Without L the magnitude cannot be determined, so the question lacks necessary data."
+        "method": "Identified that impedance Z = sqrt(R^2 + (2πfL)^2) requires the inductance L, which is not provided. Without L the magnitude cannot be determined, so the question lacks necessary data.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 60f742f6660d187cc13a8078"
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The solution assumes a specific inductance value (95.5×10^{-3} H) which is not provided in the question.",
+      "reports": [
+        {
+          "reportId": "R007",
+          "claim_type": "missing_data",
+          "claim_summary": "The question does not provide the value of the inductance.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R008",
+          "claim_type": "missing_data",
+          "claim_summary": "The question is missing required data.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "stem_data",
+          "field": "question",
+          "find": "inductance",
+          "replace": "inductance of 0.0955 H",
+          "rationale": "The question mentions an inductance but does not give its value, while the solution uses 95.5×10^{-3} H, indicating missing data."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "95.5×10^{-3}",
+          "replace": "L (value missing)",
+          "rationale": "The solution uses the numeric value 95.5×10^{-3} H for inductance, which is not supplied in the question, making that step incorrect."
+        }
+      ],
+      "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "classify: offline: no cached classify response for 60f742f6660d187cc13a8078"
+    "validator_errors": [],
+    "guard_log": [
+      "G4 value from solution: auto_apply -> faculty_review (replacement value not found in the stored solution)",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -864,6 +996,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -876,11 +1009,13 @@
       "solve_b",
       "type_consistency"
     ],
-    "cited_checks": [],
+    "cited_checks": [
+      "classify"
+    ],
     "proof": {
       "solve_a": null,
       "solve_b": null,
-      "solution_final": null,
+      "solution_final": "C",
       "stored_key": "C"
     },
     "checks": [
@@ -946,24 +1081,66 @@
         "answer": null,
         "issue": "The numerical value of the inductance is missing from the question statement, making it impossible to calculate the impedance.",
         "final_value": "",
-        "method": "The impedance of an RL series circuit is given by Z = sqrt(R^2 + (2*pi*f*L)^2). Since the value of the inductance L is not provided, the impedance cannot be uniquely determined."
+        "method": "The impedance of an RL series circuit is given by Z = sqrt(R^2 + (2*pi*f*L)^2). Since the value of the inductance L is not provided, the impedance cannot be uniquely determined.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": null,
         "issue": "Inductance value missing, cannot compute impedance",
         "final_value": "",
-        "method": "Identified that impedance Z = sqrt(R^2 + (2πfL)^2) requires the inductance L, which is not provided. Without L the magnitude cannot be determined, so the question lacks necessary data."
+        "method": "Identified that impedance Z = sqrt(R^2 + (2πfL)^2) requires the inductance L, which is not provided. Without L the magnitude cannot be determined, so the question lacks necessary data.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 60f742f6660d187cc13a8078"
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The solution assumes a specific inductance value (95.5×10^{-3} H) which is not provided in the question.",
+      "reports": [
+        {
+          "reportId": "R007",
+          "claim_type": "missing_data",
+          "claim_summary": "The question does not provide the value of the inductance.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R008",
+          "claim_type": "missing_data",
+          "claim_summary": "The question is missing required data.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "stem_data",
+          "field": "question",
+          "find": "inductance",
+          "replace": "inductance of 0.0955 H",
+          "rationale": "The question mentions an inductance but does not give its value, while the solution uses 95.5×10^{-3} H, indicating missing data."
+        },
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "95.5×10^{-3}",
+          "replace": "L (value missing)",
+          "rationale": "The solution uses the numeric value 95.5×10^{-3} H for inductance, which is not supplied in the question, making that step incorrect."
+        }
+      ],
+      "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "classify: offline: no cached classify response for 60f742f6660d187cc13a8078"
+    "validator_errors": [],
+    "guard_log": [
+      "G4 value from solution: auto_apply -> faculty_review (replacement value not found in the stored solution)",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -972,6 +1149,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -980,6 +1158,7 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
@@ -987,9 +1166,9 @@
       "options_present"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
-      "solution_final": null,
+      "solution_final": "C",
       "stored_key": "C"
     },
     "checks": [
@@ -1053,29 +1232,62 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b"
+        "answer": "C",
+        "issue": "",
+        "final_value": "10 m/s",
+        "method": " The velocity of the center of mass is determined by taking the total linear momentum of the system divided by the total mass. Using the formula v_cm = (m1*v1 + m2*v2)/(m1 + m2), we substitute the given values to find the velocity.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "10 m/s",
-        "method": "Computed total momentum after impulse: p = m1*v1 + m2*v2 = 10*14 + 4*0 = 140 kg·m/s. Divided by total mass 14 kg gives centre of mass velocity = 140/14 = 10 m/s. Checked that momentum is conserved and no external horizontal forces act after impulse."
+        "method": "Computed total momentum after impulse: p = m1*v1 + m2*v2 = 10*14 + 4*0 = 140 kg·m/s. Divided by total mass 14 kg gives centre of mass velocity = 140/14 = 10 m/s. Checked that momentum is conserved and no external horizontal forces act after impulse.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R009",
+          "claim_type": "missing_option",
+          "claim_summary": "Option D is missing from the list of answer choices.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R010",
+          "claim_type": "missing_option",
+          "claim_summary": "Only three options are displayed, missing option D.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "option_repair",
+          "field": "question",
+          "find": "(C) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math></h3>",
+          "replace": "(C) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math><br/>(D) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>??</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math></h3>",
+          "rationale": "deterministic check flagged missing option D; the question HTML only contains options A‑C."
+        }
+      ],
+      "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b",
-      "classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
-    ],
+    "validator_errors": [],
     "guard_log": [
-      "G4 value from solution: replacement value not found in the stored solution",
-      "G9 confidence: 0.55 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b; classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+      "G4 value from solution: auto_apply -> faculty_review (replacement value not found in the stored solution)",
+      "G9 confidence: 0.95 < threshold 1.01"
     ],
-    "confidence": 0.55,
+    "confidence": 0.95,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -1084,6 +1296,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -1092,6 +1305,7 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
@@ -1099,9 +1313,9 @@
       "options_present"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
-      "solution_final": null,
+      "solution_final": "C",
       "stored_key": "C"
     },
     "checks": [
@@ -1165,29 +1379,62 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b"
+        "answer": "C",
+        "issue": "",
+        "final_value": "10 m/s",
+        "method": " The velocity of the center of mass is determined by taking the total linear momentum of the system divided by the total mass. Using the formula v_cm = (m1*v1 + m2*v2)/(m1 + m2), we substitute the given values to find the velocity.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "10 m/s",
-        "method": "Computed total momentum after impulse: p = m1*v1 + m2*v2 = 10*14 + 4*0 = 140 kg·m/s. Divided by total mass 14 kg gives centre of mass velocity = 140/14 = 10 m/s. Checked that momentum is conserved and no external horizontal forces act after impulse."
+        "method": "Computed total momentum after impulse: p = m1*v1 + m2*v2 = 10*14 + 4*0 = 140 kg·m/s. Divided by total mass 14 kg gives centre of mass velocity = 140/14 = 10 m/s. Checked that momentum is conserved and no external horizontal forces act after impulse.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+      "solution_final_answer": [
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R009",
+          "claim_type": "missing_option",
+          "claim_summary": "Option D is missing from the list of answer choices.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R010",
+          "claim_type": "missing_option",
+          "claim_summary": "Only three options are displayed, missing option D.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "option_repair",
+          "field": "question",
+          "find": "(C) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math></h3>",
+          "replace": "(C) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math><br/>(D) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>??</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math></h3>",
+          "rationale": "deterministic check flagged missing option D; the question HTML only contains options A‑C."
+        }
+      ],
+      "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b",
-      "classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
-    ],
+    "validator_errors": [],
     "guard_log": [
-      "G4 value from solution: replacement value not found in the stored solution",
-      "G9 confidence: 0.55 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622f08d7b70e4b50e4500a1b; classify: offline: no cached classify response for 622f08d7b70e4b50e4500a1b"
+      "G4 value from solution: auto_apply -> faculty_review (replacement value not found in the stored solution)",
+      "G9 confidence: 0.95 < threshold 1.01"
     ],
-    "confidence": 0.55,
+    "confidence": 0.95,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -1196,6 +1443,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -1282,28 +1530,56 @@
         "answer": null,
         "issue": "Option (C) is blank and the correct ratio of 1:1 is not present among the visible options.",
         "final_value": "",
-        "method": "According to Newton's third law and Coulomb's law, the forces exerted by two point charges on each other are equal in magnitude and opposite in direction. Thus, the ratio of the magnitude of the Coulombic forces acting on the two charges is 1:1."
+        "method": "According to Newton's third law and Coulomb's law, the forces exerted by two point charges on each other are equal in magnitude and opposite in direction. Thus, the ratio of the magnitude of the Coulombic forces acting on the two charges is 1:1.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "1:1",
-        "method": "The Coulomb force magnitude on each charge is F = k|q1 q2|/r^2, which is identical for both charges because the product q1 q2 is the same. Therefore the forces acting on the two charges are equal in magnitude, giving a ratio of 1:1. Since the only option that can represent this ratio is the blank option C, we select C."
+        "method": "The Coulomb force magnitude on each charge is F = k|q1 q2|/r^2, which is identical for both charges because the product q1 q2 is the same. Therefore the forces acting on the two charges are equal in magnitude, giving a ratio of 1:1. Since the only option that can represent this ratio is the blank option C, we select C.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68e872546e45ba37dcc16bc0"
+      "solution_final_answer": [],
+      "solution_matches_question": false,
+      "solution_wrong_step": "F₁₂ + F₂₁ = 0",
+      "reports": [
+        {
+          "reportId": "R011",
+          "claim_type": "missing_option",
+          "claim_summary": "The student says option C is blank and the answer key points to C.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "option_repair",
+          "field": "question",
+          "find": "(C) <br />",
+          "replace": "(C) 1:1",
+          "rationale": "Deterministic check flagged a blank option C and the blind solve noted the missing ratio, indicating the option text is missing."
+        },
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "The stored answer key points to option C, which is blank, so the key is incorrect."
+        }
+      ],
+      "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "classify: offline: no cached classify response for 68e872546e45ba37dcc16bc0"
-    ],
+    "validator_errors": [],
     "guard_log": [
-      "G4 value from solution: replacement value not found in the stored solution",
-      "G9 confidence: 0.55 < threshold 1.01",
-      "G10 validator: classify: offline: no cached classify response for 68e872546e45ba37dcc16bc0"
+      "G4 value from solution: auto_apply -> faculty_review (replacement value not found in the stored solution)",
+      "G9 confidence: 0.95 < threshold 1.01"
     ],
-    "confidence": 0.55,
+    "confidence": 0.95,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -1397,13 +1673,15 @@
         "answer": "A",
         "issue": "",
         "final_value": "Epithelial tissue",
-        "method": "The inner lining of hollow organs, including the small intestine, is composed of epithelial tissue. Specifically, simple columnar epithelial tissue lines the small intestine to facilitate absorption and secretion."
+        "method": "The inner lining of hollow organs, including the small intestine, is composed of epithelial tissue. Specifically, simple columnar epithelial tissue lines the small intestine to facilitate absorption and secretion.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "Epithelial tissue",
-        "method": "I recognized that the lining of the small intestine is composed of simple columnar epithelium, which is a type of epithelial tissue. This matches option A, so I selected it."
+        "method": "I recognized that the lining of the small intestine is composed of simple columnar epithelium, which is a type of epithelial tissue. This matches option A, so I selected it.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -1455,15 +1733,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "D",
       "solve_b": "D",
       "solution_final": null,
       "stored_key": "D"
@@ -1531,13 +1811,18 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 617fa18efd53ff1629ed890f"
+        "answer": "D",
+        "issue": "",
+        "final_value": "Lamina",
+        "method": "According to standard NCERT Botany definitions, the lamina or leaf blade is the green expanded part of a leaf containing veins and veinlets. It provides the surface area for photosynthesis and transpiration.",
+        "model": "gemini-3.5-flash"
       },
       "solve_b": {
         "answer": "D",
         "issue": "",
         "final_value": "Lamina",
-        "method": "Identified that the green expanded part of a leaf containing veins and veinlets is the lamina (leaf blade). Compared each option: petiole is the stalk, node is a stem region, stipule is a small appendage, and lamina matches the description."
+        "method": "Identified that the green expanded part of a leaf containing veins and veinlets is the lamina (leaf blade). Compared each option: petiole is the stalk, node is a stem region, stipule is a small appendage, and lamina matches the description.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -1560,17 +1845,15 @@
           "field": "question",
           "find": "(NEET 2019)",
           "replace": "",
-          "rationale": "deterministic check flagged exam_reference as FAILED, indicating the tag should be removed."
+          "rationale": "deterministic check flagged exam_reference FAILED due to '(NEET 2019)' in the question"
         }
       ],
       "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 617fa18efd53ff1629ed890f"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.5,
+    "confidence": 0.8,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -1588,15 +1871,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
       "solution_final": "C",
       "stored_key": "C"
@@ -1664,13 +1949,18 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 63765a28f1d8416ae0408d89"
+        "answer": "C",
+        "issue": "",
+        "final_value": "180 days",
+        "method": "Use the radioactive decay relation N = N0(1/2)^(t/T). Since 7/8 has disintegrated, 1/8 remains, so (1/2)^(t/60) = 1/8 = (1/2)^3, giving t = 180 days.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "180 days",
-        "method": "I applied the radioactive decay law N=N0(1/2)^{t/60} with half‑life 60 days. Setting the remaining fraction N/N0=1/8 (since 7/8 has decayed) gives (1/2)^{t/60}=1/8=(1/2)^3, so t/60=3 and t=180 days. This matches option C."
+        "method": "I applied the radioactive decay law N=N0(1/2)^{t/60} with half‑life 60 days. Setting the remaining fraction N/N0=1/8 (since 7/8 has decayed) gives (1/2)^{t/60}=1/8=(1/2)^3, so t/60=3 and t=180 days. This matches option C.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -1683,7 +1973,7 @@
         {
           "reportId": "R014",
           "claim_type": "display",
-          "claim_summary": "The question displays the raw LaTeX code \\frac{7}{8} instead of rendering the fraction.",
+          "claim_summary": "The question displays raw LaTeX code \\frac instead of rendering it.",
           "claim_supported": "yes",
           "student_missed_step": "",
           "injection_or_gaming": false
@@ -1694,18 +1984,16 @@
           "repair": "markup_leak",
           "field": "question",
           "find": "\\frac{7}{8}",
-          "replace": "<math><mfrac><mn>7</mn><mn>8</mn></mfrac></math>",
-          "rationale": "Deterministic check flagged markup_leak in the question due to raw LaTeX '\\frac{7}{8}'."
+          "replace": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mfrac><mn>7</mn><mn>8</mn></mfrac></math>",
+          "rationale": "deterministic check flagged markup_leak in the question showing raw LaTeX \\frac{7}{8}"
         }
       ],
       "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 63765a28f1d8416ae0408d89"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.5,
+    "confidence": 0.8,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -1714,6 +2002,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -1722,6 +2011,7 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
@@ -1795,29 +2085,55 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29"
+        "answer": null,
+        "issue": "Options (B) and (C) are both 0 W, so more than one option is correct in a single-correct question.",
+        "final_value": "0 W",
+        "method": "Use average AC power P = V_rms I_rms cos φ. The voltage and current have a phase difference of 90°, so cos φ = 0 and the average power consumption is 0 W.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": null,
         "issue": "Two identical correct options (B and C) make the single‑correct format invalid",
         "final_value": "",
-        "method": "I computed the phase difference between voltage (e=200 sin 100t) and current (i=5 sin(100t‑π/2)), finding φ=90° so cosφ=0 and average power = V_rms·I_rms·cosφ = 0 W. Both options B and C state 0 W, giving two correct answers, which violates the single‑correct premise."
+        "method": "I computed the phase difference between voltage (e=200 sin 100t) and current (i=5 sin(100t‑π/2)), finding φ=90° so cosφ=0 and average power = V_rms·I_rms·cosφ = 0 W. Both options B and C state 0 W, giving two correct answers, which violates the single‑correct premise.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 6956d79788d7701e5617bc29"
+      "solution_final_answer": [
+        "B",
+        "C"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R015",
+          "claim_type": "answer_key",
+          "claim_summary": "The student reports that options B and C are identical.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "identical_options",
+          "field": "none",
+          "find": "(B) 0 W<br />\n(C) 0 W",
+          "replace": "(B) 0 W<br />\n(C) 0.5 W",
+          "rationale": "deterministic check flagged identical options B and C as a failure."
+        }
+      ],
+      "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29",
-      "classify: offline: no cached classify response for 6956d79788d7701e5617bc29"
-    ],
+    "validator_errors": [],
     "guard_log": [
       "G2 auto:false: identical_options needs faculty approval (taxonomy auto:false)",
-      "G9 confidence: 0.55 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d79788d7701e5617bc29; classify: offline: no cached classify response for 6956d79788d7701e5617bc29"
+      "G9 confidence: 0.85 < threshold 1.01"
     ],
-    "confidence": 0.55,
+    "confidence": 0.85,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -1832,14 +2148,16 @@
       "markup_leak",
       "noise",
       "solution_present",
+      "solve_a",
       "solve_b"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "20",
       "solve_b": "20",
       "solution_final": "40",
       "stored_key": "20"
@@ -1884,26 +2202,31 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6263d75bdd44e265ef926d97"
+        "answer": "20",
+        "issue": "",
+        "final_value": "20 cm",
+        "method": "Use Archimedes' principle: the extra 800 g mass is balanced by the extra water displaced when the cube goes from floating 2 cm above water to just fully submerged. If side is L, extra displaced volume is L^2 * 2 cm^3 = 800 cm^3, so L = 20 cm.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "20",
         "issue": "",
         "final_value": "20 cm",
-        "method": "We let L be the side length (cm) and m_c the cube mass (g). With the 800 g weight the cube is fully submerged, so buoyancy gives L^3 = m_c + 800. Without the weight the cube floats with 2 cm above water, so the submerged depth is L‑2 and displaced water volume L^2(L‑2) = m_c. Substituting m_c yields L^3 = L^3‑2L^2+800 → 2L^2=800 → L=20 cm, which satisfies both conditions."
+        "method": "We let L be the side length (cm) and m_c the cube mass (g). With the 800 g weight the cube is fully submerged, so buoyancy gives L^3 = m_c + 800. Without the weight the cube floats with 2 cm above water, so the submerged depth is L‑2 and displaced water volume L^2(L‑2) = m_c. Substituting m_c yields L^3 = L^3‑2L^2+800 → 2L^2=800 → L=20 cm, which satisfies both conditions.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
       "solution_final_answer": [
         "40"
       ],
-      "solution_matches_question": true,
-      "solution_wrong_step": "They solved a^2 = 400 as a = 40 cm instead of taking the square root to get a = 20 cm.",
+      "solution_matches_question": false,
+      "solution_wrong_step": "The first equation 800 × g = (2) × (a²) × 1 × g is incorrect; it should relate the displaced volume (a‑2)·a² to the cube’s weight.",
       "reports": [
         {
           "reportId": "R016",
           "claim_type": "answer_key",
-          "claim_summary": "The student notes that the solution gives 40 cm while the stored answer key is 20 cm and asks which is correct.",
+          "claim_summary": "The student notes that the solution states 40 cm while the stored answer key is 20 cm and asks which is correct.",
           "claim_supported": "yes",
           "student_missed_step": "",
           "injection_or_gaming": false
@@ -1913,16 +2236,15 @@
         {
           "repair": "solution_fix",
           "field": "solution",
-          "find": "a = 40 cm",
-          "replace": "a = 20 cm",
-          "rationale": "The solution incorrectly solves a^2 = 400 as a = 40 cm; blind solve and correct physics give a = 20 cm."
+          "find": "<span style=\"color:#000000\">800 &times; g = (2) &times; (a<span style=\"color:#000000\"><sup>2</sup><span style=\"color:#000000\">) &times; 1 &times; g</span></span>",
+          "replace": "<span style=\"color:#000000\">(a-2) &times; a<sup>2</sup> &times; g = a<sup>3</sup> &times; g - 800 &times; g</span>",
+          "rationale": "The solution's first equation incorrectly equates 800 g to 2 cm of submersion; the correct relation is (a‑2)·a²·g = a³·g − 800·g, as confirmed by the blind solves and physical reasoning."
         }
       ],
       "solution_final": "40"
     },
     "flags": [],
     "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6263d75bdd44e265ef926d97",
       "classifier supports the claim but proposed no defect"
     ],
     "guard_log": [],
@@ -1944,15 +2266,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
       "solution_final": null,
       "stored_key": "C"
@@ -2017,13 +2341,18 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6208e80a9cb2ab67dac61bd0"
+        "answer": "C",
+        "issue": "",
+        "final_value": "C",
+        "method": "Understory herbs and shrubs receive light filtered by the canopy, which transmits relatively more green light. Since chlorophyll absorbs green light poorly, photosynthesis is lower than in sun plants receiving more red and blue light.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "Herb, shrubs receive more green light",
-        "method": "I considered the spectral quality of light under canopy: red and blue are absorbed by upper leaves, leaving transmitted light enriched in green, which is less efficiently used for photosynthesis. This explains the lower photosynthetic rate in herbs and shrubs, matching option C."
+        "method": "I considered the spectral quality of light under canopy: red and blue are absorbed by upper leaves, leaving transmitted light enriched in green, which is less efficiently used for photosynthesis. This explains the lower photosynthetic rate in herbs and shrubs, matching option C.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -2034,7 +2363,7 @@
         {
           "reportId": "R017",
           "claim_type": "typo",
-          "claim_summary": "The student reports a spelling mistake 'mere' in the options, which was corrected to 'more' on 2026-11-07.",
+          "claim_summary": "The student reports a spelling mistake ('mere') in the options; this was corrected on 2026-11-07 after the report was filed.",
           "claim_supported": "yes",
           "student_missed_step": "",
           "injection_or_gaming": false
@@ -2045,7 +2374,6 @@
     },
     "flags": [],
     "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6208e80a9cb2ab67dac61bd0",
       "classifier supports the claim but proposed no defect"
     ],
     "guard_log": [],
@@ -2058,6 +2386,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -2066,16 +2395,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_b"
+      "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
-      "solution_final": null,
+      "solution_final": "B",
       "stored_key": "B"
     },
     "checks": [
@@ -2138,25 +2468,62 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58"
+        "answer": "B",
+        "issue": "",
+        "final_value": "16.8 eV",
+        "method": "Use the de Broglie relation p = h/λ and non-relativistic kinetic energy K = p²/(2m). Substituting λ = 0.3 nm gives K ≈ 16.7 eV, matching option B.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "≈16.7 eV",
-        "method": "Applied the de‑Broglie relation λ=h/p and K=p^2/(2m) for a non‑relativistic electron: K=(h/λ)^2/(2m)=2.68×10⁻¹⁸ J≈16.7 eV. Verified with the shortcut λ(nm)=1.226/√E(eV) which gives E≈16.7 eV, matching option B."
+        "method": "Applied the de‑Broglie relation λ=h/p and K=p^2/(2m) for a non‑relativistic electron: K=(h/λ)^2/(2m)=2.68×10⁻¹⁸ J≈16.7 eV. Verified with the shortcut λ(nm)=1.226/√E(eV) which gives E≈16.7 eV, matching option B.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 612151a6a34397610a9a2e58"
+      "solution_final_answer": [
+        "B"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The solution states λ = 5.47 Å, which contradicts the given wavelength of 0.3 nm (3 Å).",
+      "reports": [
+        {
+          "reportId": "R018",
+          "claim_type": "solution",
+          "claim_summary": "The student claims that the provided solution corresponds to a different question.",
+          "claim_supported": "no",
+          "student_missed_step": "They overlooked that the solution correctly derives the kinetic energy of 16.8 eV from the given 0.3 nm wavelength.",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R019",
+          "claim_type": "solution",
+          "claim_summary": "The student claims that the solution shows a wavelength of 5.47 Å, which does not match the question.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "5.47",
+          "replace": "3.0",
+          "rationale": "The first step incorrectly states λ = 5.47 Å, but the given wavelength is 0.3 nm (3 Å); correcting this fixes the solution."
+        }
+      ],
+      "solution_final": "B"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58",
-      "classify: offline: no cached classify response for 612151a6a34397610a9a2e58"
+    "validator_errors": [],
+    "guard_log": [
+      "G3 solution repair: auto_apply -> faculty_review (solution_fix always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -2165,6 +2532,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -2173,16 +2541,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_b"
+      "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
-      "solution_final": null,
+      "solution_final": "B",
       "stored_key": "B"
     },
     "checks": [
@@ -2245,25 +2614,62 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58"
+        "answer": "B",
+        "issue": "",
+        "final_value": "16.8 eV",
+        "method": "Use the de Broglie relation p = h/λ and non-relativistic kinetic energy K = p²/(2m). Substituting λ = 0.3 nm gives K ≈ 16.7 eV, matching option B.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "≈16.7 eV",
-        "method": "Applied the de‑Broglie relation λ=h/p and K=p^2/(2m) for a non‑relativistic electron: K=(h/λ)^2/(2m)=2.68×10⁻¹⁸ J≈16.7 eV. Verified with the shortcut λ(nm)=1.226/√E(eV) which gives E≈16.7 eV, matching option B."
+        "method": "Applied the de‑Broglie relation λ=h/p and K=p^2/(2m) for a non‑relativistic electron: K=(h/λ)^2/(2m)=2.68×10⁻¹⁸ J≈16.7 eV. Verified with the shortcut λ(nm)=1.226/√E(eV) which gives E≈16.7 eV, matching option B.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 612151a6a34397610a9a2e58"
+      "solution_final_answer": [
+        "B"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "The solution states λ = 5.47 Å, which contradicts the given wavelength of 0.3 nm (3 Å).",
+      "reports": [
+        {
+          "reportId": "R018",
+          "claim_type": "solution",
+          "claim_summary": "The student claims that the provided solution corresponds to a different question.",
+          "claim_supported": "no",
+          "student_missed_step": "They overlooked that the solution correctly derives the kinetic energy of 16.8 eV from the given 0.3 nm wavelength.",
+          "injection_or_gaming": false
+        },
+        {
+          "reportId": "R019",
+          "claim_type": "solution",
+          "claim_summary": "The student claims that the solution shows a wavelength of 5.47 Å, which does not match the question.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "solution_fix",
+          "field": "solution",
+          "find": "5.47",
+          "replace": "3.0",
+          "rationale": "The first step incorrectly states λ = 5.47 Å, but the given wavelength is 0.3 nm (3 Å); correcting this fixes the solution."
+        }
+      ],
+      "solution_final": "B"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 612151a6a34397610a9a2e58",
-      "classify: offline: no cached classify response for 612151a6a34397610a9a2e58"
+    "validator_errors": [],
+    "guard_log": [
+      "G3 solution repair: auto_apply -> faculty_review (solution_fix always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -2281,15 +2687,21 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_b",
-      "classify"
+      "mcq_key_noncanonical",
+      "solve_a",
+      "solve_b"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": [
+        "A",
+        "B",
+        "D"
+      ],
       "solve_b": [
         "A",
         "B",
@@ -2360,7 +2772,15 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68c8153cfb6b2f16e2d3ceaf"
+        "answer": [
+          "A",
+          "B",
+          "D"
+        ],
+        "issue": "",
+        "final_value": "A, B, D",
+        "method": "In a uniform electrostatic field, the force qE is constant, so motion with velocity parallel to E is rectilinear and with velocity perpendicular to E is projectile-like parabolic. In a uniform magnetic field, the force q(v x B) is perpendicular to velocity; if v is perpendicular to B, the path is circular in a plane normal to B, while if v is parallel to B the force is zero and the path is straight, not helical.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": [
@@ -2370,19 +2790,20 @@
         ],
         "issue": "",
         "final_value": "A, B, D",
-        "method": "We considered the motion of a charge in uniform electric and magnetic fields. In a uniform electric field the force is constant, giving straight‑line motion when the velocity is parallel to the field and a parabolic trajectory when it is perpendicular. In a uniform magnetic field the magnetic force is always perpendicular to the velocity, so a particle moving parallel to B goes straight (no helix) and one moving perpendicular to B follows a circular path, making statements A, B and D correct."
+        "method": "We considered the motion of a charge in uniform electric and magnetic fields. In a uniform electric field the force is constant, giving straight‑line motion when the velocity is parallel to the field and a parabolic trajectory when it is perpendicular. In a uniform magnetic field the magnetic force is always perpendicular to the velocity, so a particle moving parallel to B goes straight (no helix) and one moving perpendicular to B follows a circular path, making statements A, B and D correct.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
       "solution_final_answer": [],
       "solution_matches_question": false,
-      "solution_wrong_step": "The solution states F = q(V × B) and F = qE, which does not address the path of a charged particle.",
+      "solution_wrong_step": "The solution presents force equations (F = q(V×B) and F = qE) which do not address the asked statements about particle trajectories.",
       "reports": [
         {
           "reportId": "R020",
           "claim_type": "answer_key",
-          "claim_summary": "The student claims that the answer key marking A, B, D is incorrect.",
-          "claim_supported": "no",
+          "claim_summary": "The student claims that marking options A, B, and D was marked incorrect.",
+          "claim_supported": "yes",
           "student_missed_step": "",
           "injection_or_gaming": false
         }
@@ -2393,31 +2814,33 @@
           "field": "answer",
           "find": "",
           "replace": "",
-          "rationale": "Deterministic check mcq_key_noncanonical failed, indicating the key is not in canonical list format."
+          "rationale": "Deterministic check mcq_key_noncanonical flagged the key as non‑canonical and blind solves confirm the intended answer is ['A','B','D']."
         },
         {
-          "repair": "solution_fix",
+          "repair": "solution_missing",
           "field": "solution",
-          "find": "conceptual Based of field force",
-          "replace": "The correct options are A, B, D",
-          "rationale": "The stored solution discusses forces and does not answer the question about particle paths, indicating it belongs to another question."
+          "find": "<h3>conceptual Based of field force",
+          "replace": "<h3>The correct options are A, B, D",
+          "rationale": "The stored solution only contains unrelated force equations and does not provide any reasoning for the trajectory statements; blind solves indicate the answer should be A, B, D."
         }
       ],
       "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c8153cfb6b2f16e2d3ceaf"
+    "validator_errors": [],
+    "guard_log": [
+      "G5 answer_key proof: auto_apply -> faculty_review (unmet: solves_match_solution, solves_disagree_with_key)",
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
-    "route_before_confidence_guard": "no_change"
+    "confidence": 0.6,
+    "route_before_confidence_guard": "faculty_review"
   },
   {
     "reportId": "R021",
     "questionId": "68f21caf941cda588bc04365",
     "ran_ids": [
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -2427,18 +2850,25 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "type_consistency",
+      "solve_a",
       "solve_b"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": [
+        "B"
+      ],
       "solve_b": [
         "B"
       ],
-      "solution_final": null,
+      "solution_final": [
+        "B"
+      ],
       "stored_key": [
         "",
         "B"
@@ -2505,7 +2935,13 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68f21caf941cda588bc04365"
+        "answer": [
+          "B"
+        ],
+        "issue": "",
+        "final_value": "1.44 min",
+        "method": "Use radioactive decay law N = N0 e^{-t/τ}. The number reduces from 48 to 6, i.e. by a factor 1/8 = (1/2)^3, so 3 minutes equals 3 half-lives and T1/2 = 1 min. Mean life τ = T1/2 / ln 2 ≈ 1/0.693 = 1.44 min.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": [
@@ -2513,19 +2949,46 @@
         ],
         "issue": "",
         "final_value": "1.44 min",
-        "method": "Using N=N0 e^{-λt}, λ=(1/t)ln(N0/N)=(1/3)ln(8)=ln2≈0.693 min^{-1}. The mean life τ=1/λ≈1/0.693≈1.44 min, which matches option B."
+        "method": "Using N=N0 e^{-λt}, λ=(1/t)ln(N0/N)=(1/3)ln(8)=ln2≈0.693 min^{-1}. The mean life τ=1/λ≈1/0.693≈1.44 min, which matches option B.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68f21caf941cda588bc04365"
+      "solution_final_answer": [
+        "B"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R021",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims that only option B is correct but the answer key is marked as a multiple‑correct type, causing a negative marking.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "answer_key",
+          "field": "answer",
+          "find": "",
+          "replace": "",
+          "rationale": "Deterministic checks flagged mcq_key_noncanonical and type_consistency; the stored answer key ['','B'] is malformed and should be ['B']."
+        }
+      ],
+      "solution_final": [
+        "B"
+      ]
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68f21caf941cda588bc04365",
-      "classify: offline: no cached classify response for 68f21caf941cda588bc04365"
+    "validator_errors": [],
+    "guard_log": [
+      "G6 type_mismatch: type change needs faculty",
+      "G9 confidence: 0.85 < threshold 1.01"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.85,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -2543,6 +3006,7 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
@@ -2550,7 +3014,7 @@
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
       "solution_final": null,
       "stored_key": "B"
@@ -2615,13 +3079,18 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b"
+        "answer": "B",
+        "issue": "",
+        "final_value": "Peyer’s patches",
+        "method": "The question asks for the name of lymphoid tissue aggregates in the distal small intestine. Peyer’s patches are submucosal lymphoid nodules found mainly in the ileum.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "Peyer's patches",
-        "method": "I identified that the aggregates of lymphoid tissue in the distal small intestine are known as Peyer's patches, a well‑known anatomical term. I compared each option and eliminated the unrelated structures (villi, rugae, choroid plexus)."
+        "method": "I identified that the aggregates of lymphoid tissue in the distal small intestine are known as Peyer's patches, a well‑known anatomical term. I compared each option and eliminated the unrelated structures (villi, rugae, choroid plexus).",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -2632,7 +3101,7 @@
         {
           "reportId": "R022",
           "claim_type": "typo",
-          "claim_summary": "The student claims that the word 'plexux' in option D is misspelled.",
+          "claim_summary": "The student claims that the word 'plexus' is misspelled as 'plexux' in option D.",
           "claim_supported": "yes",
           "student_missed_step": "",
           "injection_or_gaming": false
@@ -2642,23 +3111,20 @@
         {
           "repair": "spelling",
           "field": "question",
-          "find": "plexux",
-          "replace": "plexus",
-          "rationale": "Option D contains the misspelled word 'plexux' which should be 'plexus'."
+          "find": "Choroid plexux",
+          "replace": "Choroid plexus",
+          "rationale": "Option D contains the misspelled word \"plexux\" which should be \"plexus\"."
         }
       ],
       "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b"
-    ],
+    "validator_errors": [],
     "guard_log": [
       "G4b policy: auto_apply -> faculty_review (spelling evidence would be the classifier alone)",
-      "G9 confidence: 0.30 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 61ee6c9d90a1a968a168686b"
+      "G9 confidence: 0.60 < threshold 1.01"
     ],
-    "confidence": 0.3,
+    "confidence": 0.6,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -2676,15 +3142,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
       "solution_final": null,
       "stored_key": "B"
@@ -2749,13 +3217,18 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68ecbacb2ec87a18deba1ad7"
+        "answer": "B",
+        "issue": "",
+        "final_value": "B",
+        "method": "The absolute refractory period occurs when voltage-gated Na+ channels are inactivated after opening during the depolarization phase. In this state, they cannot reopen immediately, preventing another action potential regardless of stimulus strength.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "N/A",
-        "method": "The absolute refractory period occurs when voltage-gated Na+ channels become inactivated and cannot reopen, preventing a new action potential. This inactivation, not closure of K+ channels, increased Cl- permeability, or Na+/K+ pump activity, is the primary cause. Hence the correct answer is B."
+        "method": "The absolute refractory period occurs when voltage-gated Na+ channels become inactivated and cannot reopen, preventing a new action potential. This inactivation, not closure of K+ channels, increased Cl- permeability, or Na+/K+ pump activity, is the primary cause. Hence the correct answer is B.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -2765,22 +3238,28 @@
       "reports": [
         {
           "reportId": "R023",
-          "claim_type": "unclear",
-          "claim_summary": "The student claims the question belongs to the neural control chapter and questions why it appears in the living world chapter.",
+          "claim_type": "classification",
+          "claim_summary": "The student claims the question belongs to the neural control chapter and should not be placed in the living world chapter.",
           "claim_supported": "unclear",
           "student_missed_step": "",
           "injection_or_gaming": false
         }
       ],
-      "candidate_defects": [],
+      "candidate_defects": [
+        {
+          "repair": "spelling",
+          "field": "solution",
+          "find": "Na+channels",
+          "replace": "Na+ channels",
+          "rationale": "The solution text contains \"Na+channels\" without a space, which is a spelling/formatting error."
+        }
+      ],
       "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68ecbacb2ec87a18deba1ad7"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.39999999999999997,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -2795,14 +3274,16 @@
       "markup_leak",
       "noise",
       "solution_present",
+      "solve_a",
       "solve_b"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "20",
       "solve_b": "20",
       "solution_final": "20",
       "stored_key": "20"
@@ -2847,13 +3328,18 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 5fc60508028950133eac8963"
+        "answer": "20",
+        "issue": "The question does not specify g; the integer answer assumes g = 10 m/s\u0002.",
+        "final_value": "20 N",
+        "method": "The body is in static equilibrium, so friction balances its weight. Since the maximum static friction is \u0002N = 0.3 \u0002 100 = 30 N, which is greater than mg = 20 N, the actual frictional force is 20 N.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "20",
         "issue": "",
         "final_value": "20 N",
-        "method": "The normal force is the pressing force of 100 N, giving a maximum static friction μN = 0.3×100 = 30 N. The body’s weight is mg = 2 kg×10 m/s² ≈ 20 N. Since the required friction to hold the body (its weight) is less than the maximum, the actual frictional force equals the weight, 20 N."
+        "method": "The normal force is the pressing force of 100 N, giving a maximum static friction μN = 0.3×100 = 30 N. The body’s weight is mg = 2 kg×10 m/s² ≈ 20 N. Since the required friction to hold the body (its weight) is less than the maximum, the actual frictional force equals the weight, 20 N.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
@@ -2866,7 +3352,7 @@
         {
           "reportId": "R024",
           "claim_type": "missing_data",
-          "claim_summary": "The student claims that the question does not specify the unit for the answer.",
+          "claim_summary": "The student claims that the unit for the answer is not mentioned in the question.",
           "claim_supported": "yes",
           "student_missed_step": "",
           "injection_or_gaming": false
@@ -2878,14 +3364,13 @@
           "field": "question",
           "find": "equal to",
           "replace": "equal to (in N)",
-          "rationale": "The question statement lacks a unit for the required frictional force, which is needed for answer form compliance."
+          "rationale": "The question text ends with 'Then the frictional force is equal to' without specifying a unit, while the answer expects a force in newtons."
         }
       ],
       "solution_final": "20"
     },
     "flags": [],
     "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 5fc60508028950133eac8963",
       "classifier supports the claim but proposed no defect"
     ],
     "guard_log": [],
@@ -2898,6 +3383,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -2906,6 +3392,7 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
@@ -2913,9 +3400,9 @@
       "figure_reference"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
-      "solution_final": null,
+      "solution_final": "B",
       "stored_key": "B"
     },
     "checks": [
@@ -2979,29 +3466,54 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837"
+        "answer": "B",
+        "issue": "",
+        "final_value": "Air flows from end 1 to end 2; bubble at end 1 decreases",
+        "method": "Compare excess pressures in the two soap bubbles using Laplace pressure, where pressure is inversely proportional to radius of curvature. The hemispherical bubble has R = r, while the sub-hemispherical cap has R > r, so end 1 has higher pressure and air flows to end 2, shrinking end 1.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "Air flows from end 1 to end 2; volume of bubble at end 1 decreases",
-        "method": "We compared the Laplace pressure inside each soap bubble using ΔP = 4γ/R. The hemispherical bubble (R=r) has higher pressure than the sub‑hemispherical bubble (R>r), so air flows from end 1 to end 2 and the bubble at end 1 shrinks. This matches option B."
+        "method": "We compared the Laplace pressure inside each soap bubble using ΔP = 4γ/R. The hemispherical bubble (R=r) has higher pressure than the sub‑hemispherical bubble (R>r), so air flows from end 1 to end 2 and the bubble at end 1 shrinks. This matches option B.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 622df25ab70e4b50e44ff837"
+      "solution_final_answer": [
+        "B"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R025",
+          "claim_type": "figure",
+          "claim_summary": "The question references a figure that is not provided.",
+          "claim_supported": "yes",
+          "student_missed_step": "",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "diagram",
+          "field": "none",
+          "find": "as shown in figure.",
+          "replace": "as shown in figure (image missing).",
+          "rationale": "deterministic check flagged figure_reference FAILED indicating the referenced figure is missing."
+        }
+      ],
+      "solution_final": "B"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837",
-      "classify: offline: no cached classify response for 622df25ab70e4b50e44ff837"
-    ],
+    "validator_errors": [],
     "guard_log": [
       "G2 auto:false: diagram needs faculty approval (taxonomy auto:false)",
-      "G9 confidence: 0.55 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 622df25ab70e4b50e44ff837; classify: offline: no cached classify response for 622df25ab70e4b50e44ff837"
+      "G9 confidence: 0.85 < threshold 1.01"
     ],
-    "confidence": 0.55,
+    "confidence": 0.85,
     "route_before_confidence_guard": "faculty_review"
   },
   {
@@ -3019,14 +3531,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
+      "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
       "solution_final": null,
       "stored_key": "B"
@@ -3091,51 +3606,50 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186"
+        "answer": "B",
+        "issue": "",
+        "final_value": "B",
+        "method": "Use an outgroup comparison to polarize the character state. A more distantly related snake can serve as an outgroup to infer whether forked or unforked tongue is ancestral.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "B",
-        "method": "To infer the ancestral state of a trait, one uses an outgroup comparison. The biologist should examine a more distantly related snake (an outgroup) to see if it has a forked tongue, which can indicate the ancestral condition. The other options either lack data, use an inappropriate outgroup, or are irrelevant."
+        "method": "To infer the ancestral state of a trait, one uses an outgroup comparison. The biologist should examine a more distantly related snake (an outgroup) to see if it has a forked tongue, which can indicate the ancestral condition. The other options either lack data, use an inappropriate outgroup, or are irrelevant.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
       "solution_final_answer": [],
       "solution_matches_question": true,
-      "solution_wrong_step": "The statement that “Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes” is inaccurate.",
+      "solution_wrong_step": "",
       "reports": [
         {
           "reportId": "R026",
           "claim_type": "unclear",
           "claim_summary": "The student claims the question is out of the NEET syllabus.",
-          "claim_supported": "no",
+          "claim_supported": "unclear",
           "student_missed_step": "",
           "injection_or_gaming": false
         }
       ],
       "candidate_defects": [
         {
-          "repair": "solution_missing",
+          "repair": "spelling",
           "field": "solution",
-          "find": "Forked tongue snakes may represents the origin of new variety of snake from the non-forked tongue snakes. If biologist is trying to find that how closely these two species are related to each other than, he/she has to locate a specimen of more distantly related snake to see it, wheater, it has a forked tongue or not",
-          "replace": "To infer the ancestral state, the biologist should examine a more distantly related snake species to see whether the ancestor possessed a forked tongue. This corresponds to option B.",
-          "rationale": "The stored solution does not provide a clear reasoning or final answer, and the blind solve confirms answer B, so a proper solution ending with option B is needed."
+          "find": "wheater",
+          "replace": "whether",
+          "rationale": "The solution text contains the misspelled word 'wheater' which should be 'whether' (evidence from stored_solution_html)."
         }
       ],
       "solution_final": null
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186"
-    ],
-    "guard_log": [
-      "G3 solution repair: auto_apply -> faculty_review (solution_missing always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
-      "G9 confidence: 0.30 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 620e23cecc50543bc7db9186"
-    ],
-    "confidence": 0.3,
-    "route_before_confidence_guard": "faculty_review"
+    "validator_errors": [],
+    "guard_log": [],
+    "confidence": 0.7,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R027",
@@ -3152,17 +3666,19 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "A",
       "solve_b": "A",
-      "solution_final": "A",
+      "solution_final": null,
       "stored_key": "A"
     },
     "checks": [
@@ -3225,42 +3741,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6062ec84518e9535e120c422"
+        "answer": "A",
+        "issue": "",
+        "final_value": "5.7 x 10^-5 /°C",
+        "method": "Use linear expansion ΔL = αLΔT to find α = 1.9 x 10^-5 /°C. The coefficient of cubical expansion is approximately three times the linear coefficient, γ = 3α = 5.7 x 10^-5 /°C.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "5.7 x 10^-5 /°C",
-        "method": "Used linear expansion ΔL = α L0 ΔT to compute α = 0.19 cm/(100 cm·100 °C)=1.9×10⁻⁵ /°C. Then applied β = 3α for isotropic solids, giving β = 5.7×10⁻⁵ /°C. This matches option A."
+        "method": "Used linear expansion ΔL = α L0 ΔT to compute α = 0.19 cm/(100 cm·100 °C)=1.9×10⁻⁵ /°C. Then applied β = 3α for isotropic solids, giving β = 5.7×10⁻⁵ /°C. This matches option A.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "solution_final_answer": [
-        "A"
-      ],
+      "solution_final_answer": [],
       "solution_matches_question": true,
       "solution_wrong_step": "",
       "reports": [
         {
           "reportId": "R027",
           "claim_type": "gaming",
-          "claim_summary": "The student requests the answer key to be changed to option C.",
+          "claim_summary": "The student requests that the answer be changed to option C.",
           "claim_supported": "no",
-          "student_missed_step": "The correct coefficient is 5.7 × 10⁻⁵ /°C, which matches option A, not option C.",
+          "student_missed_step": "",
           "injection_or_gaming": true
         }
       ],
       "candidate_defects": [],
-      "solution_final": "A"
+      "solution_final": null
     },
     "flags": [
       "comment_is_gaming"
     ],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6062ec84518e9535e120c422"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -3269,6 +3786,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -3277,16 +3795,19 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_b"
+      "solve_a",
+      "solve_b",
+      "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
-      "solution_final": null,
+      "solution_final": "B",
       "stored_key": "B"
     },
     "checks": [
@@ -3349,26 +3870,44 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7bb23cb221e570d6013"
+        "answer": "B",
+        "issue": "",
+        "final_value": "tan^{-1}(4)",
+        "method": "Use projectile formulas R = u^2 sin 2θ / g and H = u^2 sin^2 θ / (2g). Setting R = H gives 2 sin θ cos θ = (1/2) sin^2 θ, so tan θ = 4.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "tan^{-1}(4)",
-        "method": "Set the projectile range R = (u^2 sin2θ)/g equal to the maximum height H = (u^2 sin^2θ)/(2g), cancel common factors and solve 2 sinθ cosθ = (1/2) sin^2θ leading to tanθ = 4, so θ = arctan(4)."
+        "method": "Set the projectile range R = (u^2 sin2θ)/g equal to the maximum height H = (u^2 sin^2θ)/(2g), cancel common factors and solve 2 sinθ cosθ = (1/2) sin^2θ leading to tanθ = 4, so θ = arctan(4).",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 6956d7bb23cb221e570d6013"
+      "solution_final_answer": [
+        "B"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R028",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims the correct answer should be tan^{-1}(2) instead of the stored answer.",
+          "claim_supported": "no",
+          "student_missed_step": "They missed the derivation that equating range and maximum height gives tan θ = 4, not 2.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [],
+      "solution_final": "B"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7bb23cb221e570d6013",
-      "classify: offline: no cached classify response for 6956d7bb23cb221e570d6013"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
-    "route_before_confidence_guard": "faculty_review"
+    "confidence": 0.9,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R029",
@@ -3376,6 +3915,7 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -3384,16 +3924,19 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
-      "solve_b"
+      "solve_a",
+      "solve_b",
+      "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "A",
       "solve_b": "A",
-      "solution_final": null,
+      "solution_final": "A",
       "stored_key": "A"
     },
     "checks": [
@@ -3456,26 +3999,44 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68e8734442c06737d6e56da4"
+        "answer": "A",
+        "issue": "",
+        "final_value": "0.8",
+        "method": "Use Newton's second law with kinetic friction: F - μmg = ma and 2F - μmg = ma'. Subtract the equations to find F, then solve for μ.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "0.8",
-        "method": "Write net force equations: F-µ·100=10 (since m=10 kg, a=1) and 2F-µ·100=100 (a=10). Subtract to get F=90 N, then solve for µ giving µ=0.8. Substituted back to confirm the accelerations match."
+        "method": "Write net force equations: F-µ·100=10 (since m=10 kg, a=1) and 2F-µ·100=100 (a=10). Subtract to get F=90 N, then solve for µ giving µ=0.8. Substituted back to confirm the accelerations match.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68e8734442c06737d6e56da4"
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "Student claims the coefficient of friction should be 0.4, stating they solved it twice.",
+          "claim_supported": "no",
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
+          "reportId": "R029",
+          "student_missed_step": "Both blind solves and the stored solution independently confirm μ = 0.8 (option A); the student likely made an arithmetic slip when eliminating F from the two equations."
+        }
+      ],
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "solution_final": "A"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68e8734442c06737d6e56da4",
-      "classify: offline: no cached classify response for 68e8734442c06737d6e56da4"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
-    "route_before_confidence_guard": "faculty_review"
+    "confidence": 0.9,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R030",
@@ -3492,15 +4053,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "D",
       "solution_final": "D",
       "stored_key": "D"
@@ -3565,48 +4128,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7e988d7701e5617bd3e"
+        "answer": "B",
+        "issue": "",
+        "final_value": "4√2 m",
+        "method": "The particle starts from the equilibrium position, so its displacement is given by $x = A \\sin(\\omega t)$ and velocity by $v = A\\omega \\cos(\\omega t)$. Using the given time period $T=16$ s, the angular frequency is $\\omega = \\frac{2\\pi}{T} = \\frac{\\pi}{8}$ rad/s. At $t=2$ s, the velocity is $v = A \\left(\\frac{\\pi}{8}\\right) \\cos\\left(\\frac{\\pi}{8} \\times 2\\right) = A \\frac{\\pi}{8} \\cos\\left(\\frac{\\pi}{4}\\right)$. Given $v = \\pi$ m/s and $\\cos(45^\\circ) = \\frac{1}{\\sqrt{2}}$, we have $\\pi = A \\frac{\\pi}{8} \\frac{1}{\\sqrt{2}}$, which simplifies to $A = 8\\sqrt{2}$ m. Wait, let me re-calculate. $\\pi = A \\frac{\\pi}{8} \\frac{1}{\\sqrt{2}} \\implies 1 = \\frac{A}{8\\sqrt{2}} \\implies A = 8\\sqrt{2}$ m. Let me check the options again. Option D is $8\\sqrt{2}$ m. Let me re-read the options. (A) $2\\sqrt{2}$ m, (B) $4\\sqrt{2}$ m, (C) $6\\sqrt{2}$ m, (D) $8\\sqrt{2}$ m. My calculation gives $8\\sqrt{2}$ m, which is option D. Let me double check the velocity formula. $x = A \\sin(\\omega t)$, $v = \\frac{dx}{dt} = A\\omega \\cos(\\omega t)$. At $t=2$, $\\omega t = \\frac{\\pi}{8} \\times 2 = \\frac{\\pi}{4}$. $\\cos(\\frac{\\pi}{4}) = \\frac{1}{\\sqrt{2}}$. $v = A \\frac{\\pi}{8} \\frac{1}{\\sqrt{2}} = \\pi$. $A = \\frac{8\\sqrt{2}\\pi}{\\pi} = 8\\sqrt{2}$. So the answer is D.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "D",
         "issue": "",
         "final_value": "8√2 m",
-        "method": "Using SHM x=A sin(ωt) with x=0 at t=0 gives v=Aω cos(ωt). With T=16 s, ω=π/8 rad/s. At t=2 s, ωt=π/4 so cos=1/√2. Set v=π=A(π/8)(1/√2) → A=8√2 m. Checked against options."
+        "method": "Using SHM x=A sin(ωt) with x=0 at t=0 gives v=Aω cos(ωt). With T=16 s, ω=π/8 rad/s. At t=2 s, ωt=π/4 so cos=1/√2. Set v=π=A(π/8)(1/√2) → A=8√2 m. Checked against options.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "The student claims the correct amplitude is 4√2 m, which corresponds to option B.",
+          "claim_supported": "no",
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
+          "reportId": "R030",
+          "student_missed_step": "The student likely forgot to multiply by the factor of 2 when calculating the angular displacement ωt = (π/8) × 2 = π/4, or made an arithmetic error in isolating A from the velocity equation."
+        }
+      ],
       "solution_final_answer": [
         "D"
       ],
       "solution_matches_question": true,
-      "solution_wrong_step": "The solution writes the velocity as v − dx/dt − A ω cos ωt, which is incorrect; it should be v = dx/dt = A ω cos ωt.",
-      "reports": [
-        {
-          "reportId": "R030",
-          "claim_type": "answer_key",
-          "claim_summary": "The student claims the correct amplitude is 4√2 m, i.e., option B.",
-          "claim_supported": "no",
-          "student_missed_step": "They missed that the given velocity after 2 s leads to cos(π/8)=1/√2, giving A = 8√2 m, not 4√2 m.",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [
-        {
-          "repair": "solution_fix",
-          "field": "solution",
-          "find": "v − dx/dt − A ω cos ω t",
-          "replace": "v = A ω cos ω t",
-          "rationale": "The solution incorrectly writes the velocity as v − dx/dt − A ω cos ωt; the correct relation is v = A ω cos ωt."
-        }
-      ],
+      "solution_wrong_step": "",
       "solution_final": "D"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6956d7e988d7701e5617bd3e"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.55,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -3615,20 +4173,24 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
+      "classify",
       "exam_reference",
       "figure_reference",
       "markup_leak",
       "noise",
       "solution_present",
+      "solve_a",
       "solve_b"
     ],
     "cited_checks": [
-      "solve_b"
+      "solve_a",
+      "solve_b",
+      "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "4",
       "solve_b": "4",
-      "solution_final": null,
+      "solution_final": "4",
       "stored_key": "4"
     },
     "checks": [
@@ -3671,26 +4233,52 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea619d0cda73d07e93aee"
+        "answer": "4",
+        "issue": "",
+        "final_value": "4 s",
+        "method": "Use θ = ½αt² for each wheel starting from rest. The dots align again when their angular positions differ by 2π, so ½(π/2 − π/4)t² = 2π, giving t = 4 s.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "4",
         "issue": "",
         "final_value": "4 s",
-        "method": "I expressed each wheel's angular displacement as θ=½αt² (starting from rest). The difference in angular positions is Δθ=½(α₁-α₂)t²=(π/8)t². Setting Δθ equal to an integer multiple of 2π for alignment gives (π/8)t²=2πn ⇒ t²=16n. The smallest positive n is 1, yielding t=4 s."
+        "method": "I expressed each wheel's angular displacement as θ=½αt² (starting from rest). The difference in angular positions is Δθ=½(α₁-α₂)t²=(π/8)t². Setting Δθ equal to an integer multiple of 2π for alignment gives (π/8)t²=2πn ⇒ t²=16n. The smallest positive n is 1, yielding t=4 s.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68dea619d0cda73d07e93aee"
+      "solution_final_answer": [
+        "4"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "reports": [
+        {
+          "reportId": "R031",
+          "claim_type": "answer_key",
+          "claim_summary": "The student claims the correct answer should be 2 seconds instead of the stored answer.",
+          "claim_supported": "no",
+          "student_missed_step": "They missed that the relative angular displacement is (π/8)·t², which equals 2π giving t = 4 s, not 2 s.",
+          "injection_or_gaming": false
+        }
+      ],
+      "candidate_defects": [
+        {
+          "repair": "notation",
+          "field": "question",
+          "find": "<mi mathvariant=\"normal\"> r </mi><mi mathvariant=\"normal\"> a </mi><mi mathvariant=\"normal\"> d </mi>",
+          "replace": "<mi mathvariant=\"normal\">rad</mi>",
+          "rationale": "The angular acceleration unit is split into separate letters, making the notation unclear; correcting it to a single 'rad' token clarifies the expression."
+        }
+      ],
+      "solution_final": "4"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea619d0cda73d07e93aee",
-      "classify: offline: no cached classify response for 68dea619d0cda73d07e93aee"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
-    "route_before_confidence_guard": "faculty_review"
+    "confidence": 0.9,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R032",
@@ -3704,16 +4292,18 @@
       "markup_leak",
       "noise",
       "solution_present",
+      "solve_a",
       "solve_b"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "1.5",
       "solve_b": "8",
-      "solution_final": "0.08",
+      "solution_final": "8",
       "stored_key": "8"
     },
     "checks": [
@@ -3756,18 +4346,23 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea7c2387eea3d0d95f9bb"
+        "answer": "1.5",
+        "issue": "",
+        "final_value": "1.5 cm",
+        "method": "Calculate the net optical path difference introduced by the two slabs using the formula $\\Delta x = (\\mu_1 - 1)t_1 - (\\mu_2 - 1)t_2$. Determine the shift of the central maximum on the screen using the relation $y = \\frac{D}{d} \\Delta x$.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "8",
         "issue": "",
         "final_value": "8 cm",
-        "method": "We computed the extra optical path introduced by each slab as (n-1)t, giving Δ = (0.5)(2 mm)−(0.4)(1.5 mm)=0.4 mm=0.0004 m. Using the shift formula y=−ΔL/d with L=1 m and d=5 mm gives y=−0.08 m=−8 cm, so the central maximum shifts by 8 cm."
+        "method": "We computed the extra optical path introduced by each slab as (n-1)t, giving Δ = (0.5)(2 mm)−(0.4)(1.5 mm)=0.4 mm=0.0004 m. Using the shift formula y=−ΔL/d with L=1 m and d=5 mm gives y=−0.08 m=−8 cm, so the central maximum shifts by 8 cm.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
       "solution_final_answer": [
-        "0.08"
+        "8"
       ],
       "solution_matches_question": true,
       "solution_wrong_step": "",
@@ -3775,9 +4370,9 @@
         {
           "reportId": "R032",
           "claim_type": "answer_key",
-          "claim_summary": "The student says the answer should be 0.08, questioning why the key shows 8.",
+          "claim_summary": "The student claims that the correct answer should be 0.08, not 8.",
           "claim_supported": "no",
-          "student_missed_step": "The student missed converting 0.08 m to centimeters, which equals 8 cm, the required unit.",
+          "student_missed_step": "They missed converting the 0.08 m result to centimeters, which is 8 cm as required by the question.",
           "injection_or_gaming": false
         }
       ],
@@ -3785,19 +4380,17 @@
         {
           "repair": "solution_fix",
           "field": "solution",
-          "find": "0.08 m",
-          "replace": "8 cm",
-          "rationale": "The solution ends with 0.08 m but the question asks for the shift in cm; converting gives 8 cm, matching the answer key."
+          "find": "0.08",
+          "replace": "8",
+          "rationale": "The solution ends with 0.08 m but the question asks for the shift in cm; blind solves and the answer key show the correct value is 8 cm."
         }
       ],
-      "solution_final": "0.08"
+      "solution_final": "8"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea7c2387eea3d0d95f9bb"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.55,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -3812,15 +4405,18 @@
       "markup_leak",
       "noise",
       "solution_present",
+      "solve_a",
       "solve_b"
     ],
     "cited_checks": [
+      "solve_a",
+      "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "3113",
       "solve_b": "3113",
-      "solution_final": "311.3",
+      "solution_final": "3113",
       "stored_key": "3113"
     },
     "checks": [
@@ -3863,53 +4459,44 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790"
+        "answer": "3113",
+        "issue": "",
+        "final_value": "3113",
+        "method": "Total surface area of a cube is 6a\u0002. Using a = 7.203 m gives 311.299254 m\u0002, which rounds to 4 significant figures as 311.3 m\u0002, so 10A = 3113.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "3113",
         "issue": "",
         "final_value": "3113 m^2",
-        "method": "Computed the cube's total surface area as 6s^2 with s=7.203 m, giving 311.299254 m^2. Rounded to 4 significant figures (same as the side length) to obtain A = 311.3 m^2. Multiplied by 10 to get 10A = 3113 m^2."
+        "method": "Computed the cube's total surface area as 6s^2 with s=7.203 m, giving 311.299254 m^2. Rounded to 4 significant figures (same as the side length) to obtain A = 311.3 m^2. Multiplied by 10 to get 10A = 3113 m^2.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "solution_final_answer": [
-        "311.3"
-      ],
-      "solution_matches_question": false,
-      "solution_wrong_step": "The solution ends with A = 311.3 m² and does not compute 10 A as required.",
+      "candidate_defects": [],
       "reports": [
         {
-          "reportId": "R033",
-          "claim_type": "answer_key",
-          "claim_summary": "The student claims that the correct answer should be 3112.99 rather than the stored answer key 3113.",
+          "claim_summary": "Student claims the answer should be 3112.99 instead of 3113, apparently computing 10 × 311.299 without applying the significant-figures rounding the question requires.",
           "claim_supported": "no",
-          "student_missed_step": "The student overlooked that the problem asks for 10 A, which equals 10 × 311.3 = 3113, not the unrounded 3112.99.",
-          "injection_or_gaming": false
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
+          "reportId": "R033",
+          "student_missed_step": "The question requires rounding to the correct significant digits (4, matching 7.203), giving A = 311.3 m², so 10A = 3113, not 10 × 311.299 = 3112.99."
         }
       ],
-      "candidate_defects": [
-        {
-          "repair": "solution_missing",
-          "field": "solution",
-          "find": "311.3",
-          "replace": "311.3, so 10 A = 3113",
-          "rationale": "The solution stops at A = 311.3 m² and does not compute the required 10 A, which the question asks for and the answer key provides."
-        }
+      "solution_final_answer": [
+        "3113"
       ],
-      "solution_final": "311.3"
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "solution_final": "3113"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790"
-    ],
-    "guard_log": [
-      "G3 solution repair: auto_apply -> faculty_review (solution_missing always goes to faculty (SOLUTION_REPAIRS_AUTO off))",
-      "G9 confidence: 0.30 < threshold 1.01",
-      "G10 validator: solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea715387eea3d0d95f790"
-    ],
-    "confidence": 0.3,
-    "route_before_confidence_guard": "faculty_review"
+    "validator_errors": [],
+    "guard_log": [],
+    "confidence": 0.9,
+    "route_before_confidence_guard": "no_change"
   },
   {
     "reportId": "R034",
@@ -3917,7 +4504,6 @@
     "ran_ids": [
       "answer_shape",
       "changed_after_report",
-      "classify",
       "exam_reference",
       "figure_reference",
       "key_option_present",
@@ -3926,16 +4512,15 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
-    "cited_checks": [
-      "classify"
-    ],
+    "cited_checks": [],
     "proof": {
       "solve_a": null,
       "solve_b": null,
-      "solution_final": "D",
+      "solution_final": null,
       "stored_key": "D"
     },
     "checks": [
@@ -3998,53 +4583,26 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 695ee00b88d7701e561aabc5"
+        "answer": null,
+        "issue": "No option corresponds to the case where both the assertion and the reason are false.",
+        "final_value": "Both A and R are false",
+        "method": "Use the interference intensity formula I = I1 + I2 + 2√(I1I2) cos φ. For equal intensities and φ = π/2, I = 2I0, so the assertion is false; the reason is also false because the interference term is not generally zero for non-zero phase difference.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": null,
         "issue": "None of the options matches the correct answer.",
         "final_value": "",
-        "method": "Calculated resultant intensity using I = I1+I2+2√(I1I2)cosφ for equal amplitudes and φ=π/2, finding I=2I0, so the assertion is false; the reason is false because the intensity equals the sum only for φ=π/2, not for all non‑zero phase differences."
+        "method": "Calculated resultant intensity using I = I1+I2+2√(I1I2)cosφ for equal amplitudes and φ=π/2, finding I=2I0, so the assertion is false; the reason is false because the intensity equals the sum only for φ=π/2, not for all non‑zero phase differences.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "solution_final_answer": [
-        "D"
-      ],
-      "solution_matches_question": false,
-      "solution_wrong_step": "The solution incorrectly states that Assertion (A) is false, whereas the calculation shows the intensity equals that of one wave, making the assertion true.",
-      "reports": [
-        {
-          "reportId": "R034",
-          "claim_type": "answer_key",
-          "claim_summary": "The student claims that the assertion is true, so the answer key stating D is incorrect.",
-          "claim_supported": "yes",
-          "student_missed_step": "",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [
-        {
-          "repair": "answer_key",
-          "field": "answer",
-          "find": "",
-          "replace": "",
-          "rationale": "Both the physics calculation and the stored solution show that the intensity equals that of one wave, making Assertion (A) true, so the correct option is C, not D."
-        },
-        {
-          "repair": "solution_fix",
-          "field": "solution",
-          "find": "Assertion (A) is false because",
-          "replace": "Assertion (A) is true because",
-          "rationale": "The solution incorrectly states Assertion (A) is false, contradicting the derived intensity I = I0 which makes the assertion true."
-        }
-      ],
-      "solution_final": "D"
+      "error": "no classify result available for 695ee00b88d7701e561aabc5"
     },
     "flags": [],
     "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 695ee00b88d7701e561aabc5",
-      "classifier supports the claim but proposed no defect"
+      "classify: no classify result available for 695ee00b88d7701e561aabc5"
     ],
     "guard_log": [],
     "confidence": 0.25000000000000006,
@@ -4065,17 +4623,19 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "D",
       "solve_b": "D",
-      "solution_final": null,
+      "solution_final": "D",
       "stored_key": "D"
     },
     "checks": [
@@ -4138,46 +4698,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 66fe9dbe22132e5a70a3e579"
+        "answer": "D",
+        "issue": "",
+        "final_value": "D",
+        "method": "Antagonistic hormone pairs have opposite physiological effects. PTH-calcitonin, insulin-glucagon, and aldosterone-ANF are antagonistic, while relaxin and inhibin do not oppose each other.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "D",
         "issue": "",
         "final_value": "Relaxin - Inhibin",
-        "method": "I reviewed the physiological actions of each hormone pair: PTH and calcitonin have opposite effects on calcium, insulin and glucagon oppose glucose regulation, aldosterone and ANF have opposite effects on sodium/water balance. Relaxin and inhibin act on different reproductive processes and are not antagonistic. Hence the non‑antagonistic pair is Relaxin‑Inhibin, option D."
+        "method": "I reviewed the physiological actions of each hormone pair: PTH and calcitonin have opposite effects on calcium, insulin and glucagon oppose glucose regulation, aldosterone and ANF have opposite effects on sodium/water balance. Relaxin and inhibin act on different reproductive processes and are not antagonistic. Hence the non‑antagonistic pair is Relaxin‑Inhibin, option D.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "solution_final_answer": [],
-      "solution_matches_question": true,
-      "solution_wrong_step": "The solution states that 'Insulin and glucagon work synergistically to keep blood glucose concentrations normal', which is incorrect because they are antagonistic hormones.",
+      "candidate_defects": [],
       "reports": [
         {
-          "reportId": "R035",
-          "claim_type": "answer_key",
-          "claim_summary": "The student claims that the answer key 'D' is incorrect because relaxin and inhibin are antagonistic.",
+          "claim_summary": "Student claims relaxin and inhibin are antagonistic, making the stored answer D incorrect.",
           "claim_supported": "no",
-          "student_missed_step": "The student missed that antagonistic hormones have opposite effects, whereas relaxin and inhibin do not have opposing actions.",
-          "injection_or_gaming": false
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
+          "reportId": "R035",
+          "student_missed_step": "Relaxin acts on pelvic ligaments and the cervix during parturition, while inhibin suppresses FSH secretion from the anterior pituitary; they act on entirely different target systems and do not produce opposite effects on one another, so they are not an antagonistic pair."
         }
       ],
-      "candidate_defects": [
-        {
-          "repair": "solution_fix",
-          "field": "solution",
-          "find": "Insulin and glucagon work synergistically to keep blood glucose concentrations normal.",
-          "replace": "Insulin and glucagon are antagonistic hormones that have opposite effects on blood glucose levels.",
-          "rationale": "The solution contains an incorrect statement about insulin and glucagon being synergistic, which contradicts known physiology and the question's requirement; correcting this fixes the solution."
-        }
+      "solution_final_answer": [
+        "D"
       ],
-      "solution_final": null
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "solution_final": "D"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 66fe9dbe22132e5a70a3e579"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -4195,15 +4752,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
       "solution_final": "C",
       "stored_key": "C"
@@ -4268,40 +4827,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 60ca4feb6420652745f55522"
+        "answer": "C",
+        "issue": "",
+        "final_value": "99 N",
+        "method": "Use Coulomb's law: force is proportional to the product of the two charges at fixed distance. The new product is (1.10)(0.90) = 0.99 times the original, so the force becomes 0.99 × 100 N = 99 N.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "99 N",
-        "method": "Using Coulomb's law, the force is proportional to the product of the charges. Increasing one charge by 10% and decreasing the other by 10% changes the product by a factor of 1.1×0.9=0.99, so the new force is 0.99×100 N=99 N."
+        "method": "Using Coulomb's law, the force is proportional to the product of the charges. Increasing one charge by 10% and decreasing the other by 10% changes the product by a factor of 1.1×0.9=0.99, so the new force is 0.99×100 N=99 N.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "The student reports that the options are cut off on their phone screen.",
+          "claim_supported": "no",
+          "claim_type": "display",
+          "injection_or_gaming": false,
+          "reportId": "R036",
+          "student_missed_step": ""
+        }
+      ],
       "solution_final_answer": [
         "C"
       ],
       "solution_matches_question": true,
       "solution_wrong_step": "",
-      "reports": [
-        {
-          "reportId": "R036",
-          "claim_type": "display",
-          "claim_summary": "The student reports that the options are cut off on their phone screen.",
-          "claim_supported": "no",
-          "student_missed_step": "",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [],
       "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 60ca4feb6420652745f55522"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.5,
+    "confidence": 0.8,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -4319,15 +4881,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "D",
       "solve_b": "D",
       "solution_final": "D",
       "stored_key": "D"
@@ -4392,40 +4956,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68c9ae5afb6b2f16e2d43b1c"
+        "answer": "D",
+        "issue": "",
+        "final_value": "1.1 V",
+        "method": "Use the photoelectric equation: maximum kinetic energy equals photon energy minus work function. Photon energy is hc/λ = 1240 eV·nm / 400 nm = 3.1 eV, so K_max = 3.1 eV - 2.0 eV = 1.1 eV, giving stopping potential 1.1 V.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "D",
         "issue": "",
         "final_value": "1.1 V",
-        "method": "Calculated photon energy using E=hc/λ (1240 eV·nm/λ) giving 3.1 eV. Subtracting the work function 2.0 eV yields kinetic energy 1.1 eV, which corresponds to a stopping potential of 1.1 V. This matches option D."
+        "method": "Calculated photon energy using E=hc/λ (1240 eV·nm/λ) giving 3.1 eV. Subtracting the work function 2.0 eV yields kinetic energy 1.1 eV, which corresponds to a stopping potential of 1.1 V. This matches option D.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "The student reports that the question takes a very long time to load in the app.",
+          "claim_supported": "unclear",
+          "claim_type": "app",
+          "injection_or_gaming": false,
+          "reportId": "R037",
+          "student_missed_step": ""
+        }
+      ],
       "solution_final_answer": [
         "D"
       ],
       "solution_matches_question": true,
       "solution_wrong_step": "",
-      "reports": [
-        {
-          "reportId": "R037",
-          "claim_type": "app",
-          "claim_summary": "The student reports that the question takes a long time to load.",
-          "claim_supported": "unclear",
-          "student_missed_step": "",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [],
       "solution_final": "D"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c9ae5afb6b2f16e2d43b1c"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.5,
+    "confidence": 0.8,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -4443,15 +5010,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "A",
       "solve_b": "A",
       "solution_final": "A",
       "stored_key": "A"
@@ -4516,40 +5085,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68f21df0941cda588bc0470b"
+        "answer": "A",
+        "issue": "",
+        "final_value": "2p",
+        "method": "Use the relation K = p^2/(2m) for a body of constant mass. If kinetic energy becomes four times, momentum becomes sqrt(4) = 2 times the initial momentum.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "2 times the initial momentum",
-        "method": "For a non‑relativistic body K = p^2/(2m), so p = sqrt(2mK). If the kinetic energy becomes 4K_0, then p_new = sqrt(4)·p_0 = 2p_0. Hence the momentum doubles."
+        "method": "For a non‑relativistic body K = p^2/(2m), so p = sqrt(2mK). If the kinetic energy becomes 4K_0, then p_new = sqrt(4)·p_0 = 2p_0. Hence the momentum doubles.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "The student claims the app recorded option B when they selected option A.",
+          "claim_supported": "unclear",
+          "claim_type": "app",
+          "injection_or_gaming": false,
+          "reportId": "R038",
+          "student_missed_step": ""
+        }
+      ],
       "solution_final_answer": [
         "A"
       ],
       "solution_matches_question": true,
       "solution_wrong_step": "",
-      "reports": [
-        {
-          "reportId": "R038",
-          "claim_type": "app",
-          "claim_summary": "The student reports that selecting option A was recorded as option B.",
-          "claim_supported": "no",
-          "student_missed_step": "",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [],
       "solution_final": "A"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68f21df0941cda588bc0470b"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.5,
+    "confidence": 0.8,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -4566,14 +5138,16 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "A",
       "solve_b": "A",
       "solution_final": null,
       "stored_key": "A"
@@ -4638,22 +5212,26 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68c801bc1b1dbc16dc93bf2b"
+        "answer": "A",
+        "issue": "",
+        "final_value": "600 eV",
+        "method": "The maximum-energy X-ray has energy eV, so its wavelength is hc/eV. Equating this to the electron de-Broglie wavelength h/p gives p = eV/c, and the non-relativistic kinetic energy is K = p^2/(2m) = e^2V^2/(2mc^2). Substituting V = 24800 V gives K ≈ 600 eV.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "~600 eV",
-        "method": "The maximum X‑ray photon energy is eV, giving wavelength λ=hc/(eV). Using h=6.6×10⁻³⁴ J·s, c≈3×10⁸ m/s, e=1.6×10⁻¹⁹ C and V=24800 V yields λ≈5×10⁻¹¹ m. Equating this to the electron de‑Broglie wavelength λ=h/√(2mK) gives K=h²/(2mλ²)≈9.6×10⁻¹⁷ J≈600 eV. This matches option A."
+        "method": "The maximum X‑ray photon energy is eV, giving wavelength λ=hc/(eV). Using h=6.6×10⁻³⁴ J·s, c≈3×10⁸ m/s, e=1.6×10⁻¹⁹ C and V=24800 V yields λ≈5×10⁻¹¹ m. Equating this to the electron de‑Broglie wavelength λ=h/√(2mK) gives K=h²/(2mλ²)≈9.6×10⁻¹⁷ J≈600 eV. This matches option A.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "error": "offline: no cached classify response for 68c801bc1b1dbc16dc93bf2b"
+      "error": "no classify result available for 68c801bc1b1dbc16dc93bf2b"
     },
     "flags": [],
     "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68c801bc1b1dbc16dc93bf2b",
-      "classify: offline: no cached classify response for 68c801bc1b1dbc16dc93bf2b"
+      "classify: no classify result available for 68c801bc1b1dbc16dc93bf2b"
     ],
     "guard_log": [],
     "confidence": 0.25000000000000006,
@@ -4674,17 +5252,19 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "C",
       "solve_b": "C",
-      "solution_final": null,
+      "solution_final": "C",
       "stored_key": "C"
     },
     "checks": [
@@ -4747,60 +5327,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6264197209f4fd65f58f5707"
+        "answer": "C",
+        "issue": "",
+        "final_value": "Golden rice",
+        "method": "Vitamin A deficiency causes night blindness, and beta-carotene is a provitamin A precursor. Golden rice is genetically engineered to produce beta-carotene, so its consumption can help prevent vitamin A deficiency blindness.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "Golden rice",
-        "method": "Identified that vitamin A deficiency blindness can be prevented by consuming provitamin A (beta‑carotene) rich foods. Among the options, only Golden rice is engineered to contain high beta‑carotene, so it can prevent the blindness."
+        "method": "Identified that vitamin A deficiency blindness can be prevented by consuming provitamin A (beta‑carotene) rich foods. Among the options, only Golden rice is engineered to contain high beta‑carotene, so it can prevent the blindness.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "solution_final_answer": [],
-      "solution_matches_question": true,
-      "solution_wrong_step": "",
+      "candidate_defects": [],
       "reports": [
         {
+          "claim_summary": "The student claims the answer is wrong without providing specific details.",
+          "claim_supported": "no",
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
           "reportId": "R040",
-          "claim_type": "unclear",
-          "claim_summary": "The student states that something is wrong.",
-          "claim_supported": "unclear",
-          "student_missed_step": "",
-          "injection_or_gaming": false
+          "student_missed_step": "The student likely failed to recall that Golden Rice is specifically engineered to produce beta-carotene (a precursor to Vitamin A) to prevent deficiency-related blindness."
         }
       ],
-      "candidate_defects": [
-        {
-          "repair": "spelling",
-          "field": "solution",
-          "find": "Golden riceis",
-          "replace": "Golden rice is",
-          "rationale": "The stored solution contains the concatenated phrase \"Golden riceis\" which is a spelling/grammar error."
-        },
-        {
-          "repair": "spelling",
-          "field": "solution",
-          "find": "producebeta-carotene",
-          "replace": "produce beta-carotene",
-          "rationale": "The phrase \"producebeta-carotene\" lacks a space, indicating a spelling/grammar defect."
-        },
-        {
-          "repair": "spelling",
-          "field": "solution",
-          "find": "lead tonight blindness",
-          "replace": "lead to night blindness",
-          "rationale": "The text \"lead tonight blindness\" is a typo; the correct phrase is \"lead to night blindness\"."
-        }
+      "solution_final_answer": [
+        "C"
       ],
-      "solution_final": null
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "solution_final": "C"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6264197209f4fd65f58f5707"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.39999999999999997,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -4818,17 +5381,19 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "A",
       "solve_b": "A",
-      "solution_final": null,
+      "solution_final": "A",
       "stored_key": "A"
     },
     "checks": [
@@ -4891,38 +5456,51 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 6208e298fa399567e0878700"
+        "answer": "A",
+        "issue": "",
+        "final_value": "Julius von Sachs",
+        "method": "Historical evidence in photosynthesis: Julius von Sachs showed that leaves exposed to light produce starch, which is converted to sugar (glucose) and transported, providing evidence for glucose production during plant growth.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "A",
         "issue": "",
         "final_value": "Julius von Sachs",
-        "method": "I identified the historical contributions of each listed scientist. Julius von Sachs performed experiments demonstrating that plants produce starch (glucose) during growth, which matches the question. The other options are known for different discoveries, so the correct answer is A."
+        "method": "I identified the historical contributions of each listed scientist. Julius von Sachs performed experiments demonstrating that plants produce starch (glucose) during growth, which matches the question. The other options are known for different discoveries, so the correct answer is A.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
-      "solution_final_answer": [],
-      "solution_matches_question": true,
-      "solution_wrong_step": "",
-      "reports": [
+      "candidate_defects": [
         {
-          "reportId": "R041",
-          "claim_type": "unclear",
-          "claim_summary": "The comment does not specify any particular issue.",
-          "claim_supported": "unclear",
-          "student_missed_step": "",
-          "injection_or_gaming": false
+          "field": "question",
+          "find": "when plant grows",
+          "rationale": "Grammatical error: subject-verb agreement; 'plant' is singular but the intended meaning is the general plural 'plants grow', as confirmed by the solution's phrasing 'when plants grow'.",
+          "repair": "spelling",
+          "replace": "when plants grow"
         }
       ],
-      "candidate_defects": [],
-      "solution_final": null
+      "reports": [
+        {
+          "claim_summary": "The student typed an unintelligible string of characters with no discernible claim.",
+          "claim_supported": "unclear",
+          "claim_type": "unclear",
+          "injection_or_gaming": false,
+          "reportId": "R041",
+          "student_missed_step": ""
+        }
+      ],
+      "solution_final_answer": [
+        "A"
+      ],
+      "solution_matches_question": true,
+      "solution_wrong_step": "",
+      "solution_final": "A"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 6208e298fa399567e0878700"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.39999999999999997,
+    "confidence": 0.7,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -5013,52 +5591,38 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 63c7cce12981ed154ee92c94"
+        "error": "no solve_a result available for 63c7cce12981ed154ee92c94"
       },
       "solve_b": {
         "answer": "C",
         "issue": "",
         "final_value": "2.2 μA",
-        "method": "We computed the capacitance C = ε0 εr A/d = 8.854×10⁻⁸ F, then used Id = C·dV/dt = 8.854×10⁻⁸ F·25 V/s ≈ 2.2×10⁻⁶ A = 2.2 µA. This matches option C."
+        "method": "We computed the capacitance C = ε0 εr A/d = 8.854×10⁻⁸ F, then used Id = C·dV/dt = 8.854×10⁻⁸ F·25 V/s ≈ 2.2×10⁻⁶ A = 2.2 µA. This matches option C.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "The student claims the question is filed under the wrong chapter (geometrical optics) when displacement current belongs to electromagnetic waves/electromagnetism.",
+          "claim_supported": "unclear",
+          "claim_type": "classification",
+          "injection_or_gaming": false,
+          "reportId": "R042",
+          "student_missed_step": ""
+        }
+      ],
       "solution_final_answer": [
         "C"
       ],
       "solution_matches_question": true,
-      "solution_wrong_step": "The step \"C = k ε₀ A/d = 8.85 ×10^{−8} F\" is incorrect (wrong constant and exponent).",
-      "reports": [
-        {
-          "reportId": "R042",
-          "claim_type": "classification",
-          "claim_summary": "The student claims that the question is assigned to an incorrect chapter.",
-          "claim_supported": "unclear",
-          "student_missed_step": "",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [
-        {
-          "repair": "solution_fix",
-          "field": "solution",
-          "find": "C = k ε₀ A/d = 8.85 ×10^{−8} F",
-          "replace": "C = ε₀ A/d = 8.85 ×10^{−12} F",
-          "rationale": "The first step uses an incorrect constant (k) and exponent; the permittivity of free space is 8.85×10⁻¹² F/m."
-        },
-        {
-          "repair": "solution_fix",
-          "field": "solution",
-          "find": "2.2 μA A",
-          "replace": "2.2 μA",
-          "rationale": "The solution appends an extra area unit to the current value, giving incorrect units."
-        }
-      ],
+      "solution_wrong_step": "",
       "solution_final": "C"
     },
     "flags": [],
     "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 63c7cce12981ed154ee92c94"
+      "solve_a: no solve_a result available for 63c7cce12981ed154ee92c94"
     ],
     "guard_log": [],
     "confidence": 0.25000000000000006,
@@ -5079,15 +5643,17 @@
       "options_present",
       "options_unique",
       "solution_present",
+      "solve_a",
       "solve_b",
       "type_consistency"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "B",
       "solve_b": "B",
       "solution_final": "B",
       "stored_key": "B"
@@ -5152,40 +5718,43 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 636283dbe3770c24f866e6d6"
+        "answer": "B",
+        "issue": "",
+        "final_value": "4 : 1",
+        "method": "Use conservation of volume and charge for conducting drops. Since R = n^(1/3)r and Q = nq, surface charge density σ = Q/(4πR²) scales as n^(1/3), giving 64^(1/3) = 4.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "B",
         "issue": "",
         "final_value": "4:1",
-        "method": "Found the radius of the combined drop using volume conservation: r_b = r_s * N^{1/3}=0.08 m. Computed surface charge density σ=Q/(4πr^2) for small and big drops, giving σ_b/σ_s = (N)*(r_s^2/r_b^2)=64*(1/16)=4, so the ratio is 4:1."
+        "method": "Found the radius of the combined drop using volume conservation: r_b = r_s * N^{1/3}=0.08 m. Computed surface charge density σ=Q/(4πr^2) for small and big drops, giving σ_b/σ_s = (N)*(r_s^2/r_b^2)=64*(1/16)=4, so the ratio is 4:1.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "Student claims the correct answer is 1:4 (option A) because the bigger drop has more surface area, but this is incorrect; the total charge also increases by a factor of 64, making the ratio 4:1.",
+          "claim_supported": "no",
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
+          "reportId": "R043",
+          "student_missed_step": "The student only considered that the bigger drop's area is 16 times larger (R = 4r), but forgot that the total charge is also 64 times larger (Q = 64q), so the density ratio is 64/16 = 4, giving 4:1 not 1:4."
+        }
+      ],
       "solution_final_answer": [
         "B"
       ],
       "solution_matches_question": true,
       "solution_wrong_step": "",
-      "reports": [
-        {
-          "reportId": "R043",
-          "claim_type": "answer_key",
-          "claim_summary": "Student claims the correct answer should be 1:4 (option A) instead of the stored answer B.",
-          "claim_supported": "no",
-          "student_missed_step": "They overlooked that the combined drop’s total charge is 64 q, so despite the larger area its surface charge density is four times that of a small drop.",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [],
       "solution_final": "B"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 636283dbe3770c24f866e6d6"
-    ],
+    "validator_errors": [],
     "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   },
   {
@@ -5200,14 +5769,16 @@
       "markup_leak",
       "noise",
       "solution_present",
+      "solve_a",
       "solve_b"
     ],
     "cited_checks": [
+      "solve_a",
       "solve_b",
       "classify"
     ],
     "proof": {
-      "solve_a": null,
+      "solve_a": "14",
       "solve_b": "14",
       "solution_final": "14",
       "stored_key": "14"
@@ -5252,40 +5823,45 @@
     ],
     "solves": {
       "solve_a": {
-        "error": "gemini is cache-only (free tier unavailable); no cached solve_a for 68dea577d0cda73d07e9391c"
+        "answer": "14",
+        "issue": "",
+        "final_value": "14 V",
+        "method": "For a uniformly charged solid sphere, V_surface = kQ/R = 16 V. Inside at R/2, V_P = (kQ/2R)(3 - 1/4) = 22 V; outside at 2R, V_S = kQ/(2R) = 8 V, so V_P - V_S = 14 V.",
+        "model": "qwen/qwen3.8-27b"
       },
       "solve_b": {
         "answer": "14",
         "issue": "",
         "final_value": "14 V",
-        "method": "Used the known potential of a uniformly charged solid sphere: V(r)=Q/(4πϵ0R) for r≥R and V(r)=Q/(8πϵ0R)(3−r^2/R^2) for r≤R. From V(R)=16 V we found Q/(4πϵ0R)=16 V, then computed V(R/2)=22 V and V(2R)=8 V, giving ΔV=V(P)−V(S)=14 V."
+        "method": "Used the known potential of a uniformly charged solid sphere: V(r)=Q/(4πϵ0R) for r≥R and V(r)=Q/(8πϵ0R)(3−r^2/R^2) for r≤R. From V(R)=16 V we found Q/(4πϵ0R)=16 V, then computed V(R/2)=22 V and V(2R)=8 V, giving ΔV=V(P)−V(S)=14 V.",
+        "model": "openai/gpt-oss-120b"
       }
     },
     "classifier": {
+      "candidate_defects": [],
+      "reports": [
+        {
+          "claim_summary": "Student claims the correct answer is 22 V instead of the stored 14 V; however, 22 V is the potential at point P relative to infinity (11V/8 = 22), not the potential difference between P and S.",
+          "claim_supported": "no",
+          "claim_type": "answer_key",
+          "injection_or_gaming": false,
+          "reportId": "R044",
+          "student_missed_step": "The student computed V_P − V∞ = 11V/8 = 22 V, but the question asks for V_P − V_S = 11V/8 − V/2 = 7V/8 = 14 V."
+        }
+      ],
       "solution_final_answer": [
         "14"
       ],
       "solution_matches_question": true,
       "solution_wrong_step": "",
-      "reports": [
-        {
-          "reportId": "R044",
-          "claim_type": "answer_key",
-          "claim_summary": "The student claims that the correct answer is 22 V instead of 14 V.",
-          "claim_supported": "no",
-          "student_missed_step": "They missed that the potential inside the uniformly charged sphere at r = R/2 is (11/8)·(KQ/R), leading to a difference of (7/8)·16 V = 14 V, not 22 V.",
-          "injection_or_gaming": false
-        }
-      ],
-      "candidate_defects": [],
       "solution_final": "14"
     },
     "flags": [],
-    "validator_errors": [
-      "solve_a: gemini is cache-only (free tier unavailable); no cached solve_a for 68dea577d0cda73d07e9391c"
+    "validator_errors": [],
+    "guard_log": [
+      "G13 reply: reply fallback used (no reply result available for R044)"
     ],
-    "guard_log": [],
-    "confidence": 0.25000000000000006,
+    "confidence": 0.9,
     "route_before_confidence_guard": "no_change"
   }
 ]

@@ -34,4 +34,7 @@ def solve_blind(nq: NormQ, role: str) -> tuple[dict | None, str | None]:
     res = llm.call_json(role, nq.id, build_solve_input(nq), SOLVE_SCHEMA, fake=lambda: _fake(nq))
     if res.error:
         return None, res.error
-    return validate_solve(res.data, nq.qtype)
+    solve, err = validate_solve(res.data, nq.qtype)
+    if solve is not None:
+        solve["model"] = res.model   # which model produced this solve (kept in the run record)
+    return solve, err

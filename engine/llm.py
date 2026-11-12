@@ -34,6 +34,7 @@ class LLMResult:
     data: dict | None
     error: str | None = None
     cached: bool = False
+    model: str | None = None
 
 
 def set_mode(mode: str) -> None:
@@ -100,11 +101,13 @@ def _client(provider: str):
         key = os.environ.get(ep["key_env"])
         if not key:
             raise RuntimeError(f"{ep['key_env']} is not set (.env)")
-        _clients[provider] = OpenAI(base_url=ep["base_url"], api_key=key, max_retries=config.MAX_RETRIES)
+        _clients[provider] = OpenAI(base_url=ep["base_url"], api_key=key, max_retries=config.MAX_RETRIES,
+                                    timeout=config.CALL_TIMEOUT)
     return _clients[provider]
 
 
-def _call_openai_compatible(role: str, model: str, system: str, user: str, schema: dict) -> tuple[str, int, int]:
+def _call_openai_compatible(role: str, model: str, system: str, user: str, schema: dict,
+                            provider: str | None = None) -> tuple[str, int, int]:
     """Chat Completions on the provider's OpenAI-compatible endpoint, JSON output.
 
     Free-tier models differ in what they accept, so we try progressively plainer requests:
@@ -114,8 +117,8 @@ def _call_openai_compatible(role: str, model: str, system: str, user: str, schem
     """
     from openai import BadRequestError
 
-    provider = config.PROVIDERS[role]
-    client = _client(provider)
+    provider = provider or config.PROVIDERS[role]
+    client = _client(provider).with_options(max_retries=0)   # pacing is handled in call_json
     schema_fmt = {"type": "json_schema", "json_schema": {"name": role, "schema": schema, "strict": True}}
     effort = config.REASONING_EFFORT.get(role)
     attempts = []
@@ -156,40 +159,78 @@ def call_json(role: str, subject_id: str, user: str, schema: dict,
         version, system = load_prompt(role)
     except FileNotFoundError as e:
         return LLMResult(None, str(e))
-    model = "fake" if MODE == "fake" else _model_for(role)
-    if model is None:
-        return LLMResult(None, f"no model configured for {role} ({config.PROVIDERS[role]})")
+    # Candidates in order: the role's own provider, then an optional fallback (config.ROLE_FALLBACK).
+    # A cached answer from any candidate is reused, so earlier results from the primary provider
+    # are kept. A live call tries each candidate that is not cache-only, in order.
+    if MODE == "fake":
+        cands = [("fake", "fake")]
+    else:
+        cands = [(config.PROVIDERS[role], _model_for(role))]
+        fb = getattr(config, "ROLE_FALLBACK", {}).get(role)
+        if fb:
+            cands.append(tuple(fb))
+        cands = [(pv, m) for pv, m in cands if m]
+    # One failure message for every mode. It is quoted in the classify prompt, so it is part of that
+    # request's hash: if it differed between a live and a cached run, results would not reproduce.
+    unavailable = f"no {role} result available for {subject_id}"
+    if not cands:
+        return LLMResult(None, unavailable)
     req_hash = hashlib.sha256(json.dumps([system, user, schema], sort_keys=True).encode("utf-8")).hexdigest()[:16]
     key = f"{subject_id}|{role}"
 
     with _lock:
         entry = _load_cache().get(key)
-    if entry and entry.get("prompt_version") == version and entry.get("model") == model \
-            and entry.get("request_hash") == req_hash:
-        return _parse(entry["response"], cached=True)
+    if entry and entry.get("prompt_version") == version and entry.get("request_hash") == req_hash \
+            and entry.get("model") in [m for _, m in cands]:
+        res = _parse(entry["response"], cached=True)
+        res.model = entry.get("model")
+        return res
 
-    # Same message live and offline: this text is quoted in the classify prompt, so it is part of
-    # that request's hash and must not vary by mode or the cached classification is never reused.
-    if MODE != "fake" and config.PROVIDERS[role] in config.CACHE_ONLY_PROVIDERS:
-        return LLMResult(None, f"{config.PROVIDERS[role]} is cache-only (free tier unavailable); no cached {role} for {subject_id}")
-    if MODE == "offline":
-        return LLMResult(None, f"offline: no cached {role} response for {subject_id}")
+    live = [(pv, m) for pv, m in cands if MODE == "fake" or pv not in config.CACHE_ONLY_PROVIDERS]
+    if MODE == "offline" or not live:
+        return LLMResult(None, unavailable)
 
-    try:
-        if MODE == "fake":
-            text, inp, out = json.dumps(fake() if fake else {}), 0, 0
-        else:
-            t0 = time.time()
-            text, inp, out = _call_openai_compatible(role, model, system, user, schema)
-            _log_usage(role, subject_id, model, inp, out)
-            print(f"   {role:8s} {subject_id} {time.time() - t0:5.1f}s in={inp} out={out}", flush=True)
-    except Exception as e:  # API errors become routed errors, never silent drops
-        return LLMResult(None, f"{role} call failed: {type(e).__name__}: {e}")
+    text = model = None
+    for n, (provider, cand_model) in enumerate(live):
+        last = n == len(live) - 1
+        for attempt in range(config.RATE_LIMIT_RETRIES + 1):
+            try:
+                if MODE == "fake":
+                    text, inp, out = json.dumps(fake() if fake else {}), 0, 0
+                else:
+                    t0 = time.time()
+                    text, inp, out = _call_openai_compatible(role, cand_model, system, user, schema, provider=provider)
+                    _log_usage(role, subject_id, cand_model, inp, out)
+                    print(f"   {role:8s} {subject_id} {time.time() - t0:5.1f}s in={inp} out={out} [{cand_model}]", flush=True)
+                model = cand_model
+                break
+            except Exception as e:  # API errors become routed errors, never silent drops
+                # a rate limit, a timeout or a dropped connection is worth another try
+                rate_limited = type(e).__name__ in ("RateLimitError", "APITimeoutError", "APIConnectionError")
+                # A rate limit on the last candidate is worth waiting out; on an earlier one, move on.
+                if rate_limited and last and attempt < config.RATE_LIMIT_RETRIES:
+                    hdr = getattr(getattr(e, "response", None), "headers", {}) or {}
+                    try:
+                        wait = float(hdr.get("retry-after", config.RATE_LIMIT_WAIT))
+                    except (TypeError, ValueError):
+                        wait = config.RATE_LIMIT_WAIT
+                    time.sleep(min(max(wait, 3.0), 90.0) + 1.0)
+                    continue
+                print(f"   {role:8s} {subject_id} FAILED on {cand_model}: {type(e).__name__}", flush=True)
+                break
+        if model is not None:
+            break
+    if model is None:
+        return LLMResult(None, unavailable)
+    if MODE != "fake" and config.CALL_SPACING:
+        time.sleep(config.CALL_SPACING)
 
     with _lock:
         _load_cache()[key] = {"prompt_version": version, "model": model, "request_hash": req_hash, "response": text}
         _save_cache()
-    return _parse(text, cached=False)
+    res = _parse(text, cached=False)
+    res.model = model
+    return res
 
 
 def _parse(text: str, cached: bool) -> LLMResult:
