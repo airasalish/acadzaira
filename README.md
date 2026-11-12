@@ -3,7 +3,7 @@
 Triage engine that turns student "Report error" comments on JEE/NEET questions into safe, surgical fixes, plus a faculty review console.
 
 - Brief: [BRIEF.md](BRIEF.md) · Rules for AI agents: [AGENTS.md](AGENTS.md)
-- Output: [results.json](results.json) · Prompts and decisions: [PROMPTS.md](PROMPTS.md) · Product: [PRODUCT.md](PRODUCT.md)
+- Output: [results.json](results.json) · Prompts and decisions: [PROMPTS.md](PROMPTS.md) · Product: [PRODUCT.md](PRODUCT.md) · Build session transcript: [SESSION_TRANSCRIPT.md](SESSION_TRANSCRIPT.md)
 
 ## Layout
 | Path | What |
